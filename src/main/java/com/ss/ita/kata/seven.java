@@ -1,6 +1,6 @@
 package com.ss.ita.kata;
 
-public interface Seven {
+public interface seven {
     long newAvg(double[] arr, double navg);
 
     String seriesSum(int n);

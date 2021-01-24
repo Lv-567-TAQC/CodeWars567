@@ -1,6 +1,6 @@
 package com.ss.ita.kata;
 
-public interface Six {
+public interface six {
     long findNb(long m);
 
     String balance(String book);

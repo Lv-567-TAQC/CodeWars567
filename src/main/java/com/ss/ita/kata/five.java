@@ -2,7 +2,7 @@ package com.ss.ita.kata;
 
 import java.math.BigInteger;
 
-public interface Five {
+public interface five {
     int artificialRain(final int[] v);
 
     long[] gap(int g, long m, long n);

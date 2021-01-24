@@ -1,6 +1,6 @@
 package com.ss.ita.kata;
 
-public interface Eight {
+public interface eight {
 
     int liters(final double time);
 
