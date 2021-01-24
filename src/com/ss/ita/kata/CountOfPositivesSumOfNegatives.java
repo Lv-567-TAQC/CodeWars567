@@ -1,6 +1,7 @@
 package com.ss.ita.kata;
 
-public class CountOfPositivesSumOfNegatives {
+public class CountOfPositivesSumOfNegatives implements Eight{
+    @Override
     public static int[] countPositivesSumNegatives(int[] input)
     {
         int [] array = new int [2];
