@@ -1,4 +1,4 @@
-package com.ss.ita.andriikapustiak_hydrated;
+package com.ss.ita.implementation_andriikapustiak;
 
 public class Hydrated {
 
