@@ -3,8 +3,7 @@ package com.ss.ita.kata;
 
 public class KeepHydrated implements Eight{
 	
-	  public int liters(double time)  {
-		    
+	  public int liters(double time)  {		    
 		double liters = 0.5f;
 		liters=(liters*time) - (liters*time)%1;
 			
