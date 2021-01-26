@@ -3,9 +3,14 @@ package com.ss.ita.kata.implementation.andriikapustiak;
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
+    private static final double WATER_PER_HOUR = 0.5;
+
     @Override
     public int liters(double time) {
-        return 0;
+
+        int water = (int) (time * WATER_PER_HOUR);
+        return water;
+
     }
 
     @Override
@@ -26,19 +31,18 @@ public class EightImpl implements Eight {
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
         int[] arr = new int[2];
-        if( input.length == 0 || input == null){
-            int emptyArr[] = {};
+        if (input.length == 0 || input == null) {
+            int[] emptyArr = {};
             return emptyArr;
         }
-        for(int i = 0; i < input.length; i++){
-            if(input[i] > 0){
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] > 0) {
                 arr[0]++;
-            }
-            else if(input[i] < 0){
+            } else if (input[i] < 0) {
                 arr[1] += input[i];
             }
         }
-         return arr; //return an array with count of positives and sum of negatives
+        return arr; //return an array with count of positives and sum of negatives
     }
 
     @Override
