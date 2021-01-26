@@ -70,6 +70,24 @@ public class EightImplementation implements Eight {
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+        int[] divisibleNumbers = new int [countOfDivisible(numbers,divider)];
+        for (int i = 0,j = 0;i < numbers.length; i++, j++){
+            if(numbers[i] % divider == 0) {
+                divisibleNumbers[j] = numbers[i];
+            }else{
+                j--;
+            }
+        }
+        return divisibleNumbers;
+    }
+
+    int countOfDivisible(int[] numbers, int divider) {
+        int numberCount = 0;
+        for (int i = 0, j = 0; i < numbers.length; i++, j++) {
+            if (numbers[i] % divider == 0) {
+                numberCount++;
+            }
+        }
+        return numberCount;
     }
 }
