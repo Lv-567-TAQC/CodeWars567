@@ -5,14 +5,11 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
 
     @Override
-    public  int liters(double time){
-        int liters = (int) time / 2;
-        return liters;
-    }
+    public  int liters(double time){ return 0; }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
@@ -25,6 +22,7 @@ public class EightImpl implements Eight {
         return new int[0];
     }
 
+
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
         return new int[0];
@@ -32,7 +30,8 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+
+        return Integer.parseInt(str);
     }
 
     @Override
