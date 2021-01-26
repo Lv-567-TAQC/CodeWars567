@@ -4,10 +4,29 @@ import com.ss.ita.kata.Seven;
 
 public class SevenImplementation implements Seven {
     public static final int TWO_NUMBERS_AFTER_COMMA = 100;
+    public static final int ONE_NUMBER_AFTER_COMMA = 10;
+    public static final double CONDITION_ROUNDING_UP = 0.5;
 
     @Override
     public long newAvg(double[] arr, double navg) {
-        return 0;
+        double nextDonation = 0;
+        for (int i = 0; i < arr.length; i++){
+            nextDonation += arr[i];
+        }
+        nextDonation = (navg * (arr.length + 1)) - nextDonation;
+        try{
+            if (nextDonation <= 0) {
+                throw new NegativeDonationException();
+            }
+        }catch(NegativeDonationException e){
+            System.out.print("Exception: "+e.toString());
+        }
+        if ((nextDonation * ONE_NUMBER_AFTER_COMMA)/ONE_NUMBER_AFTER_COMMA
+                - ((int)((nextDonation * ONE_NUMBER_AFTER_COMMA)/ONE_NUMBER_AFTER_COMMA))
+                >= CONDITION_ROUNDING_UP) {
+            nextDonation++;
+        }
+        return (long) nextDonation;
     }
 
     @Override
@@ -36,5 +55,11 @@ public class SevenImplementation implements Seven {
             }
         }
         return positionsNumber;
+    }
+}
+
+class NegativeDonationException extends Exception{
+    public String toString(){
+        return "Next donation is 0 or negative value --> ";
     }
 }
