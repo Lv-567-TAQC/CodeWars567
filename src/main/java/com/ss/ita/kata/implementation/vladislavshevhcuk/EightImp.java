@@ -37,7 +37,22 @@ public class EightImp implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+
+        if(input == null || input.length==0){
+            int[] emptyArray = {};
+            return emptyArray;
+        }
+        int[] result = new int[2];
+        int countOfPositiveNumbers =0;
+        int sumOfNegativeNumbers = 0;
+        for(int element : input){
+            if(element>0)
+                countOfPositiveNumbers++;
+            else sumOfNegativeNumbers+=element;
+        }
+        result[0]=countOfPositiveNumbers;
+        result[1]=sumOfNegativeNumbers;
+        return result; //return an array with count of positives and sum of negatives
     }
 
     @Override
