@@ -7,15 +7,14 @@ public class EightImpl implements Eight {
 
     @Override
     public int liters(double time) {
-
         int water = (int) (time * WATER_PER_HOUR);
         return water;
-
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        double sum;
+        return sum = length * width * height;
     }
 
     @Override
@@ -57,7 +56,7 @@ public class EightImpl implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        return Math.round(number * 100.0) / 100.0;
     }
 
     @Override
