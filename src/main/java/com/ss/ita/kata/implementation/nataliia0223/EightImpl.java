@@ -5,14 +5,11 @@ import com.ss.ita.kata.Eight;
 public class EightImpl implements Eight {
 
     @Override
-    public  int liters(double time){
-        int liters = (int) time / 2;
-        return liters;
-    }
+    public  int liters(double time){ return 0; }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        return 0;
     }
 
     @Override
@@ -37,7 +34,19 @@ public class EightImpl implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+
+        int result = 1;
+        for (int i = 1; i <= (n-1); i++) {
+            result = result * i;
+        }
+
+        double numb = (result + 1) / (n * n);
+
+        if(numb == (int)numb && (n > 1)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override
