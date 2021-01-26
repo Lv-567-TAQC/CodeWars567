@@ -2,8 +2,10 @@ package com.ss.ita.kata.implementation.khrystiash;
 
 import com.ss.ita.kata.Eight;
 
-public class KeepHydrated implements Eight {
+public class EightImplementation implements Eight {
     public static final double LITERS_PER_HOUR=0.5;
+    public static final int ASCII_NUMBER_NULL =48;
+    public static final int NUMBER_POSITION_INCREASER = 10;
 
     @Override
     public int liters(double time) {
@@ -34,7 +36,11 @@ public class KeepHydrated implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        int number = 0;
+        for (int i = 0,j = str.length() - 1;i < str.length();i++,j--){
+            number += ((str.charAt(i) - ASCII_NUMBER_NULL) * Math.pow(NUMBER_POSITION_INCREASER,j));
+        }
+        return number;
     }
 
     @Override
