@@ -12,17 +12,29 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
+
         return length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float kpl = (float)1.609344 / (float)4.54609188 * mpg;
+        return kpl;
     }
+
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for(int i = 0; i <= array.length - 1; i++) {
+            if (array[i] > 0) {
+                if (Math.sqrt(array[i]) == (int) Math.sqrt(array[i])) {
+                    array[i] = (int) Math.sqrt(array[i]);
+                } else {
+                    array[i] *= array[i];
+                }
+            }
+        }
+        return array;
     }
 
     @Override
