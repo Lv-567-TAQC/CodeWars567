@@ -11,8 +11,11 @@ public class EightImplementation implements Eight {
     public static final int SIZE_OUTPUT_ARRAY = 2;
     public static final int THREE_NUMBERS_AFTER_COMMA = 1000;
     public static final int TWO_NUMBERS_AFTER_COMMA = 100;
+    public static final int ONE_NUMBER_AFTER_COMMA = 10;
     public static final double ROUNDING_UP = 0.1;
     public static final double CONDITION_ROUNDING_UP = 0.5;
+    public static final float ONE_IMPERIAL_GALLON_IN_LITERS = 4.54609188F;
+    public static final float ONE_MILE_IN_KILOMETERS = 1.609344F;
 
     @Override
     public int liters(double time) {
@@ -28,7 +31,15 @@ public class EightImplementation implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float kilometersPerLiters;
+        kilometersPerLiters = mpg * (ONE_MILE_IN_KILOMETERS / ONE_IMPERIAL_GALLON_IN_LITERS);
+        kilometersPerLiters = (float) Math.round(kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA)
+                / TWO_NUMBERS_AFTER_COMMA;
+        if ((kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA) % 10 == 0 ){
+            kilometersPerLiters = (float) Math.round(kilometersPerLiters * ONE_NUMBER_AFTER_COMMA) /
+                    ONE_NUMBER_AFTER_COMMA;
+        }
+        return kilometersPerLiters;
     }
 
     @Override
