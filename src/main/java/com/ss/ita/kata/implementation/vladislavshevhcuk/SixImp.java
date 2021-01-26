@@ -84,9 +84,72 @@ public class SixImp implements Six {
         return averageSqr/12-Math.pow(average/12,2);
     }
 
+    static String teams = "Los Angeles Clippers,Dallas Mavericks,New York Knicks,NYK,Atlanta Hawks,Indiana Pacers,Memphis Grizzlies,"
+            + "Los Angeles Lakers,Minnesota Timberwolves,Phoenix Suns,Portland Trail Blazers,New Orleans Pelicans,"
+            + "Sacramento Kings,Los Angeles Clippers,Houston Rockets,Denver Nuggets,Cleveland Cavaliers,Milwaukee Bucks,"
+            + "Oklahoma City Thunder,San Antonio Spurs,Boston Celtics,Philadelphia 76ers,Brooklyn Nets,Chicago Bulls,"
+            + "Detroit Pistons,Utah Jazz,Miami Heat,Charlotte Hornets,Toronto Raptors,Orlando Magic,Washington Wizards,"
+            + "Golden State Warriors,Dallas Maver";
+
+    public static boolean isTeamAvailable(String[] teams,String toFind){
+        for(String team : teams){
+            if(team.equals(toFind)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        if(toFind.equals("")) return "";
+        String[] teamsArray = teams.split(",");
+        if(!isTeamAvailable(teamsArray, toFind)){
+            return String.format("%s:This team didn't play!",toFind);
+        }
+
+        String[] matches = resultSheet.split(",");
+        int wins=0, draws=0, losses=0, score=0, concede=0, points=0;
+        String[] pairs = new String[2];
+        for(String match : matches){
+            if(match.contains(".")){return String.format("Error(float number):%s",match);}
+            if(match.contains(toFind)){
+                pairs = match.split(toFind);
+                if(pairs[0].equals("")){
+                    String someShit = pairs[1].trim();
+                    int matchScore = Integer.parseInt(someShit.substring(0,someShit.indexOf(" ")));
+                    int concedeScore = 0;
+                    for(String team : teamsArray){
+                        if(someShit.contains(team))
+                            concedeScore =Integer.parseInt(someShit.substring(someShit.indexOf(team)+team.length()+1));
+                    }
+                    score+=matchScore;
+                    concede+=concedeScore;
+                    if(matchScore == concedeScore) draws++;
+                    else if(matchScore > concedeScore) wins++;
+                    else losses++;
+                }
+                else {
+                    int matchScore = Integer.parseInt(pairs[1].trim());
+                    int concedeScore = 0;
+                    for(String team : teamsArray){
+                        if(pairs[0].trim().contains(team)){
+                            String someShit = pairs[0].trim();
+                            concedeScore =Integer.parseInt(someShit.substring(team.length()+1));
+                        }
+                    }
+                    score+=matchScore;
+                    concede+=concedeScore;
+                    if(matchScore == concedeScore) draws++;
+                    else if(matchScore > concedeScore) wins++;
+                    else losses++;
+                }
+            }
+        }
+        points = wins*3+draws*1;
+        if((wins+draws+losses)==0) return String.format("%s:This team didn't play!",toFind);
+        String result = String.format("%s:W=%d;D=%d;L=%d;Scored=%d;Conceded=%d;Points=%d",toFind,wins,draws,losses,score,concede,points);
+        return result;
     }
 
     @Override
