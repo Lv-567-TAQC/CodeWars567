@@ -6,6 +6,9 @@ public class EightImplementation implements Eight {
     public static final double LITERS_PER_HOUR=0.5;
     public static final int ASCII_NUMBER_NULL =48;
     public static final int NUMBER_POSITION_INCREASER = 10;
+    public static final int INDEX_OF_COUNT_POSITIVES = 0;
+    public static final int INDEX_OF_SUM_NEGATIVES = 1;
+    public static final int SIZE_OUTPUT_ARRAY = 2;
 
     @Override
     public int liters(double time) {
@@ -31,7 +34,19 @@ public class EightImplementation implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        return new int[0];
+        int[] outputArray = {};
+        if(input==null || input.length == 0){
+            return outputArray;
+        }
+        outputArray = new int[SIZE_OUTPUT_ARRAY];
+        for(int i=0; i < input.length; i++){
+            if(input[i] > 0){
+                outputArray[INDEX_OF_COUNT_POSITIVES]++;
+            }else{
+                outputArray[INDEX_OF_SUM_NEGATIVES] +=input[i];
+            }
+        }
+        return outputArray;
     }
 
     @Override
