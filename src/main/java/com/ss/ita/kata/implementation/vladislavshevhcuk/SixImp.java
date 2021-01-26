@@ -16,7 +16,25 @@ public class SixImp implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        String t = book.replaceAll("([^\\n. \\da-zA-Z])", "");
+        String[] pages = t.split("\n");
+
+        double current = Double.parseDouble(pages[0]);
+        double amount = 0;
+        double count = 1;
+        StringBuilder result = new StringBuilder();
+        String str = String.format("Original Balance: %.2f", current);
+        result.append(str);
+        for(int i=1;i<pages.length;i++){
+            String[] item = pages[i].split("[ ]+");
+            current -= Double.parseDouble(item[2]);
+            amount += Double.parseDouble(item[2]);
+            String element = String.format("\\r\\n%s %s %s Balance %.2f", item[0],item[1],item[2],current);
+            result.append(element);
+            count++;
+        }
+        result.append(String.format("\\r\\nTotal expense  %.2f\\r\\nAverage expense  %.2f",amount,amount/(count-1)));
+        return result.toString();
     }
 
     @Override
