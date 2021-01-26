@@ -1,21 +1,18 @@
-package com.ss.ita.kata.implementation.andriikapustiak;
+package com.ss.ita.kata.implementation.nataliia0223;
 
 import com.ss.ita.kata.Eight;
 
 public class EightImpl implements Eight {
-    private static final double WATER_PER_HOUR = 0.5;
 
     @Override
-    public int liters(double time) {
-
-        int water = (int) (time * WATER_PER_HOUR);
-        return water;
-
+    public  int liters(double time){
+        int liters = (int) time / 2;
+        return liters;
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        return length * width * height;
     }
 
     @Override
@@ -30,19 +27,7 @@ public class EightImpl implements Eight {
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
-        int[] arr = new int[2];
-        if (input.length == 0 || input == null) {
-            int[] emptyArr = {};
-            return emptyArr;
-        }
-        for (int i = 0; i < input.length; i++) {
-            if (input[i] > 0) {
-                arr[0]++;
-            } else if (input[i] < 0) {
-                arr[1] += input[i];
-            }
-        }
-        return arr; //return an array with count of positives and sum of negatives
+        return new int[0];
     }
 
     @Override
