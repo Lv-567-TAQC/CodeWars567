@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.vladislavshevhcuk;
 import com.ss.ita.kata.Eight;
 
 public class EightImp implements Eight {
+
     @Override
     public int liters(double time) {
         return 0;
