@@ -42,14 +42,46 @@ public class SixImp implements Six {
         return 0;
     }
 
+    public static double[] getRainfallRecords(String town,String strng){
+        String[] townsResult = strng.split("\n");
+        double[] rainNumbers = new double[12];
+        for(String townResult : townsResult){
+            if(townResult.substring(0,townResult.indexOf(":")).equals(town)){
+                String[] months = townResult.split("[:, ]");
+                double average = 0;
+                double averageSqr = 0;
+                int count = 0;
+                for(int i=2;i<months.length;i+=2,count++){
+                    rainNumbers[count]=Double.parseDouble(months[i]);
+                }
+                return rainNumbers;
+            }
+        }
+        return null;
+    }
+
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        double[] rainNumbers = getRainfallRecords(town,strng);
+        if(rainNumbers==null) return -1;
+        double average = 0;
+        for(double rainNumber : rainNumbers){
+            average+=rainNumber;
+        }
+        return average/12;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        double[] rainNumbers = getRainfallRecords(town,strng);
+        if(rainNumbers==null) return -1;
+        double average = 0;
+        double averageSqr = 0;
+        for(double rainNumber : rainNumbers){
+            average+=rainNumber;
+            averageSqr+=rainNumber*rainNumber;
+        }
+        return averageSqr/12-Math.pow(average/12,2);
     }
 
     @Override
