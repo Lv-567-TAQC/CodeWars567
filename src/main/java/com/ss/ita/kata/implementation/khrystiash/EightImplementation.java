@@ -9,6 +9,10 @@ public class EightImplementation implements Eight {
     public static final int INDEX_OF_COUNT_POSITIVES = 0;
     public static final int INDEX_OF_SUM_NEGATIVES = 1;
     public static final int SIZE_OUTPUT_ARRAY = 2;
+    public static final int THREE_NUMBERS_AFTER_COMMA = 1000;
+    public static final int TWO_NUMBERS_AFTER_COMMA = 100;
+    public static final double ROUNDING_UP = 0.1;
+    public static final double CONDITION_ROUNDING_UP = 0.5;
 
     @Override
     public int liters(double time) {
@@ -65,7 +69,16 @@ public class EightImplementation implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+        double result;
+        result = (double) Math.round(number * THREE_NUMBERS_AFTER_COMMA)/THREE_NUMBERS_AFTER_COMMA;
+        if (!(((result * TWO_NUMBERS_AFTER_COMMA) - ((int)result * TWO_NUMBERS_AFTER_COMMA))
+                >= CONDITION_ROUNDING_UP)) {
+            result = ((double) Math.round(number * TWO_NUMBERS_AFTER_COMMA)/ TWO_NUMBERS_AFTER_COMMA)
+                    + ROUNDING_UP;
+        }else{
+            result = ((double) Math.round(number * TWO_NUMBERS_AFTER_COMMA)/ TWO_NUMBERS_AFTER_COMMA);
+        }
+        return result;
     }
 
     @Override
