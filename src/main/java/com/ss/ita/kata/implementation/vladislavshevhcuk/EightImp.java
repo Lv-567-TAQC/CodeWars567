@@ -62,7 +62,12 @@ public class EightImp implements Eight {
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+        double mod = n*n;
+        double fact = 1;
+        for(int i=2;i<n;i++){
+            fact = (fact*i)%mod;
+        }
+        return fact+1 == mod;
     }
 
     @Override
