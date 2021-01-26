@@ -16,7 +16,12 @@ public class SevenImp implements Seven {
 
     @Override
     public String seriesSum(int n) {
-        return null;
+        if (n==0) return "0.00";
+        double answer = 1;
+        for(int i=1;i<n;i++){
+            answer+=(double)1/(1+i*3);
+        }
+        return String.format("%.2f",answer);
     }
 
     @Override
