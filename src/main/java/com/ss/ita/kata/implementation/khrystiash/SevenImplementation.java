@@ -29,6 +29,12 @@ public class SevenImplementation implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return 0;
+        int positionsNumber = 0;
+        for (int i = 1; i <= p; i++){
+            if((i > bef) && (i >= (p - aft))){
+                positionsNumber++;
+            }
+        }
+        return positionsNumber;
     }
 }
