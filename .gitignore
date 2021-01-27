@@ -25,3 +25,7 @@ hs_err_pid*
 .idea/
 CodeWars567.iml
 
+/bin/
+
+.classpath
+.project
