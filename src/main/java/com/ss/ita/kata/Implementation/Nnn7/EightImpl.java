@@ -1,15 +1,13 @@
-package com.ss.ita.kata.Implementation;
+package com.ss.ita.kata.Implementation.Nnn7;
 
 import com.ss.ita.kata.Eight;
 
-public class EightImpl implements Eight {
+public class EightImpl implements Eight{
 
 	@Override
 	public int liters(double time) {
-		double liters = 0.5f;
-		liters=(liters*time) - (liters*time)%1;    
-		int result=(int)liters; 
-		return result;
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
@@ -26,8 +24,18 @@ public class EightImpl implements Eight {
 
 	@Override
 	public int[] squareOrSquareRoot(int[] array) {
-		// TODO Auto-generated method stub
-		return null;
+	        double test=0;
+		    int len = array.length ;
+		    for (int i=0;i<len;i++){
+		    test = Math.sqrt(array[i]);
+		       if (test%1==0){
+		          array[i]=(int)Math.sqrt(array[i]);
+		        }
+		        else{
+		          array[i]=array[i]*array[i];
+		        }
+		    }
+		    return array;
 	}
 
 	@Override
@@ -59,7 +67,5 @@ public class EightImpl implements Eight {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
 
 }
