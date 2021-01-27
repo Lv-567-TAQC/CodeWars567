@@ -1,4 +1,4 @@
-package com.ss.ita.kata.Implements;
+package com.ss.ita.kata.Implements.Nnn7;
 
 import com.ss.ita.kata.Eight;
 
