@@ -1,0 +1,65 @@
+package com.ss.ita.kata.implementation.khrystiash;
+
+import com.ss.ita.kata.Five;
+
+import java.math.BigInteger;
+
+public class FiveImplementation implements Five {
+    @Override
+    public int artificialRain(int[] v) {
+        int sections_value_old = 0;
+        int sections_value_new = 0;
+        for (int i = 0, j = 0; i < v.length; i++) {
+            j = i;
+            while (j < v.length-1) {
+                if (v[j] >= v[j + 1]) {
+                    sections_value_new++;
+                    j++;
+                }else {
+                    j++;
+                    break;
+                }
+            }
+            j = i;
+            while (j > 1) {
+                if (v[j] >= v[j - 1]) {
+                    sections_value_new++;
+                    j--;
+                }else {
+                    j--;
+                    break;
+                }
+            }
+            if (sections_value_new >= sections_value_old) {
+                sections_value_old = sections_value_new;
+            }
+            sections_value_new = 0;
+        }
+        return ++sections_value_old;
+    }
+
+    @Override
+    public long[] gap(int g, long m, long n) {
+        return new long[0];
+    }
+
+    @Override
+    public int zeros(int n) {
+        return 0;
+    }
+
+    @Override
+    public BigInteger perimeter(BigInteger n) {
+        return null;
+    }
+
+    @Override
+    public double solveSum(double m) {
+        return 0;
+    }
+
+    @Override
+    public long[] smallest(long n) {
+        return new long[0];
+    }
+}
