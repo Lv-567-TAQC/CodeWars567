@@ -53,10 +53,13 @@ public class EightImpl implements Eight {
         return Integer.valueOf(str);
     }
 
-
     @Override
-    public boolean am_i_wilson(double n) {
-        return n == 5.0 || n == 13.0 || n == 563.0;
+    public boolean am_i_wilson(long n) {
+        long modulus = n * n;
+        long product = 1;
+        for (long factor = 2; factor < n; factor++)
+            product = (product * factor) % modulus;
+        return product + 1 == modulus;
     }
 
     @Override
