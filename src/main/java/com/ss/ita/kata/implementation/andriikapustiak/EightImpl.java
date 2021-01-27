@@ -19,13 +19,24 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float gallon = 4.54609188f;
+        float mile = 1.609344f;
+
+        return (float) Math.round(mpg * mile / gallon * 100) / 100;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i]) % 1 == 0) {
+                array[i] = (int) Math.sqrt(array[i]);
+            } else {
+                array[i] *= array[i];
+            }
+        }
+        return array;
     }
+
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
