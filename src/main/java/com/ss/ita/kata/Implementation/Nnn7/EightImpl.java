@@ -12,8 +12,9 @@ public class EightImpl implements Eight{
 
 	@Override
 	public double getVolumeOfCuboid(double length, double width, double height) {
-		// TODO Auto-generated method stub
-		return 0;
+		double volumeofcuboid = length *width *height;
+		int result=(int)volumeofcuboid; 
+		return result;
 	}
 
 	@Override
@@ -24,18 +25,8 @@ public class EightImpl implements Eight{
 
 	@Override
 	public int[] squareOrSquareRoot(int[] array) {
-	        double test=0;
-		    int len = array.length ;
-		    for (int i=0;i<len;i++){
-		    test = Math.sqrt(array[i]);
-		       if (test%1==0){
-		          array[i]=(int)Math.sqrt(array[i]);
-		        }
-		        else{
-		          array[i]=array[i]*array[i];
-		        }
-		    }
-		    return array;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
