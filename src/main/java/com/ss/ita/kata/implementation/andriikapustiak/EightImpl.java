@@ -7,26 +7,36 @@ public class EightImpl implements Eight {
 
     @Override
     public int liters(double time) {
-
         int water = (int) (time * WATER_PER_HOUR);
         return water;
-
     }
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return 0;
+        double sum;
+        return sum = length * width * height;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        return 0;
+        float gallon = 4.54609188f;
+        float mile = 1.609344f;
+
+        return (float) Math.round(mpg * mile / gallon * 100) / 100;
     }
 
     @Override
     public int[] squareOrSquareRoot(int[] array) {
-        return new int[0];
+        for (int i = 0; i < array.length; i++) {
+            if (Math.sqrt(array[i]) % 1 == 0) {
+                array[i] = (int) Math.sqrt(array[i]);
+            } else {
+                array[i] *= array[i];
+            }
+        }
+        return array;
     }
+
 
     @Override
     public int[] countPositivesSumNegatives(int[] input) {
@@ -47,21 +57,38 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-        return 0;
+        return Integer.parseInt(str);
     }
 
     @Override
     public boolean amIWilson(double n) {
-        return false;
+
+        return n == 5.0 || n == 13.0 || n == 563.0;
     }
 
     @Override
     public double twoDecimalPlaces(double number) {
-        return 0;
+
+        return Math.round(number * 100.0) / 100.0;
     }
 
     @Override
     public int[] divisibleBy(int[] numbers, int divider) {
-        return new int[0];
+
+        int counter = 0;
+        for (int i : numbers) {
+            if (i % divider == 0) {
+                counter++;
+            }
+        }
+        int[] arr = new int[counter];
+        int j = 0;
+        for (int i : numbers) {
+            if (i % divider == 0) {
+                arr[j] = i;
+                j++;
+            }
+        }
+        return arr;
     }
 }
