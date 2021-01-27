@@ -21,8 +21,11 @@ public class EightImpl implements Eight{
 
 	@Override
 	public float mpgToKPM(float mpg) {
-		// TODO Auto-generated method stub
-		return 0;
+		double kmperlitres;
+		double changer = 1.609344d/ 4.54609188;
+		kmperlitres= mpg*changer;
+		double result = Math.round(kmperlitres*100)/100.00;
+		return  (float)result;
 	}
 
 	@Override
