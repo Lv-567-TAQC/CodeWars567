@@ -1,4 +1,4 @@
-package com.ss.ita.kata.Implementation.Nnn7;
+package com.ss.ita.kata.implementation.Nnn7;
 
 import com.ss.ita.kata.Eight;
 
@@ -6,8 +6,10 @@ public class EightImpl implements Eight{
 
 	@Override
 	public int liters(double time) {
-		// TODO Auto-generated method stub
-		return 0;
+		double liters = 0.5f;
+		liters=(liters*time) - (liters*time)%1;    
+		int result=(int)liters; 
+		return result;
 	}
 
 	@Override
