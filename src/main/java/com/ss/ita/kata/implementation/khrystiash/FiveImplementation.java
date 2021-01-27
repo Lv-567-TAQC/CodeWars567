@@ -5,6 +5,8 @@ import com.ss.ita.kata.Five;
 import java.math.BigInteger;
 
 public class FiveImplementation implements Five {
+    public static final int COUNT_OF_NUMBERS_FOR_ONE_MORE_NULL = 5;
+
     @Override
     public int artificialRain(int[] v) {
         int sections_value_old = 0;
@@ -45,7 +47,7 @@ public class FiveImplementation implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        return n/COUNT_OF_NUMBERS_FOR_ONE_MORE_NULL;
     }
 
     @Override
