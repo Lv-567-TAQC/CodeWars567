@@ -64,8 +64,8 @@ public class EightImpl implements Eight{
 
 	@Override
 	public int stringToNumber(String str) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result=Integer.parseInt(str);  
+	    return result;
 	}
 
 	@Override
