@@ -7,7 +7,7 @@ public class EightImp implements Eight {
 
     @Override
     public int liters(double time) {
-        return 0;
+        return (int)time/2;
     }
 
     @Override
