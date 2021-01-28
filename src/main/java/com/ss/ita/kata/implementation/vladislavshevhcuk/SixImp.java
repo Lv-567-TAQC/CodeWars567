@@ -1,7 +1,7 @@
 package com.ss.ita.kata.implementation.vladislavshevhcuk;
 
 import com.ss.ita.kata.Six;
-
+import java.util.*;
 public class SixImp implements Six {
     @Override
     public long findNb(long m) {
@@ -154,6 +154,25 @@ public class SixImp implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        if(lstOfArt.length == 0 || lstOf1stLetter.length==0){
+            return "";
+        }
+        String result ="";
+        Map<String, Integer> dictionary = new HashMap<String, Integer>();
+        for(String category : lstOf1stLetter){
+            dictionary.put(category,0);
+        }
+        for(String art : lstOfArt){
+            String key =Character.toString(art.charAt(0));
+            if(dictionary.containsKey(key)){
+                int value = dictionary.get(key);
+                int smth = Integer.parseInt(art.substring(art.indexOf(" ")+1));
+                dictionary.put(key,value+smth);
+            }
+        }
+        for (Map.Entry<String, Integer> item : dictionary.entrySet()){
+            result+= String.format("(%s : %d) - ",item.getKey(),item.getValue());
+        }
+        return result.substring(0,result.length()-3);
     }
 }
