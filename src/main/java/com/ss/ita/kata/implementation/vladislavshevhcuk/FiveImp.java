@@ -46,7 +46,13 @@ public class FiveImp implements Five {
 
     @Override
     public int zeros(int n) {
-        return 0;
+        int multiplier =5;
+        int result=0;
+        while (n>multiplier){
+            result+=n/multiplier;
+            multiplier*=5;
+        }
+        return result;
     }
 
     @Override
