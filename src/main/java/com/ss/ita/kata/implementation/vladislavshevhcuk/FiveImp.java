@@ -57,7 +57,18 @@ public class FiveImp implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger prefSquare = BigInteger.valueOf(0), currentSquare = BigInteger.valueOf(1);
+        BigInteger nextSquare = BigInteger.valueOf(1), sumOfSides = BigInteger.valueOf(1);
+
+        for (BigInteger i = BigInteger.valueOf(0);
+             i.compareTo(n) == -1;
+             i = i.add(BigInteger.valueOf(1))) {
+            prefSquare = currentSquare;
+            currentSquare = nextSquare;
+            nextSquare = prefSquare.add(currentSquare);
+            sumOfSides = sumOfSides.add(currentSquare);
+        }
+        return sumOfSides.multiply(BigInteger.valueOf(4));
     }
 
     @Override
