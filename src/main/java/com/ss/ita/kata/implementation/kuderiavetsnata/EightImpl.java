@@ -54,6 +54,8 @@ public class EightImpl implements Eight {
     }
 
 
+
+
     @Override
     public boolean amIWilson(double n) {
         return n == 5.0 || n == 13.0 || n == 563.0;
@@ -84,4 +86,5 @@ public class EightImpl implements Eight {
 
     }
 }
+
 
