@@ -12,7 +12,6 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-
         return length * width * height;
     }
 
@@ -55,7 +54,6 @@ public class EightImpl implements Eight {
 
     @Override
     public int stringToNumber(String str) {
-
         return Integer.parseInt(str);
     }
 

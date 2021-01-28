@@ -2,10 +2,16 @@ package com.ss.ita.kata.implementation.andriikapustiak;
 
 import com.ss.ita.kata.Seven;
 
+import java.util.Arrays;
+
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-        return 0;
+        double sum = Arrays.stream(arr).sum();
+        int result = (int) Math.ceil(navg * (arr.length + 1) - sum);
+        if (result <= 0)
+            throw new IllegalArgumentException();
+        return result;
     }
 
     @Override
