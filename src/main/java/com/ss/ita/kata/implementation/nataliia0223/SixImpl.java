@@ -61,5 +61,4 @@ public class SixImpl implements Six {
         return result;
     }
 
-
 }
