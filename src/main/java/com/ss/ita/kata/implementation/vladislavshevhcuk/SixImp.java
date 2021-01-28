@@ -2,6 +2,7 @@ package com.ss.ita.kata.implementation.vladislavshevhcuk;
 
 import com.ss.ita.kata.Six;
 import java.util.*;
+
 public class SixImp implements Six {
     @Override
     public long findNb(long m) {
@@ -154,6 +155,7 @@ public class SixImp implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
+
         if(lstOfArt.length == 0 || lstOf1stLetter.length==0){
             return "";
         }
