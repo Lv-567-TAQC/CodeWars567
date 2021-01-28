@@ -39,7 +39,7 @@ public class SixImp implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x/(1+Math.sqrt(x+1));
     }
 
     public static double[] getRainfallRecords(String town,String strng){
