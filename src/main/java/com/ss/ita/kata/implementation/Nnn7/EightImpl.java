@@ -70,8 +70,21 @@ public class EightImpl implements Eight{
 
 	@Override
 	public boolean amIWilson(double n) {
-		// TODO Auto-generated method stub
-		return false;
+		double test=0;
+	    double minusfactorial=1;
+	    boolean result;    
+	    int q = (int)n; 
+	    for (int i=1; i<q; i++){
+	        minusfactorial *= i;
+	    } 
+	    test = (n * n)/(minusfactorial + 1);        
+	    if((test*10%10==0)&&(n>0)){
+	      result = true;
+	    }
+	    else{
+	      result = false;
+	    }
+	    return result;
 	}
 
 	@Override
