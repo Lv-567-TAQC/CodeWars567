@@ -76,8 +76,7 @@ public class EightImpl implements Eight{
 
 	@Override
 	public double twoDecimalPlaces(double number) {
-		// TODO Auto-generated method stub
-		return 0;
+		 return Math.round(number*100)/100.00;
 	}
 
 	@Override
