@@ -47,32 +47,69 @@ public class EightImpl implements Eight{
 
 	@Override
 	public int[] countPositivesSumNegatives(int[] input) {
-		// TODO Auto-generated method stub
-		return null;
+		int len = input.length;
+	      int countpos = 0;
+	      int sumnegative = 0;
+	      for(int i=0; i<len; i++){
+	    	  if (input[i]<0) {
+	    		  sumnegative+=input[i];
+	        }
+	    	  else if(input[i]>0){
+	    		  countpos+=1;
+	        }	       
+	      }	      
+	      int [] finalarray = {countpos , sumnegative};
+	      return finalarray; 
 	}
 
 	@Override
 	public int stringToNumber(String str) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result=Integer.parseInt(str);  
+	    return result;
 	}
 
 	@Override
 	public boolean amIWilson(double n) {
-		// TODO Auto-generated method stub
-		return false;
+		double test=0;
+	    double minusfactorial=1;
+	    boolean result;    
+	    int q = (int)n; 
+	    for (int i=1; i<q; i++){
+	        minusfactorial *= i;
+	    } 
+	    test = (n * n)/(minusfactorial + 1);        
+	    if((test*10%10==0)&&(n>0)){
+	      result = true;
+	    }
+	    else{
+	      result = false;
+	    }
+	    return result;
 	}
 
 	@Override
 	public double twoDecimalPlaces(double number) {
-		// TODO Auto-generated method stub
-		return 0;
+		 return Math.round(number*100)/100.00;
 	}
 
 	@Override
 	public int[] divisibleBy(int[] numbers, int divider) {
-		// TODO Auto-generated method stub
-		return null;
+		int len = numbers.length;
+	    int[] test = new int [len];
+	    int y = 0;   
+	    for (int i = 0; i < len; i++){
+	      if((numbers[i]%divider)==0){
+	        test[y] = numbers[i];
+	        y++;        
+	      }
+	    }   
+	    int len2 = y;
+	    int [] result = new int[y];
+	     for (int i = 0; i < y; i++){
+	       result[i] = test[i];
+	       }
+	    System.out.println(result);
+	    return result;
 	}
 
 }
