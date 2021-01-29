@@ -41,7 +41,41 @@ public class FiveImp implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long[] result = new long[2];
+        for(long i = m;i<=n-g;i++){
+            boolean flag = true;
+            if(isPrime(i)){
+                if(isPrime(i+g)){
+                    for(long j=i+1;j<i+g;j++){
+                        if(isPrime(j)) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if(flag){
+                        result[0]=i;
+                        result[1]=i+g;
+                        return result;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private static boolean isPrime(long number){
+        if(number == 2 || number ==3){
+            return true;
+        }
+        if(number == 4){
+            return false;
+        }
+        for(long i=2;i<number/2;i++){
+            if(number%i == 0){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
