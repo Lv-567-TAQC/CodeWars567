@@ -6,6 +6,7 @@ import java.math.BigInteger;
 
 public class FiveImplementation implements Five {
     public static final int COUNT_OF_NUMBERS_FOR_ONE_MORE_NULL = 5;
+    public static final int NUMBER_OF_SQUARE_SIDES = 4;
 
     @Override
     public int artificialRain(int[] v) {
@@ -52,7 +53,17 @@ public class FiveImplementation implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        long first =0L;
+        long second = 1L;
+        long sum = 0L;
+        long copy_second = second;
+        for (int i=0;i <= n.intValue();i++){
+            sum+=second;
+            second+=first;
+            first = copy_second;
+            copy_second = second;
+        }
+        return BigInteger.valueOf(sum*NUMBER_OF_SQUARE_SIDES);
     }
 
     @Override
