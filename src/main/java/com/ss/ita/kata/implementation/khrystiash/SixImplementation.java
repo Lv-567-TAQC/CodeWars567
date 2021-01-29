@@ -40,6 +40,19 @@ public class SixImplementation implements Six {
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        return null;
+        String result = "";
+        Integer sum = 0;
+        String bukva = "";
+        for (int j = 0; j < lstOf1stLetter.length; j++){
+            for (int i = 0; i < lstOfArt.length; i++){
+                if(lstOfArt[i].charAt(0) == lstOf1stLetter[j].charAt(0)){
+                    sum += Integer.valueOf(lstOfArt[i].substring(6));
+                    bukva = lstOf1stLetter[j];
+                }
+            }
+            result += "(" + bukva + " : " + sum + ") ";
+            sum = 0;
+        }
+        return result;
     }
 }
