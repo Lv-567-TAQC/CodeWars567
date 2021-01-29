@@ -81,8 +81,22 @@ public class EightImpl implements Eight{
 
 	@Override
 	public int[] divisibleBy(int[] numbers, int divider) {
-		// TODO Auto-generated method stub
-		return null;
+		int len = numbers.length;
+	    int[] test = new int [len];
+	    int y = 0;   
+	    for (int i = 0; i < len; i++){
+	      if((numbers[i]%divider)==0){
+	        test[y] = numbers[i];
+	        y++;        
+	      }
+	    }   
+	    int len2 = y;
+	    int [] result = new int[y];
+	     for (int i = 0; i < y; i++){
+	       result[i] = test[i];
+	       }
+	    System.out.println(result);
+	    return result;
 	}
 
 }
