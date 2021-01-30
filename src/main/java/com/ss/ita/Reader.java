@@ -124,13 +124,13 @@ public class Reader {
     }
 
     public double readDouble() {
-        System.out.println("Введіть ціле число: ");
+        System.out.println("Введіть число з комою: ");
         Scanner scan = new Scanner(System.in);
         double number = 0;
         if (scan.hasNextDouble()) {
             number = scan.nextDouble();
         } else {
-            System.out.println("Ви ввели не ціле число!");
+            System.out.println("Ви ввели не число!");
             return readDouble();
         }
         return number;
