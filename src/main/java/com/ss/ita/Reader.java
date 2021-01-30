@@ -88,7 +88,18 @@ public class Reader {
 
     public long readLong()
     {
-        return 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Будь ласка введіть число: ");
+        long longNum = -1;
+
+        if (sc.hasNextLong()) {
+            longNum = sc.nextLong();
+            System.out.println("Ваше число: " + longNum);
+        } else {
+            System.out.println("Ви ввели невірні дані. Перезапустіть програму і спробуйте ще раз");
+        }
+        sc.close();
+        return longNum;
     }
 
     public double[] readArrayDouble() {
