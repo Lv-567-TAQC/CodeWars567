@@ -72,7 +72,18 @@ public class Reader {
 
     public int readInt()
     {
-        return 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Будь ласка, введіть число: ");
+        int intNum = -1;
+
+        if (sc.hasNextInt()) {
+            intNum = sc.nextInt();
+            System.out.println("Ваше число: " + intNum);
+        } else {
+            System.out.println("Ви ввели невірні дані. Спробуйте ще раз після перезавантаження.");
+        }
+        sc.close();
+        return intNum;
     }
 
     public long readLong()
