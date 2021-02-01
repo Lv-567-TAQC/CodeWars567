@@ -172,7 +172,23 @@ public class Reader {
     }
 
     public String[] readArrayString() {
-        String[] a = {};
-        return a;
+        int c, n;
+        String[] array = {};
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter number of elements:");
+        n = in.nextInt();
+        array = new String[n];
+        System.out.println("Enter those " + n + " strings:");
+        for (c = 0; c < n; c++) {
+            array[c] = in.nextLine();
+            if (in.nextLine().matches("^[a-zA-Z0-9[.][ ][:][\\n][\\t]]+")) {
+                array[c] = in.nextLine();
+            } else {
+                System.out.println("This is not a String");
+                return readArrayString();
+            }
+        }
+        in.close();
+        return array;
     }
-}
+    }
