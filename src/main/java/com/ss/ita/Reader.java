@@ -48,11 +48,14 @@ public class Reader {
 
     public BigInteger readBigIntegerV2() {
         Scanner scan = new Scanner(System.in);
-        if (scan.hasNextBigInteger()) {
-            return scan.nextBigInteger();
+        while(true){
+            if (scan.hasNextBigInteger()) {
+                return scan.nextBigInteger();
+            } else {
+                scan.next()
+                System.out.println("Incorrect format(big integer). Try again...");
+            }
         }
-        System.out.println("Неправильний формат данних! Спробуйте ще раз!");
-        return readBigIntegerV2();
     }
 
     public int[] readArrayInt()
