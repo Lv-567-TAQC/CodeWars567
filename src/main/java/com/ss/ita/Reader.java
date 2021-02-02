@@ -145,30 +145,30 @@ public class Reader {
         return null;
     }
 
-    public double readDouble() {
-        System.out.println("Введіть число з комою: ");
-        Scanner scan = new Scanner(System.in);
-        double number = 0;
-        if (scan.hasNextDouble()) {
-            number = scan.nextDouble();
-        } else {
-            System.out.println("Ви ввели не число!");
-            return readDouble();
-        }
-        return number;
-    }
-
-    public float readFloat() {
+    public static double readDouble() {
         System.out.println("Введіть число: ");
         Scanner scan = new Scanner(System.in);
-        float number = 0;
-        if (scan.hasNextFloat()) {
-            number = scan.nextFloat();
-        } else {
-            System.out.println("Неправильний ввід!");
-            return readFloat();
+        while (true) {
+            if (scan.hasNextDouble()) {
+                return scan.nextDouble();
+            } else {
+                scan.next();
+                System.out.println("Ви ввели не число! Повторіть спробу!");
+            }
         }
-        return number;
+    }
+
+    public static double readFloat() {
+        System.out.println("Введіть число: ");
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            if (scan.hasNextFloat()) {
+                return scan.nextFloat();
+            } else {
+                scan.next();
+                System.out.println("Ви ввели не число! Повторіть спробу!");
+            }
+        }
     }
 
     public String[] readArrayString() {
