@@ -158,7 +158,7 @@ public class Reader {
         }
     }
 
-    public static double readFloat() {
+    public static float readFloat() {
         System.out.println("Введіть число: ");
         Scanner scan = new Scanner(System.in);
         while (true) {
