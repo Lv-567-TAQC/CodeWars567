@@ -4,7 +4,6 @@ import com.ss.ita.util.Scanner;
 
 import java.math.BigInteger;
 
-
 public class ConsoleScanner implements Scanner {
     //private final java.util.Scanner scanner;
     java.util.Scanner scan = new java.util.Scanner(System.in);
