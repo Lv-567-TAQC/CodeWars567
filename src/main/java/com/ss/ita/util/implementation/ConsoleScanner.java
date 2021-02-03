@@ -5,8 +5,10 @@ import com.ss.ita.util.Scanner;
 import java.math.BigInteger;
 
 public class ConsoleScanner implements Scanner {
-    //private final java.util.Scanner scanner;
-    java.util.Scanner scan = new java.util.Scanner(System.in);
+    private final java.util.Scanner scan;
+    public ConsoleScanner(){
+        scan = new java.util.Scanner(System.in);
+    }
 
     @Override
     public int readInt() {
@@ -34,31 +36,23 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public int[] readIntArray() {
-        int n = 0;
-        System.out.print("Enter no. of elements you want in array:");
-        while (true){
-            if (scan.hasNextInt()) {
-                n = scan.nextInt();
-                break;
-            } else {
-                scan.next();
-                System.out.println("Incorrect array`s length. Try again...");
-            }
-        }
-        int[] a = new int[n];
-        System.out.println("Enter all the elements:");
-        for (int i = 0; i < n; i++) {
-            while (true){
-                if (scan.hasNextInt()) {
-                    a[i] = scan.nextInt();
-                    break;
-                } else {
-                    scan.next();
-                    System.out.println("Incorrect element type(int). Try again...");
+        while(true){
+            if(scan.hasNextLine()){
+                String str = scan.nextLine();
+                String[] elements = str.trim().split("\\s+");
+                int[] intArray = new int[elements.length];
+                try{
+                    for (int i = 0; i < intArray.length; i++) {
+                        intArray[i]=Integer.parseInt(elements[i]);
+                    }
                 }
+                catch (NumberFormatException e){
+                    System.out.println("Incorrect type of array(int). Try again...");
+                    continue;
+                }
+                return  intArray;
             }
         }
-        return a;
     }
 
     @Override
@@ -87,31 +81,23 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public double[] readDoubleArray() {
-        int n = 0;
-        System.out.print("Enter no. of elements you want in array:");
-        while (true){
-            if (scan.hasNextInt()) {
-                n = scan.nextInt();
-                break;
-            } else {
-                scan.next();
-                System.out.println("Incorrect array`s length. Try again...");
-            }
-        }
-        double[] a = new double[n];
-        System.out.println("Enter all the elements:");
-        for (int i = 0; i < n; i++) {
-            while (true){
-                if (scan.hasNextDouble()) {
-                    a[i] = scan.nextDouble();
-                    break;
-                } else {
-                    scan.next();
-                    System.out.println("Incorrect element type(double). Try again...");
+        while(true){
+            if(scan.hasNextLine()){
+                String str = scan.nextLine();
+                String[] elements = str.trim().split("\\s+");
+                double[] doubleArray = new double[elements.length];
+                try{
+                    for (int i = 0; i < doubleArray.length; i++) {
+                        doubleArray[i]=Double.parseDouble(elements[i]);
+                    }
                 }
+                catch (NumberFormatException e){
+                    System.out.println("Incorrect type of array(double). Try again...");
+                    continue;
+                }
+                return  doubleArray;
             }
         }
-        return a;
     }
 
     @Override
@@ -128,31 +114,13 @@ public class ConsoleScanner implements Scanner {
 
     @Override
     public String[] readStringArray() {
-        int n = 0;
-        System.out.print("Enter no. of elements you want in array:");
-        while (true){
-            if (scan.hasNextInt()) {
-                n = scan.nextInt();
-                break;
-            } else {
-                scan.next();
-                System.out.println("Incorrect array`s length. Try again...");
+        while(true){
+            if(scan.hasNextLine()){
+                String str = scan.nextLine();
+                String[] stringArray = str.trim().split("\\t");
+                return  stringArray;
             }
         }
-        String[] a = new String[n];
-        System.out.println("Enter all the elements:");
-        for (int i = 0; i < n; i++) {
-            while (true){
-                if (scan.hasNextLine()) {
-                    a[i] = scan.nextLine();
-                    break;
-                } else {
-                    scan.next();
-                    System.out.println("Incorrect element type(string). Try again...");
-                }
-            }
-        }
-        return a;
     }
 
     @Override
