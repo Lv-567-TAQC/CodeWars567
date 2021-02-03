@@ -1,217 +1,217 @@
 package com.ss.ita;
 
-import com.ss.ita.kata.Eight;
-import com.ss.ita.kata.Five;
-import com.ss.ita.kata.Seven;
-import com.ss.ita.kata.Six;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import com.ss.ita.util.UserName;
+import com.ss.ita.util.Scanner;
+import com.ss.ita.util.implementation.ConsoleScanner;
 
 public class Menu {
-    public Reader reader = new Reader();
 
-    public void menu() {
-        Map<Integer, String> avtory = new HashMap<Integer, String>();
-        avtory.put(1, "Nnn7");
-        avtory.put(2, "andriikapustiak");
-        avtory.put(3, "khrystiash");
-        avtory.put(4, "kuderiavetsnata");
-        avtory.put(5, "nataliia0223");
-        avtory.put(6, "romankhvalbota");
-        avtory.put(7, "vladislavshevchuk");
-        avtory.forEach((avtoryKey, avtoryValue) ->
-                System.out.println(avtoryKey + " - " + avtoryValue));
-        System.out.println("Оберіть автора: ");
-        int avtoryKey = reader.readKey(1, avtory.size());
-        System.out.println("Ви обрали: ");
-        System.out.println(avtory.get(avtoryKey));
+    private final Scanner scanner;
 
-        Map<Integer, String> method = new HashMap<Integer, String>();
-        method.put(1, "Kata: Eight, Method: liters");
-        method.put(2, "Kata: Eight, Method: getVolumeOfCuboid");
-        method.put(3, "Kata: Eight, Method: mpgToKPM");
-        method.put(4, "Kata: Eight, Method: squareOrSquareRoot");
-        method.put(5, "Kata: Eight, Method: countPositivesSumNegatives");
-        method.put(6, "Kata: Eight, Method: stringToNumber");
-        method.put(7, "Kata: Eight, Method: amIWilson");
-        method.put(8, "Kata: Eight, Method: twoDecimalPlaces");
-        method.put(9, "Kata: Eight, Method: divisibleBy");
-        method.put(10, "Kata: Seven, Method: newAvg");
-        method.put(11, "Kata: Seven, Method: seriesSum");
-        method.put(12, "Kata: Seven, Method: whereIsHe");
-        method.put(13, "Kata: Six, Method: findNb");
-        method.put(15, "Kata: Six, Method: balance");
-        method.put(16, "Kata: Six, Method: f");
-        method.put(17, "Kata: Six, Method: mean/variance");
-        method.put(18, "Kata: Six, Method: nbaCup");
-        method.put(19, "Kata: Six, Method: stockSummary");
-        method.put(20, "Kata: Five, Method: artificialRain");
-        method.put(21, "Kata: Five, Method: gap");
-        method.put(22, "Kata: Five, Method: zeros");
-        method.put(23, "Kata: Five, Method: perimeter");
-        method.put(24, "Kata: Five, Method: solveSum");
-        method.put(25, "Kata: Five, Method: smallest");
-        method.forEach((methodKey, methodValue) ->
-                System.out.println(methodKey + " - " + methodValue));
-        System.out.println("Оберіть кату: ");
-        int methodKey = reader.readKey(1, method.size());
-        System.out.println("Ви обрали: ");
-        System.out.println(method.get(methodKey));
+    //private final IRunner runner;
 
-        String avtor = avtory.get(avtoryKey);
-        String meth = method.get(methodKey);
+    public Menu() {
+        //runner = new Runner();
+        scanner = new ConsoleScanner();
+    }
 
-        if (meth.contains("Eight")) {
-            Eight eight;
-            if (avtor.contains("Nnn7")) {
-                eight = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
-            } else if (avtor.contains("andriikapustiak")) {
-                eight = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
-            } else if (avtor.contains("khrystiash")) {
-                eight = new com.ss.ita.kata.implementation.khrystiash.EightImplementation();
-            } else if (avtor.contains("kuderiavetsnata")) {
-                eight = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
-            } else if (avtor.contains("nataliia0223")) {
-                eight = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
-            } else if (avtor.contains("romankhvalbota")) {
-                eight = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
-            } else if (avtor.contains("vladislavshevchuk")) {
-                eight = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
-            } else {
-                System.out.println("Немає такого автора чи кати");
-                return;
-            }
+    /**
+     * Provides list of tasks in the specified kata level
+     *
+     * @param kata kyu level of kata (from 8 to 5)
+     */
+    private static String[] tasksList(int kata) {
+        switch (kata) {
+            case 8:
+                return new String[]{
+                        "Keep Hydrated!",
+                        "Volume of a cuboid",
+                        "Miles per gallon to kilometers per liter",
+                        "To square root or no to square",
+                        "Count of positives / sum of negatives",
+                        "Convert a String to a Number!",
+                        "Willson primes",
+                        "Formatting decimal places",
+                        "Find numbers which are divisible by given number"
+                };
 
-            if (meth.contains("liters")) {
-                System.out.println(eight.liters(reader.readDouble()));
-            } else if (meth.contains("getVolumeOfCuboid")) {
-                System.out.println(eight.getVolumeOfCuboid(reader.readDouble(),reader.readDouble(),reader.readDouble()));
-            } else if (meth.contains("mpgToKPM")) {
-                System.out.println(eight.mpgToKPM(reader.readFloat()));
-            } else if (meth.contains("squareOrSquareRoot")) {
-                System.out.println(Arrays.toString(eight.squareOrSquareRoot(reader.readArrayInt())));
-            } else if (meth.contains("countPositivesSumNegatives")) {
-                System.out.println(Arrays.toString(eight.countPositivesSumNegatives(reader.readArrayInt())));
-            } else if (meth.contains("stringToNumber")) {
-                System.out.println(eight.stringToNumber(reader.readString()));
-            } else if (meth.contains("amIWilson")) {
-                System.out.println(eight.amIWilson(reader.readDouble()));
-            } else if (meth.contains("twoDecimalPlaces")) {
-                System.out.println(eight.twoDecimalPlaces(reader.readDouble()));
-            } else if (meth.contains("divisibleBy")) {
-                System.out.println(Arrays.toString(eight.divisibleBy(reader.readArrayInt(), reader.readInt())));
-            } else {
-                System.out.println("Немає такого метода");
-            }
-        } else if (meth.contains("Seven")) {
-            Seven seven;
-            if (avtor.contains("Nnn7")) {
-                seven = new com.ss.ita.kata.implementation.Nnn7.SevenImpl();
-            } else if (avtor.contains("andriikapustiak")) {
-                seven = new com.ss.ita.kata.implementation.andriikapustiak.SevenImpl();
-            } else if (avtor.contains("khrystiash")) {
-                seven = new com.ss.ita.kata.implementation.khrystiash.SevenImplementation();
-            } else if (avtor.contains("kuderiavetsnata")) {
-                seven = new com.ss.ita.kata.implementation.kuderiavetsnata.SevenImpl();
-            } else if (avtor.contains("nataliia0223")) {
-                seven = new com.ss.ita.kata.implementation.nataliia0223.SevenImpl();
-            } else if (avtor.contains("romankhvalbota")) {
-                seven = new com.ss.ita.kata.implementation.romankhvalbota.SevenImpl();
-            } else if (avtor.contains("vladislavshevchuk")) {
-                seven = new com.ss.ita.kata.implementation.vladislavshevhcuk.SevenImp();
-            } else {
-                System.out.println("Немає такого автора чи кати");
-                return;
-            }
+            case 7:
+                return new String[]{
+                        "Looking for a benefactor",
+                        "Sum of the first nth term of Series",
+                        "Where is Vasya?"
+                };
+            case 6:
+                return new String[]{
+                        "Build a pile of Cubes",
+                        "Easy balance checking",
+                        "Floating-point Approximation (I)",
+                        "Rainfall",
+                        "Ranking NBA",
+                        "Help the bookseller!"
+                };
+            case 5:
+                return new String[]{
+                        "Artificial Rain",
+                        "Gap in Primes",
+                        "Trailing zeros in factorial",
+                        "Perimeter of squares in a rectangle",
+                        "Which x for that sum?",
+                        "Find the smallest"
+                };
+            default:
+                return new String[]{};
+        }
+    }
 
-            if (meth.contains("newAvg")) {
-                System.out.println(seven.newAvg(reader.readArrayDouble(),reader.readDouble()));
-            } else if (meth.contains("seriesSum")) {
-                System.out.println(seven.seriesSum(reader.readInt()));
-            } else if (meth.contains("whereIsHe")) {
-                System.out.println(seven.whereIsHe(reader.readInt(),reader.readInt(),reader.readInt()));
-            } else {
-                System.out.println("Немає такого метода");
-            }
-        } else if (meth.contains("Six")) {
-            Six six;
-            if (avtor.contains("Nnn7")) {
-              //  six = new com.ss.ita.kata.implementation.Nnn7.SixImpl();
-                return;
-            } else if (avtor.contains("andriikapustiak")) {
-                six = new com.ss.ita.kata.implementation.andriikapustiak.SixImpl();
-            } else if (avtor.contains("khrystiash")) {
-                six = new com.ss.ita.kata.implementation.khrystiash.SixImplementation();
-            } else if (avtor.contains("kuderiavetsnata")) {
-                six = new com.ss.ita.kata.implementation.kuderiavetsnata.SixImpl();
-            } else if (avtor.contains("nataliia0223")) {
-                six = new com.ss.ita.kata.implementation.nataliia0223.SixImpl();
-            } else if (avtor.contains("romankhvalbota")) {
-                six = new com.ss.ita.kata.implementation.romankhvalbota.SixImpl();
-            } else if (avtor.contains("vladislavshevchuk")) {
-                six = new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp();
-            } else {
-                System.out.println("Немає такого автора чи кати");
-                return;
-            }
-
-            if (meth.contains("findNb")) {
-                System.out.println(six.findNb(reader.readLong()));
-            }else if (meth.contains("balance")){
-                System.out.println(six.balance(reader.readString()));
-            } else if (meth.contains("f")) {
-                System.out.println(six.f(reader.readDouble()));
-            } else if (meth.contains("mean")) {
-                System.out.println(six.mean(reader.readString(), reader.readString()));
-                System.out.println(six.variance(reader.readString(), reader.readString()));
-            } else if (meth.contains("nbaCup")) {
-                System.out.println(six.nbaCup(reader.readString(), reader.readString()));
-            } else if (meth.contains("stockSummary")) {
-                System.out.println(six.stockSummary(reader.readArrayString(),reader.readArrayString()));
-            } else {
-                System.out.println("Немає такого метода");
+    /**
+     * Provides instructions on usage
+     */
+    private static void printTasks() {
+        StringBuilder tasksOutput = new StringBuilder();
+        tasksOutput.append("The following methods are available:\r\n");
+        int count = 0; //The overall number of method/task
+        for (int i = 8; i >= 5; i--) {
+            tasksOutput.append("\tFrom the kata of " + i + " kyu:\r\n");
+            String[] l = tasksList(i);
+            for (int j = 0; j < l.length; j++) {
+                tasksOutput.append("\t\t" + ++count + ". " + l[j] + "\r\n");
             }
         }
-        if (meth.contains("Five")) {
-            Five five;
-            if (avtor.contains("Nnn7")) {
-             //   five = new com.ss.ita.kata.implementation.Nnn7.FiveImpl();
-                return;
-            } else if (avtor.contains("andriikapustiak")) {
-                five = new com.ss.ita.kata.implementation.andriikapustiak.FiveImpl();
-            } else if (avtor.contains("khrystiash")) {
-                five = new com.ss.ita.kata.implementation.khrystiash.FiveImplementation();
-            } else if (avtor.contains("kuderiavetsnata")) {
-               // five = new com.ss.ita.kata.implementation.kuderiavetsnata.FiveImpl();
-                return;
-            } else if (avtor.contains("nataliia0223")) {
-                five = new com.ss.ita.kata.implementation.nataliia0223.FiveImpl();
-            } else if (avtor.contains("romankhvalbota")) {
-                five = new com.ss.ita.kata.implementation.nataliia0223.FiveImpl();
-            } else if (avtor.contains("vladislavshevchuk")) {
-                five = new com.ss.ita.kata.implementation.vladislavshevhcuk.FiveImp();
-            } else {
-                System.out.println("Немає такого автора чи кати");
-                return;
-            }
+        System.out.println(tasksOutput.toString());
+    }
 
-            if (meth.contains("artificialRain")) {
-                System.out.println(five.artificialRain(reader.readArrayInt()));
-            } else if (meth.contains("gap")) {
-                System.out.println(Arrays.toString(five.gap(reader.readInt(), reader.readLong(), reader.readLong())));
-            } else if (meth.contains("zeros")) {
-                System.out.println(five.zeros(reader.readInt()));
-            } else if (meth.contains("perimeter")) {
-                System.out.println(five.perimeter(reader.readBigInteger()));
-            } else if (meth.contains("solveSum")) {
-                System.out.println(five.solveSum(reader.readDouble()));
-            } else if (meth.contains("smallest")) {
-                System.out.println(Arrays.toString(five.smallest(reader.readLong())));
-            } else {
-                System.out.println("Немає такого метода");
-            }
+    private static void printUserNames() {
+        StringBuilder userNamesOutput = new StringBuilder();
+        userNamesOutput.append("The following user names are available:\r\n");
+        for (UserName name : UserName.values()) {
+            userNamesOutput.append(name.getId() + ". " + name.getName() + " (" + name.getGitHubNick() + ")\r\n");
         }
+        System.out.println(userNamesOutput.toString());
+    }
+
+    private void runTask() {
+        printTasks();
+        System.out.print("Select task to run: ");
+        int id;
+        do {
+            id = scanner.readInt();
+        } while (id > 25 || id < 1);
+
+        try {
+            switch (id) {
+                case 1:
+                    runner.runTask1();
+                    break;
+                case 2:
+                    runner.runTask2();
+                    break;
+                case 3:
+                    runner.runTask3();
+                    break;
+                case 4:
+                    runner.runTask4();
+                    break;
+                case 5:
+                    runner.runTask5();
+                    break;
+                case 6:
+                    runner.runTask6();
+                    break;
+                case 7:
+                    runner.runTask7();
+                    break;
+                case 8:
+                    runner.runTask8();
+                    break;
+                case 9:
+                    runner.runTask9();
+                    break;
+                case 10:
+                    runner.runTask10();
+                    break;
+                case 11:
+                    runner.runTask11();
+                    break;
+                case 12:
+                    runner.runTask12();
+                    break;
+                case 13:
+                    runner.runTask13();
+                    break;
+                case 14:
+                    runner.runTask14();
+                    break;
+                case 15:
+                    runner.runTask15();
+                    break;
+                case 16:
+                    runner.runTask16();
+                    break;
+                case 17:
+                    runner.runTask17();
+                    break;
+                case 18:
+                    runner.runTask18();
+                    break;
+                case 19:
+                    runner.runTask19();
+                    break;
+                case 20:
+                    runner.runTask20();
+                    break;
+                case 21:
+                    runner.runTask21();
+                    break;
+                case 22:
+                    runner.runTask22();
+                    break;
+                case 23:
+                    runner.runTask23();
+                    break;
+                case 24:
+                    runner.runTask24();
+                    break;
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Set implementation first!");
+        }
+    }
+
+    public void run() {
+        System.out.println(" 0 - exit\n 1 - show user names\n 2 - set user\n 3 - pick method");
+        Scanner scanner = new ConsoleScanner();
+        while (true) {
+            int id = scanner.readInt();
+            switch (id) {
+                case 0:
+                    return;
+                case 1: {
+                    printUserNames();
+                    break;
+                }
+                case 2: {
+                    setUserImplementation();
+                    break;
+                }
+                case 3: {
+                    runTask();
+                    break;
+                }
+            }
+            System.out.println(" 0 - exit\n 1 - show user names\n 2 - set user\n 3 - pick method");
+        }
+    }
+
+    private void setUserImplementation() {
+        System.out.print("Select id of user: ");
+        UserName user;
+        do {
+            printUserNames();
+            int id = scanner.readInt();
+            user = UserName.getById((long) id);
+        } while (user==null);
+
+        runner.setImplementation(user);
     }
 }

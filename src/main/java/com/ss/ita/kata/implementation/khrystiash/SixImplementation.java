@@ -25,12 +25,56 @@ public class SixImplementation implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        String[] arrayStrng;
+        Double result = 0.0;
+        if (town == ""){
+            return -1;
+        }
+        arrayStrng = strng.split("\n");
+        for (int i = 0; i < arrayStrng.length;i++){
+            if(town.equals(arrayStrng[i].substring(0,town.length()))){
+                strng = arrayStrng[i].substring(town.length()+1);
+                break;
+            }
+        }
+        arrayStrng = strng.split(" ");
+        Double[] numbs = new Double[arrayStrng.length];
+        for (int i=0; i< arrayStrng.length;i++){
+            numbs[i]=Double.parseDouble(arrayStrng[i]);
+            result+=numbs[i];
+        }
+        result = result/12;
+        return result;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        String[] arrayStrng;
+        if (town == ""){
+            return -1;
+        }
+        arrayStrng = strng.split("\n");
+        for (int i=0; i<arrayStrng.length;i++){
+            if(town.equals(arrayStrng[i].substring(0,town.length()))){
+                strng = arrayStrng[i].substring(town.length()+1);
+                break;
+            }
+        }
+        arrayStrng = strng.split(" ");
+        Double[] numbs = new Double[arrayStrng.length];
+        Double sum = 0.0;
+        for (int i=0; i< arrayStrng.length;i++){
+            numbs[i]=Double.parseDouble(arrayStrng[i]);
+            sum+=numbs[i];
+        }
+        sum = sum/12;
+        double result = 0;
+        for (int i=0; i< numbs.length;i++){
+            numbs[i]=Math.pow((sum - numbs[i]),2);
+            result += numbs[i];
+        }
+        result/=12;
+        return result;
     }
 
     @Override
