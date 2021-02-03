@@ -1,15 +1,17 @@
-package com.ss.ita.util;
+package com.ss.ita;
 
-import com.ss.ita.enums.UserNames;
+import com.ss.ita.util.UserName;
+import com.ss.ita.util.Scanner;
+import com.ss.ita.util.implementation.ConsoleScanner;
 
 public class Menu {
 
     private final Scanner scanner;
 
-    private final IRunner runner;
+    //private final IRunner runner;
 
     public Menu() {
-        runner = new Runner();
+        //runner = new Runner();
         scanner = new ConsoleScanner();
     }
 
@@ -82,8 +84,8 @@ public class Menu {
     private static void printUserNames() {
         StringBuilder userNamesOutput = new StringBuilder();
         userNamesOutput.append("The following user names are available:\r\n");
-        for (UserNames name : UserNames.values()) {
-            userNamesOutput.append(name.getId() + ". " + name.getName() + " (" + name.getNick() + ")\r\n");
+        for (UserName name : UserName.values()) {
+            userNamesOutput.append(name.getId() + ". " + name.getName() + " (" + name.getGitHubNick() + ")\r\n");
         }
         System.out.println(userNamesOutput.toString());
     }
@@ -203,11 +205,11 @@ public class Menu {
 
     private void setUserImplementation() {
         System.out.print("Select id of user: ");
-        UserNames user;
+        UserName user;
         do {
             printUserNames();
             int id = scanner.readInt();
-            user = UserNames.getById((long) id);
+            user = UserName.getById((long) id);
         } while (user==null);
 
         runner.setImplementation(user);

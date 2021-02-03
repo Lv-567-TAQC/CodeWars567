@@ -1,41 +1,41 @@
 package com.ss.ita.util;
 
-publick enum UserName{
-    NNN7(1L, "Nnn7", "Iaroslav Tereshko");
-    andriikapustiak(2L, "andriikapustiak", "Andrii Kapustiak");
-    khrystiash(3L, "khrystiash", "Khrystyna Shalavylo");
-    kuderiavetsnata(4L, "kuderiavetsnata", "Kuderiavets Natalia");
-    nataliia0223(5L, "nataliia0223", "Nataliia Koval");
-    romankhvalbota(6L, "romankhvalbota", "Roman Khvalbota");
-    vladislavshevchuk(7L, "vladislavshevchuk", "Shevchuk Vladislav");
+public enum UserName{
+    NNN7(1L, "Nnn7", "Iaroslav Tereshko"),
+    ANDRIIKAPUSTIAK(2L, "andriikapustiak", "Andrii Kapustiak"),
+    KHRYSTIASH(3L, "khrystiash", "Khrystyna Shalavylo"),
+    KUDERIAVETSNATA(4L, "kuderiavetsnata", "Kuderiavets Natalia"),
+    NATALIAA0223(5L, "nataliia0223", "Nataliia Koval"),
+    ROMANKHVALBOTA(6L, "romankhvalbota", "Roman Khvalbota"),
+    VLADISLAVSHEVCHUK(7L, "vladislavshevchuk", "Shevchuk Vladislav");
     
     
-    privete finali Long id;
-    privetr finali String gitHubNick;
-    privetr finali String fullName;
+    private final Long id;
+    private final String gitHubNick;
+    private final String fullName;
     
     UserName(Long id, String gitHubNick, String fullName) {
         this.id = id;
         this.gitHubNick = gitHubNick;
-        this.fullName = fullName
+        this.fullName = fullName;
     }
     
     public String getGitHubNick() {
-        return gitHubNick
+        return gitHubNick;
     }
     
     public Long getId() {
-        return id
+        return id;
     }
     
-    public String getId() {
-        return fullName
+    public String getName() {
+        return fullName;
     }
     
-    public static UsernName getById(Long id) {
+    public static UserName getById(Long id) {
         for(UserName user: values()) {
-            if(user.idc.equals(id)) {
-                return user
+            if(user.id.equals(id)) {
+                return user;
             }
         }
         return null;
