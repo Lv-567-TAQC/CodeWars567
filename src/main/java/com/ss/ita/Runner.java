@@ -145,14 +145,26 @@ public class Runner {
         System.out.println(res);
     }
 
+    public void runTask10() {
+        System.out.println("Running Looking for a benefactor:");
+        System.out.println("Enter double array of donations:");
+        double[] donations = scanner.readDoubleArray();
+        System.out.println("Enter int desired average number:");
+        int average = scanner.readInt();
+        String res = String.valueOf(seven.newAvg(donations,average));
+        System.out.println(res);
+    }
+
+    public void runTask11() {
+        System.out.println("Running Sum of the first nth term of Series:");
+        System.out.println("Enter int count of series numbers:");
+        int count = scanner.readInt();
+        String res = String.valueOf(seven.seriesSum(count));
+        System.out.println(res);
+    }
 
 
-
-
-
-
-
-    public void runTask13() {
+    public void runTask12() {
         System.out.println("Running Where is Vasya:");
         System.out.println("Enter int number:");
         int p = scanner.readInt();
@@ -164,7 +176,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask14() {
+    public void runTask13() {
         System.out.println("Running Build a pile of Cubes:");
         System.out.println("Enter long number:");
         long input = scanner.readLong();
@@ -172,7 +184,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask15() {
+    public void runTask14() {
         System.out.println("Running Easy Balance Checking:");
         System.out.println("Enter string:");
         String input = scanner.readString();
@@ -180,7 +192,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask16() {
+    public void runTask15() {
         System.out.println("Running Floating-point Approximation:");
         System.out.println("Enter double number:");
         double input = scanner.readDouble();
@@ -188,7 +200,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask17() {
+    public void runTask16() {
         System.out.println("Running Rainfall:");
         System.out.println("Enter a string (town):");
         String town = scanner.readString();
@@ -199,7 +211,7 @@ public class Runner {
         System.out.println(res1 + "\n" + res2);
     }
 
-    public void runTask18() {
+    public void runTask17() {
         System.out.println("Running Ranking NBA:");
         System.out.println("Enter a string (resultSheet):");
         String resultSheet = scanner.readString();
@@ -209,7 +221,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask19() {
+    public void runTask18() {
         System.out.println("Running Help the Bookseller!:");
         System.out.println("Enter stock list:");
         String[] lstOfArt = scanner.readStringArray();
@@ -219,7 +231,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask20() {
+    public void runTask19() {
         System.out.println("Running Artificial Rain:");
         System.out.println("Enter array of integers:");
         int [] inputArrInt = scanner.readIntArray();
@@ -227,7 +239,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask21() {
+    public void runTask20() {
         System.out.println("Running Gap in Primes:");
         System.out.println("Enter (integer >= 2) which indicates the gap we are looking for:");
         int gap = scanner.readInt();
@@ -236,6 +248,14 @@ public class Runner {
         System.out.println("Enter (integer >= m) which gives the end of the search (n inclusive)");
         int end = scanner.readInt();
         String res = String.valueOf(five.gap(gap, start, end));
+        System.out.println(res);
+    }
+
+    public void runTask21() {
+        System.out.println("Running Trailing zeros in factorial:");
+        System.out.println("Enter int number which will be under factorial:");
+        int number = scanner.readInt();
+        String res = String.valueOf(five.zeros(number));
         System.out.println(res);
     }
 }
