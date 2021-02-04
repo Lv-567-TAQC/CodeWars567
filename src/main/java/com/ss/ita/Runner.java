@@ -1,5 +1,6 @@
 package com.ss.ita;
 
+import com.ss.ita.kata.Eight;
 import com.ss.ita.util.UserName;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
@@ -7,22 +8,9 @@ public class Runner {
 
     UserName user;
     ConsoleScanner scanner = new ConsoleScanner();
+    Eight eight;
 
-    com.ss.ita.kata.implementation.Nnn7.EightImpl Nnn7kata8 = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
-    com.ss.ita.kata.implementation.andriikapustiak.EightImpl andriikapustiakkata8 = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
-    com.ss.ita.kata.implementation.khrystiash.EightImplementation khrystiashkata8 = new com.ss.ita.kata.implementation.khrystiash.EightImplementation();
-    com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl kuderiavetsnatakata8 = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
-    com.ss.ita.kata.implementation.nataliia0223.EightImpl nataliia0223kata8 = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
-    com.ss.ita.kata.implementation.romankhvalbota.EightImpl romankhvalbotakata8 = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
-    com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp vladislavshevchukkata8 = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
 
-    com.ss.ita.kata.implementation.Nnn7.EightImpl Nnn7 = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
-    com.ss.ita.kata.implementation.andriikapustiak.EightImpl andriikapustiak = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
-    com.ss.ita.kata.implementation.khrystiash.EightImplementation khrystiash = new com.ss.ita.kata.implementation.khrystiash.EightImplementation();
-    com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl kuderiavetsnata = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
-    com.ss.ita.kata.implementation.nataliia0223.EightImpl nataliia0223 = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
-    com.ss.ita.kata.implementation.romankhvalbota.EightImpl romankhvalbota = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
-    com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp vladislavshevchuk = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
     public void setImplementation(UserName user) {
         this.user = user;
     }
@@ -30,62 +18,96 @@ public class Runner {
     public void runTask1() {
         long us = user.getId();
         System.out.println("Enter double number:");
-        switch ((int)us){
+        switch ((int) us) {
             case 1:
-                System.out.println(Nnn7.liters(scanner.readDouble()));
+                eight = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
                 break;
             case 2:
-                andriikapustiak.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
                 break;
             case 3:
-                khrystiash.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.khrystiash.EightImplementation();
                 break;
             case 4:
-                kuderiavetsnata.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
                 break;
             case 5:
-                nataliia0223.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
                 break;
             case 6:
-                romankhvalbota.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
                 break;
             case 7:
-                vladislavshevchuk.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
                 break;
             default:
                 System.out.println("This implementation doesn`t exist!");
                 break;
         }
+        System.out.println(eight.liters(scanner.readDouble()));
     }
 
-    public void runTask1() {
+    public void runTask2() {
         long us = user.getId();
-        System.out.println("Enter double number:");
-        switch ((int)us){
+        System.out.println("Enter double number 3 times:");
+        switch ((int) us) {
             case 1:
-                System.out.println(Nnn7.liters(scanner.readDouble()));
+                eight = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
                 break;
             case 2:
-                andriikapustiak.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
                 break;
             case 3:
-                khrystiash.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.khrystiash.EightImplementation();
                 break;
             case 4:
-                kuderiavetsnata.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
                 break;
             case 5:
-                nataliia0223.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
                 break;
             case 6:
-                romankhvalbota.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
                 break;
             case 7:
-                vladislavshevchuk.liters(scanner.readDouble());
+                eight = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
                 break;
             default:
                 System.out.println("This implementation doesn`t exist!");
                 break;
         }
+        System.out.println(eight.getVolumeOfCuboid(scanner.readDouble(), scanner.readDouble(),scanner.readDouble()));
+    }
+
+    public void runTask3() {
+        long us = user.getId();
+        System.out.println("Enter float number:");
+        switch ((int) us) {
+            case 1:
+                eight = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
+                break;
+            case 2:
+                eight = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
+                break;
+            case 3:
+                eight = new com.ss.ita.kata.implementation.khrystiash.EightImplementation();
+                break;
+            case 4:
+                eight = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
+                break;
+            case 5:
+                eight = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
+                break;
+            case 6:
+                eight = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
+                break;
+            case 7:
+                eight = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
+                break;
+            default:
+                System.out.println("This implementation doesn`t exist!");
+                break;
+        }
+        System.out.println(eight.mpgToKPM(scanner.readFloat()));
     }
 }

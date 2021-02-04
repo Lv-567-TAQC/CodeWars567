@@ -13,13 +13,16 @@ public class Menu {
         runner = new Runner();
         scanner = new ConsoleScanner();
     }
+
     private static Menu instance;
-    static Menu getInstance(){
-        if(instance == null){
+
+    static Menu getInstance() {
+        if (instance == null) {
             instance = new Menu();
         }
         return instance;
     }
+
     /**
      * Provides list of tasks in the specified kata level
      *
@@ -108,12 +111,12 @@ public class Menu {
                 case 1:
                     runner.runTask1();
                     break;
-//                case 2:
-//                    runner.runTask2();
-//                    break;
-//                case 3:
-//                    runner.runTask3();
-//                    break;
+                case 2:
+                    runner.runTask2();
+                    break;
+                case 3:
+                    runner.runTask3();
+                    break;
 //                case 4:
 //                    runner.runTask4();
 //                    break;
@@ -174,9 +177,9 @@ public class Menu {
 //                case 23:
 //                    runner.runTask23();
 //                    break;
-                case 24:
-                    runner.runTask24();
-                    break;
+//                case 24:
+//                    runner.runTask24();
+//                    break;
             }
         } catch (NullPointerException e) {
             System.out.println("Set implementation first!");
@@ -215,7 +218,7 @@ public class Menu {
             printUserNames();
             int id = scanner.readInt();
             user = UserName.getById((long) id);
-        } while (user==null);
+        } while (user == null);
 
         runner.setImplementation(user);
     }
