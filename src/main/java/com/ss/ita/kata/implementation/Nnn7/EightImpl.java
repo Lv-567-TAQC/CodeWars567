@@ -70,21 +70,12 @@ public class EightImpl implements Eight{
 
 	@Override
 	public boolean amIWilson(double n) {
-		double test=0;
-	    double minusfactorial=1;
-	    boolean result;    
-	    int q = (int)n; 
-	    for (int i=1; i<q; i++){
-	        minusfactorial *= i;
-	    } 
-	    test = (n * n)/(minusfactorial + 1);        
-	    if((test*10%10==0)&&(n>0)){
-	      result = true;
+		double t1 = n*n;
+	    double t2 = 1;
+	    for (double fact=2; fact<n; fact++){
+	        t2 = (t2*fact)%t1;
 	    }
-	    else{
-	      result = false;
-	    }
-	    return result;
+	    return ((t2+1)==t1);
 	}
 
 	@Override
