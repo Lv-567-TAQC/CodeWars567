@@ -179,4 +179,34 @@ public class Runner {
         String res = String.valueOf(six.balance(input));
         System.out.println(res);
     }
+
+    public void runTask19() {
+        System.out.println("Running Help the Bookseller!:");
+        System.out.println("Enter stock list:");
+        String[] lstOfArt = scanner.readStringArray();
+        System.out.println("Enter list of categories:");
+        String[] lstOf1stLetter = scanner.readStringArray();
+        String res = String.valueOf(six.stockSummary(lstOfArt, lstOf1stLetter));
+        System.out.println(res);
+    }
+
+    public void runTask20() {
+        System.out.println("Running Artificial Rain:");
+        System.out.println("Enter array of integers:");
+        int [] inputArrInt = scanner.readIntArray();
+        String res = String.valueOf(five.artificialRain(inputArrInt));
+        System.out.println(res);
+    }
+
+    public void runTask21() {
+        System.out.println("Running Gap in Primes:");
+        System.out.println("Enter (integer >= 2) which indicates the gap we are looking for:");
+        int gap = scanner.readInt();
+        System.out.println("Enter (integer > 2) which gives the start of the search (m inclusive)");
+        int start = scanner.readInt();
+        System.out.println("Enter (integer >= m) which gives the end of the search (n inclusive)");
+        int end = scanner.readInt();
+        String res = String.valueOf(five.gap(gap, start, end));
+        System.out.println(res);
+    }
 }
