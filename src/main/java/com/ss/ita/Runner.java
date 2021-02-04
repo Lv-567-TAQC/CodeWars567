@@ -94,4 +94,32 @@ public class Runner {
         String res = String.valueOf(eight.mpgToKPM(input));
         System.out.println(res);
     }
+
+    public void runTask13() {
+        System.out.println("Running Where is Vasya:");
+        System.out.println("Enter int number:");
+        int p = scanner.readInt();
+        System.out.println("Enter int before number:");
+        int bef = scanner.readInt();
+        System.out.println("Enter int after number:");
+        int aft = scanner.readInt();
+        String res = String.valueOf(seven.whereIsHe(p,bef,aft));
+        System.out.println(res);
+    }
+
+    public void runTask14() {
+        System.out.println("Running Build a pile of Cubes:");
+        System.out.println("Enter long number:");
+        long input = scanner.readLong();
+        String res = String.valueOf(six.findNb(input));
+        System.out.println(res);
+    }
+
+    public void runTask15() {
+        System.out.println("Running Easy Balance Checking:");
+        System.out.println("Enter string:");
+        String input = scanner.readString();
+        String res = String.valueOf(six.balance(input));
+        System.out.println(res);
+    }
 }
