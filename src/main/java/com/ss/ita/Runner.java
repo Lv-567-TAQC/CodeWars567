@@ -7,6 +7,8 @@ import com.ss.ita.kata.Six;
 import com.ss.ita.util.UserName;
 import com.ss.ita.util.implementation.ConsoleScanner;
 
+import java.math.BigInteger;
+
 public class Runner {
 
     UserName user;
@@ -256,6 +258,30 @@ public class Runner {
         System.out.println("Enter int number which will be under factorial:");
         int number = scanner.readInt();
         String res = String.valueOf(five.zeros(number));
+        System.out.println(res);
+    }
+
+    public void runTask22(){
+        System.out.println("Perimeter of squares in a rectangle:");
+        System.out.println("Enter (Biginteger >=0) which will be number of squares -1:");
+        BigInteger number = scanner.readBigInt();
+        String res = String.valueOf(five.perimeter(number));
+        System.out.println(res);
+    }
+
+    public void runTask23(){
+        System.out.println("Which x for that sum?:");
+        System.out.println("Enter (double >=0) which will be sum of numerical series");
+        double number = scanner.readDouble();
+        String res = String.valueOf(five.solveSum(number));
+        System.out.println(res);
+    }
+
+    public void runTask24(){
+        System.out.println("Find the smallest:");
+        System.out.println("Enter long number in which the digits will be rearranged to find the smallest number can get:");
+        long number = scanner.readLong();
+        String res = String.valueOf(five.smallest(number));
         System.out.println(res);
     }
 }

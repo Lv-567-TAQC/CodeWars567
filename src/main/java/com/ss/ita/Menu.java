@@ -171,15 +171,15 @@ public class Menu {
                 case 21:
                     runner.runTask21();
                     break;
-//                case 22:
-//                    runner.runTask22();
-//                    break;
-//                case 23:
-//                    runner.runTask23();
-//                    break;
-//                case 24:
-//                    runner.runTask24();
-//                    break;
+                case 22:
+                    runner.runTask22();
+                    break;
+                case 23:
+                    runner.runTask23();
+                    break;
+                case 24:
+                    runner.runTask24();
+                    break;
             }
         } catch (NullPointerException e) {
             System.out.println("Set implementation first!");
