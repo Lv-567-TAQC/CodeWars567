@@ -1,3 +1,4 @@
+
 package com.ss.ita;
 
 
@@ -48,14 +49,11 @@ public class Reader {
 
     public BigInteger readBigIntegerV2() {
         Scanner scan = new Scanner(System.in);
-        while(true){
-            if (scan.hasNextBigInteger()) {
-                return scan.nextBigInteger();
-            } else {
-                scan.next()
-                System.out.println("Incorrect format(big integer). Try again...");
-            }
+        if (scan.hasNextBigInteger()) {
+            return scan.nextBigInteger();
         }
+        System.out.println("Неправильний формат данних! Спробуйте ще раз!");
+        return readBigIntegerV2();
     }
 
     public int[] readArrayInt()
@@ -148,30 +146,30 @@ public class Reader {
         return null;
     }
 
-    public double readDouble() {
-        System.out.println("Введіть число з комою: ");
-        Scanner scan = new Scanner(System.in);
-        double number = 0;
-        if (scan.hasNextDouble()) {
-            number = scan.nextDouble();
-        } else {
-            System.out.println("Ви ввели не число!");
-            return readDouble();
-        }
-        return number;
-    }
-
-    public float readFloat() {
+    public static double readDouble() {
         System.out.println("Введіть число: ");
         Scanner scan = new Scanner(System.in);
-        float number = 0;
-        if (scan.hasNextFloat()) {
-            number = scan.nextFloat();
-        } else {
-            System.out.println("Неправильний ввід!");
-            return readFloat();
+        while (true) {
+            if (scan.hasNextDouble()) {
+                return scan.nextDouble();
+            } else {
+                scan.next();
+                System.out.println("Ви ввели не число! Повторіть спробу!");
+            }
         }
-        return number;
+    }
+
+    public static float readFloat() {
+        System.out.println("Введіть число: ");
+        Scanner scan = new Scanner(System.in);
+        while (true) {
+            if (scan.hasNextFloat()) {
+                return scan.nextFloat();
+            } else {
+                scan.next();
+                System.out.println("Ви ввели не число! Повторіть спробу!");
+            }
+        }
     }
 
     public String[] readArrayString() {
@@ -194,4 +192,4 @@ public class Reader {
         in.close();
         return array;
     }
-    }
+}

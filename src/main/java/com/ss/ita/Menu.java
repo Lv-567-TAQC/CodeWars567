@@ -1,18 +1,25 @@
-package com.ss.ita.util;
+package com.ss.ita;
 
-import com.ss.ita.enums.UserNames;
+import com.ss.ita.util.UserName;
+import com.ss.ita.util.Scanner;
+import com.ss.ita.util.implementation.ConsoleScanner;
 
 public class Menu {
 
     private final Scanner scanner;
+    private final Runner runner;
 
-    private final IRunner runner;
-
-    public Menu() {
+    private Menu() {
         runner = new Runner();
         scanner = new ConsoleScanner();
     }
-
+    private static Menu instance;
+    static Menu getInstance(){
+        if(instance == null){
+            instance = new Menu();
+        }
+        return instance;
+    }
     /**
      * Provides list of tasks in the specified kata level
      *
@@ -82,8 +89,8 @@ public class Menu {
     private static void printUserNames() {
         StringBuilder userNamesOutput = new StringBuilder();
         userNamesOutput.append("The following user names are available:\r\n");
-        for (UserNames name : UserNames.values()) {
-            userNamesOutput.append(name.getId() + ". " + name.getName() + " (" + name.getNick() + ")\r\n");
+        for (UserName name : UserName.values()) {
+            userNamesOutput.append(name.getId() + ". " + name.getName() + " (" + name.getGitHubNick() + ")\r\n");
         }
         System.out.println(userNamesOutput.toString());
     }
@@ -101,72 +108,72 @@ public class Menu {
                 case 1:
                     runner.runTask1();
                     break;
-                case 2:
-                    runner.runTask2();
-                    break;
-                case 3:
-                    runner.runTask3();
-                    break;
-                case 4:
-                    runner.runTask4();
-                    break;
-                case 5:
-                    runner.runTask5();
-                    break;
-                case 6:
-                    runner.runTask6();
-                    break;
-                case 7:
-                    runner.runTask7();
-                    break;
-                case 8:
-                    runner.runTask8();
-                    break;
-                case 9:
-                    runner.runTask9();
-                    break;
-                case 10:
-                    runner.runTask10();
-                    break;
-                case 11:
-                    runner.runTask11();
-                    break;
-                case 12:
-                    runner.runTask12();
-                    break;
-                case 13:
-                    runner.runTask13();
-                    break;
-                case 14:
-                    runner.runTask14();
-                    break;
-                case 15:
-                    runner.runTask15();
-                    break;
-                case 16:
-                    runner.runTask16();
-                    break;
-                case 17:
-                    runner.runTask17();
-                    break;
-                case 18:
-                    runner.runTask18();
-                    break;
-                case 19:
-                    runner.runTask19();
-                    break;
-                case 20:
-                    runner.runTask20();
-                    break;
-                case 21:
-                    runner.runTask21();
-                    break;
-                case 22:
-                    runner.runTask22();
-                    break;
-                case 23:
-                    runner.runTask23();
-                    break;
+//                case 2:
+//                    runner.runTask2();
+//                    break;
+//                case 3:
+//                    runner.runTask3();
+//                    break;
+//                case 4:
+//                    runner.runTask4();
+//                    break;
+//                case 5:
+//                    runner.runTask5();
+//                    break;
+//                case 6:
+//                    runner.runTask6();
+//                    break;
+//                case 7:
+//                    runner.runTask7();
+//                    break;
+//                case 8:
+//                    runner.runTask8();
+//                    break;
+//                case 9:
+//                    runner.runTask9();
+//                    break;
+//                case 10:
+//                    runner.runTask10();
+//                    break;
+//                case 11:
+//                    runner.runTask11();
+//                    break;
+//                case 12:
+//                    runner.runTask12();
+//                    break;
+//                case 13:
+//                    runner.runTask13();
+//                    break;
+//                case 14:
+//                    runner.runTask14();
+//                    break;
+//                case 15:
+//                    runner.runTask15();
+//                    break;
+//                case 16:
+//                    runner.runTask16();
+//                    break;
+//                case 17:
+//                    runner.runTask17();
+//                    break;
+//                case 18:
+//                    runner.runTask18();
+//                    break;
+//                case 19:
+//                    runner.runTask19();
+//                    break;
+//                case 20:
+//                    runner.runTask20();
+//                    break;
+//                case 21:
+//                    runner.runTask21();
+//                    break;
+//                case 22:
+//                    runner.runTask22();
+//                    break;
+//                case 23:
+//                    runner.runTask23();
+//                    break;
                 case 24:
                     runner.runTask24();
                     break;
@@ -203,11 +210,11 @@ public class Menu {
 
     private void setUserImplementation() {
         System.out.print("Select id of user: ");
-        UserNames user;
+        UserName user;
         do {
             printUserNames();
             int id = scanner.readInt();
-            user = UserNames.getById((long) id);
+            user = UserName.getById((long) id);
         } while (user==null);
 
         runner.setImplementation(user);
