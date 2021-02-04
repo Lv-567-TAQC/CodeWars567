@@ -119,6 +119,32 @@ public class Runner {
         System.out.println(res);
     }
 
+    public void runTask7(){
+        System.out.println("Wilson Primes");
+        System.out.println("Enter double number:");
+        double input = scanner.readDouble();
+        String res = String.valueOf(eight.amIWilson(input));
+        System.out.println(res);
+    }
+
+    public void runTask8(){
+        System.out.println("Formatting decimal places:");
+        System.out.println("Enter double number:");
+        double input = scanner.readDouble();
+        String res = String.valueOf(eight.twoDecimalPlaces(input));
+        System.out.println(res);
+    }
+
+    public void runTask9(){
+        System.out.println("Find numbers which are divisible by given number:");
+        System.out.println("Enter int:");
+        int inputInt = scanner.readInt();
+        System.out.println("Enter array of integers:");
+        int [] inputArrInt = scanner.readIntArray();
+        String res = String.valueOf(eight.divisibleBy(inputArrInt, inputInt));
+        System.out.println(res);
+    }
+
 
 
 
