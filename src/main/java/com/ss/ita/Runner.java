@@ -95,6 +95,37 @@ public class Runner {
         System.out.println(res);
     }
 
+    public void runTask4() {
+        System.out.println("To Square Root Or Not To Square Root:");
+        System.out.println("Enter array of integers:");
+        int[] input = scanner.readIntArray();
+        String res = String.valueOf(eight.squareOrSquareRoot(input));
+        System.out.println(res);
+    }
+
+    public void runTask5() {
+        System.out.println("Count Of Positives Sum Of Negatives :");
+        System.out.println("Enter array of integers:");
+        int[] input = scanner.readIntArray();
+        String res = String.valueOf(eight.countPositivesSumNegatives(input));
+        System.out.println(res);
+    }
+
+    public void runTask6() {
+        System.out.println("Convert A String To A Number");
+        System.out.println("Enter a string:");
+        String input = scanner.readString();
+        String res = String.valueOf(eight.stringToNumber(input));
+        System.out.println(res);
+    }
+
+
+
+
+
+
+
+
     public void runTask13() {
         System.out.println("Running Where is Vasya:");
         System.out.println("Enter int number:");
