@@ -180,6 +180,35 @@ public class Runner {
         System.out.println(res);
     }
 
+    public void runTask16() {
+        System.out.println("Running Floating-point Approximation:");
+        System.out.println("Enter double number:");
+        double input = scanner.readDouble();
+        String res = String.valueOf(six.f(input));
+        System.out.println(res);
+    }
+
+    public void runTask17() {
+        System.out.println("Running Rainfall:");
+        System.out.println("Enter a string (town):");
+        String town = scanner.readString();
+        System.out.println("Enter a string:");
+        String input = scanner.readString();
+        String res1 = String.valueOf(six.mean(town, input));
+        String res2 = String.valueOf(six.variance(town, input));
+        System.out.println(res1 + "\n" + res2);
+    }
+
+    public void runTask18() {
+        System.out.println("Running Ranking NBA:");
+        System.out.println("Enter a string (resultSheet):");
+        String resultSheet = scanner.readString();
+        System.out.println("Enter a string (What do you want to find?):");
+        String input = scanner.readString();
+        String res = String.valueOf(six.nbaCup(resultSheet, input));
+        System.out.println(res);
+    }
+
     public void runTask19() {
         System.out.println("Running Help the Bookseller!:");
         System.out.println("Enter stock list:");
