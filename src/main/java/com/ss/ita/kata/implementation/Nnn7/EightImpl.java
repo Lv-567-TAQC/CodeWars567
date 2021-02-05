@@ -15,7 +15,7 @@ public class EightImpl implements Eight{
 	@Override
 	public double getVolumeOfCuboid(double length, double width, double height) {
 		double volumeofcuboid = length *width *height;
-	    return volumeofcuboid;
+	  return volumeofcuboid;
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class EightImpl implements Eight{
 
 	@Override
 	public boolean amIWilson(double n) {
-		double t1 = n*n;
+double t1 = n*n;
 	    double t2 = 1;
 	    for (double fact=2; fact<n; fact++){
 	        t2 = (t2*fact)%t1;
@@ -105,6 +105,7 @@ public class EightImpl implements Eight{
 	       } 
 	    
 	    return result;
+
 	}
 
 }
