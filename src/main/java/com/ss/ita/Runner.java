@@ -24,8 +24,8 @@ public class Runner {
             case NNN7:
                 eight = new com.ss.ita.kata.implementation.Nnn7.EightImpl();
                 seven = new com.ss.ita.kata.implementation.Nnn7.SevenImpl();
-                //   six = new com.ss.ita.kata.implementation.Nnn7.SixImpl();
-                //   five = new com.ss.ita.kata.implementation.Nnn7.FiveImpl();
+                six = new com.ss.ita.kata.implementation.Nnn7.SixImpl();
+                five = new com.ss.ita.kata.implementation.Nnn7.FiveImpl();
                 break;
             case ANDRIIKAPUSTIAK:
                 eight = new com.ss.ita.kata.implementation.andriikapustiak.EightImpl();
