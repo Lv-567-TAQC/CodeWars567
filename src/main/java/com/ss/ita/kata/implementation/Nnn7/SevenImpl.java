@@ -6,7 +6,7 @@ public class SevenImpl implements Seven{
 
 	@Override
 	public long newAvg(double[] arr, double navg) {
-		  int len = arr.length;
+			int len = arr.length;
 	        double sum = 0;
 	        long result = 0;      
 	        double test = 0;
@@ -37,14 +37,31 @@ public class SevenImpl implements Seven{
 
 	@Override
 	public String seriesSum(int n) {
-		// TODO Auto-generated method stub
-		return null;
+			double result =0;
+			double test = 0;
+			String fresult;
+			if(n==0){
+					result=0.00d;
+			}
+			if(n>0){
+					for(int i=1; i<=n; i++){
+							test= 1/(1+(i-1)*3d);
+							result += test;
+	        }
+	        }
+			fresult = String.format("%.2f", result);	    
+			return fresult;
 	}
 
 	@Override
 	public int whereIsHe(int p, int bef, int aft) {
-		// TODO Auto-generated method stub
-		return 0;
+			int result=0;
+			for (int i=1; i<=p; i++){
+					if((bef<i)&&((p-aft)<=i)){  
+						result++;
+            }
+			}
+			return result;
 	}
 
 }
