@@ -48,12 +48,63 @@ public class SixImpl implements Six {
 
     @Override
     public double mean(String town, String strng) {
-        return 0;
+        if (town == null || town.length() == 0 || strng == null || strng.length() == 0) return -1;
+        final String s = town + ":";
+        final String[] a = strng.split("\n");
+        String[] recs = null;
+        int l;
+        double sum = 0;
+
+        for (String str : a) {
+            if (str.startsWith(s)) {
+                recs = str.split(":")[1].split(",");
+                break;
+            }
+        }
+        if (recs == null || recs.length == 0) return -1;
+
+        l = recs.length;
+        for (int i = 0; i < l; i++) {
+            sum += Double.parseDouble(recs[i].split(" ")[1]);
+        }
+
+        return sum / l;
     }
 
     @Override
     public double variance(String town, String strng) {
-        return 0;
+        if (town == null || town.length() == 0 || strng == null || strng.length() == 0) return -1;
+        final String s = town + ":";
+        final String[] a = strng.split("\n");
+        String[] recs = null;
+        double[] vals = null;
+        int l;
+        double temp;
+        double sum = 0;
+
+        for (String str : a) {
+            if (str.startsWith(s)) {
+                recs = str.split(":")[1].split(",");
+                break;
+            }
+        }
+        if (recs == null || recs.length == 0) return -1;
+
+        l = recs.length;
+        vals = new double[l];
+        for (int i = 0; i < l; i++) {
+            vals[i] = temp = Double.parseDouble(recs[i].split(" ")[1]);
+            sum += temp;
+        }
+
+        temp = sum / l;
+        sum = 0;
+        for (int i = 0; i < l; i++) {
+            sum += Math.pow(vals[i] - temp, 2);
+        }
+        temp = Math.sqrt(sum / l);
+
+        return temp * temp;
     }
 
     @Override
