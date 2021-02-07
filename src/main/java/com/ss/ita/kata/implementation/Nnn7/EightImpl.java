@@ -15,16 +15,16 @@ public class EightImpl implements Eight{
 	@Override
 	public double getVolumeOfCuboid(double length, double width, double height) {
 		double volumeofcuboid = length *width *height;
-		return volumeofcuboid;
+	  return volumeofcuboid;
 	}
 
 	@Override
 	public float mpgToKPM(float mpg) {
 		double kmperlitres;
-		double changer = 1.609344d/ 4.54609188;
-		kmperlitres= mpg*changer;
-		double result = Math.round(kmperlitres*100)/100.00;
-		return  (float)result;
+	    double changer = 1.609344d/ 4.54609188;
+	    kmperlitres= mpg*changer;	      
+	    double result = Math.round(kmperlitres*100)/100.00;	    
+	    return  (float)result;
 	}
 
 	@Override
@@ -34,10 +34,10 @@ public class EightImpl implements Eight{
 	    	for (int i=0;i<len;i++){
 	        test = Math.sqrt(array[i]);	      
 	        if (test%1==0){
-	          array[i]=(int)Math.sqrt(array[i]);
+	        	array[i]=(int)Math.sqrt(array[i]);
 	        }
 	        else{
-	          array[i]=array[i]*array[i];
+	        	array[i]=array[i]*array[i];
 	        }
 	    }
 	    
@@ -46,19 +46,23 @@ public class EightImpl implements Eight{
 
 	@Override
 	public int[] countPositivesSumNegatives(int[] input) {
-		int len = input.length;
-	      int countpos = 0;
-	      int sumnegative = 0;
-	      for(int i=0; i<len; i++){
-	    	  if (input[i]<0) {
-	    		  sumnegative+=input[i];
-	        }
-	    	  else if(input[i]>0){
-	    		  countpos+=1;
-	        }	       
-	      }	      
-	      int [] finalarray = {countpos , sumnegative};
-	      return finalarray; 
+		int[] finalr = {};  
+        if(input==null || input.length == 0){          
+            return finalr;
+        }else{
+            int len = input.length;
+            int countpos = 0;
+            int sumnegative = 0;
+            for(int i=0; i<len; i++){
+            if (input[i]<0) {
+                sumnegative+=input[i];
+            }else if(input[i]>0){
+                countpos+=1;
+          }        
+        }       
+        int [] finalarray = {countpos , sumnegative};
+        return finalarray;       
+        }
 	}
 
 	@Override
@@ -69,21 +73,12 @@ public class EightImpl implements Eight{
 
 	@Override
 	public boolean amIWilson(double n) {
-		double test=0;
-	    double minusfactorial=1;
-	    boolean result;    
-	    int q = (int)n; 
-	    for (int i=1; i<q; i++){
-	        minusfactorial *= i;
-	    } 
-	    test = (n * n)/(minusfactorial + 1);        
-	    if((test*10%10==0)&&(n>0)){
-	      result = true;
+double t1 = n*n;
+	    double t2 = 1;
+	    for (double fact=2; fact<n; fact++){
+	        t2 = (t2*fact)%t1;
 	    }
-	    else{
-	      result = false;
-	    }
-	    return result;
+	    return ((t2+1)==t1);
 	}
 
 	@Override
@@ -95,20 +90,22 @@ public class EightImpl implements Eight{
 	public int[] divisibleBy(int[] numbers, int divider) {
 		int len = numbers.length;
 	    int[] test = new int [len];
-	    int y = 0;   
+	    int y = 0;	    
 	    for (int i = 0; i < len; i++){
-	      if((numbers[i]%divider)==0){
-	        test[y] = numbers[i];
-	        y++;        
+	    	if((numbers[i]%divider)==0){
+	    		test[y] = numbers[i];
+	    		y++;        
 	      }
-	    }   
+	    }
+	    
 	    int len2 = y;
 	    int [] result = new int[y];
-	     for (int i = 0; i < y; i++){
-	       result[i] = test[i];
-	       }
-	    System.out.println(result);
+	     	for (int i = 0; i < y; i++){
+	     		result[i] = test[i];
+	       } 
+	    
 	    return result;
+
 	}
 
 }
