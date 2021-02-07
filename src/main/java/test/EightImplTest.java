@@ -1,0 +1,47 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import com.ss.ita.kata.Eight;
+import org.junit.Test;
+
+import java.util.*;
+
+public class EightImplTest {
+    List <Eight> impl = Arrays.asList(
+            new com.ss.ita.kata.implementation.Nnn7.EightImpl(),
+            new com.ss.ita.kata.implementation.andriikapustiak.EightImpl(),
+            new com.ss.ita.kata.implementation.khrystiash.EightImplementation(),
+            new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl(),
+            new com.ss.ita.kata.implementation.nataliia0223.EightImpl(),
+            new com.ss.ita.kata.implementation.romankhvalbota.EightImpl(),
+            new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp() );
+
+    @Test
+    public void testWilsonPrime1() {
+        for (Eight impl : impl) {
+            assertEquals(false, impl.amIWilson(0));
+        }
+    }
+
+    @Test
+    public void testWilsonPrime2() {
+        for (Eight impl : impl) {
+            assertEquals(false, impl.amIWilson(1));
+        }
+    }
+
+    @Test
+    public void testWilsonPrime3() {
+        for (Eight impl : impl) {
+            assertEquals(true, impl.amIWilson(5));
+        }
+    }
+
+    @Test
+    public void testWilsonPrime4() {
+        for (Eight impl : impl) {
+            assertEquals(false, impl.amIWilson(-5));
+        }
+    }
+}
