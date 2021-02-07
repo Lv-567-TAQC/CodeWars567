@@ -12,9 +12,9 @@ public class SixImpl implements Six {
             volume += n * n * n;
             n++;
         }
-        if(volume == m){
+        if (volume == m) {
             return n - 1;
-        }else{
+        } else {
             return -1;
         }
     }
@@ -26,7 +26,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return 0;
+        return x / (Math.sqrt(x + 1) + 1);
     }
 
     @Override
