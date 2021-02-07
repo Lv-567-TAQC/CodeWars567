@@ -1,11 +1,10 @@
-package com.ss.ita.kata.implementation.nataliia0223;
+package com.ss.ita.kata.implementation.andriikapustiak;
 
 import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
 
 public class FiveImpl implements Five {
-
     @Override
     public int artificialRain(int[] v) {
         return 0;
@@ -18,29 +17,34 @@ public class FiveImpl implements Five {
 
     @Override
     public int zeros(int n) {
-        return n / 5;
+        return 0;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        int n0 = 0;
-        int n1 = 1;
-        int n2 = n0 + n1;
-        int sum = 0;
-        for (int i = 0; i <= n.intValue(); i++) {
-            sum += n2;
-            n2 += n0;
-            n0 = n1;
-            n1 = n2;
-        }
-        return BigInteger.valueOf(sum * 4);
+        return null;
     }
 
     @Override
-    public double solveSum(double m) {
-
-        return 1 + (1 - Math.sqrt(1 + 4 * m)) / (2 * m);
+    public double solveSum(double num) {
+        int zeros=0;
+        for(int i=2; i<=num; i++) {
+            zeros += countFactorsOf5(i);
+        }
+        return zeros;
     }
+
+    public static int countFactorsOf5(int i)
+    {
+        int count=0;
+        while(i % 5 == 0)
+        {
+            count++;
+            i /= 5;
+        }
+        return count;
+    }
+
 
     @Override
     public long[] smallest(long n) {
