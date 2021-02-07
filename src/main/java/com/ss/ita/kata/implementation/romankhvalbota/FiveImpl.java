@@ -21,7 +21,20 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        BigInteger a = new BigInteger("" + m);
+        BigInteger b = a.nextProbablePrime();
+        if (!a.isProbablePrime(1))
+            a = b;
+        long i = 0, j = 0;
+        while (j <= n) {
+            j = b.longValue();
+            i = a.longValue();
+            if (j - i == g)
+                return new long[] {i, j};
+            a = b;
+            b = a.nextProbablePrime();
+        }
+        return null;
     }
 
     @Override
