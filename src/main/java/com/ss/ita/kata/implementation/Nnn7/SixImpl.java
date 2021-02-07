@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class SixImpl implements Six {
 
+
 	@Override
 	public long findNb(long m) {
 		long test = 0l;
