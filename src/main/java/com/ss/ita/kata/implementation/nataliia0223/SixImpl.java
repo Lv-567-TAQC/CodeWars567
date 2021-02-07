@@ -14,7 +14,7 @@ public class SixImpl implements Six {
         }
         if (volume == m) {
             return n - 1;
-        } else {
+        }else{
             return -1;
         }
     }
@@ -60,6 +60,5 @@ public class SixImpl implements Six {
         }
         return result;
     }
-
 
 }
