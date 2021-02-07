@@ -109,7 +109,76 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        int w = 0;
+        int d = 0;
+        int l = 0;
+        int pt = 0;
+        int pl = 0;
+        int mk = 0;
+
+        if (toFind.equals("")) {return "";}
+        boolean found = false;
+        String s = resultSheet.replaceAll("([0-9.]) ","$1-");
+        s = s.replaceAll(" ([0-9.]*)(-)","_$1$2").replaceAll(" ([0-9.]*)(,)","_$1$2").replaceAll(" ([0-9.]*)$","_$1");
+        String[] p = s.split(",");
+
+        for (int i=0; i < p.length; i++){
+            String[] match = p[i].split("-");
+            String[] matchA = match[0].split("_");
+            String teamA = matchA[0];
+            int pointsA = -1;
+
+            try{
+                pointsA = Integer.parseInt(matchA[1]);
+            }catch(Exception e){return "Error(float number):" + p[i].replaceAll("-"," ").replaceAll("_"," ");}
+
+            String[] matchB = match[1].split("_");
+            String teamB = matchB[0];
+            int pointsB = -1;
+
+            try{
+                pointsB = Integer.parseInt(matchB[1]);
+            }catch(Exception e){return "Error(float number):" + p[i].replaceAll("-"," ").replaceAll("_"," ");}
+
+            if(teamA.equals(toFind)){
+                found = true;
+                if(pointsA > pointsB){
+                    w++;
+                    mk += 3;
+                }
+                else if(pointsA == pointsB){
+                    d++;
+                    mk += 1;
+                }
+                else{
+                    l++;
+                }
+                pt += pointsA;
+                pl += pointsB;
+            }
+
+            if (teamB.equals(toFind)){
+                found = true;
+                if (pointsB > pointsA){
+                    w++;
+                    mk += 3;
+                }
+                else if (pointsA == pointsB){
+                    d++;
+                    mk += 1;
+                }
+                else{
+                    l++;
+                }
+                pt += pointsB;
+                pl += pointsA;
+            }
+        }
+
+        if (!found){
+            return toFind +":This team didn't play!";
+        }
+        return toFind + ":W=" + w +";D="+d+";L="+l+";Scored="+pt+";Conceded="+pl+";Points="+mk;
     }
 
     @Override
