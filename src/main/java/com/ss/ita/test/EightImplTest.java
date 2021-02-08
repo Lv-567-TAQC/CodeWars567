@@ -1,4 +1,4 @@
-package test;
+package com.ss.ita.test;
 
 import static org.junit.Assert.*;
 
@@ -20,6 +20,7 @@ public class EightImplTest {
     @Test
     public void testWilsonPrime1() {
         for (Eight impl : impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             assertEquals(false, impl.amIWilson(0));
         }
     }
@@ -27,6 +28,7 @@ public class EightImplTest {
     @Test
     public void testWilsonPrime2() {
         for (Eight impl : impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             assertEquals(false, impl.amIWilson(1));
         }
     }
@@ -34,6 +36,7 @@ public class EightImplTest {
     @Test
     public void testWilsonPrime3() {
         for (Eight impl : impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             assertEquals(true, impl.amIWilson(5));
         }
     }
@@ -41,6 +44,7 @@ public class EightImplTest {
     @Test
     public void testWilsonPrime4() {
         for (Eight impl : impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             assertEquals(false, impl.amIWilson(-5));
         }
     }

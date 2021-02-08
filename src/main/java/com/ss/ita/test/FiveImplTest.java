@@ -1,4 +1,4 @@
-package test;
+package com.ss.ita.test;
 
 
 import com.ss.ita.kata.Five;
@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 public class FiveImplTest {
     List<Five> impl = Arrays.asList(
             new com.ss.ita.kata.implementation.Nnn7.FiveImpl(),
-            new com.ss.ita.kata.implementation.andriikapustiak.FiveImpl(),
+            //new com.ss.ita.kata.implementation.andriikapustiak.FiveImpl(),
             new com.ss.ita.kata.implementation.khrystiash.FiveImplementation(),
             //new com.ss.ita.kata.implementation.kuderiavetsnata.Five(),
             new com.ss.ita.kata.implementation.nataliia0223.FiveImpl(),
@@ -22,6 +22,7 @@ public class FiveImplTest {
     @Test
     public void testZeros1() {
         for(Five impl: impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             int actual = impl.zeros(0);
             int expected = 0;
             assertEquals(actual, expected);
@@ -31,6 +32,7 @@ public class FiveImplTest {
     @Test
     public void testZeros2() {
         for(Five impl: impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             int actual = impl.zeros(6);
             int expected = 1;
             assertEquals(actual, expected);
@@ -40,6 +42,7 @@ public class FiveImplTest {
     @Test
     public void testZeros3() {
         for(Five impl: impl) {
+            System.out.println(String.format("Checking for implementation: %s", impl));
             int actual = impl.zeros(14);
             int expected = 2;
             assertEquals(actual, expected);
