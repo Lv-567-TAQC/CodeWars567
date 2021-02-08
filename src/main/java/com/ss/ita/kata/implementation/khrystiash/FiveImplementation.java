@@ -73,6 +73,39 @@ public class FiveImplementation implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        String numb = "";
+        String[] result = new String[3];
+        numb += n;
+
+        char smallest = numb.charAt(0);
+        for (int i = 0; i < numb.length(); i++) {
+            for (int j = 1; j < numb.length(); j++) {
+                if (smallest > numb.charAt(j)) {
+                    smallest = numb.charAt(j);
+                }
+                if (smallest == numb.charAt(0) && j !=1) {
+                    result[0] = String.valueOf(smallest);
+                    smallest = numb.charAt(i + 1);
+                    break;
+                }
+            }
+        }
+        if (smallest > numb.charAt(0)) {
+            result[0] += smallest + numb.substring(1, numb.indexOf(smallest)) + numb.substring(numb.indexOf(smallest) + 1);
+        } else {
+            result[0] = smallest + numb.substring(0, numb.indexOf(smallest)) + numb.substring(numb.indexOf(smallest) + 1);
+        }
+        if (numb.indexOf(smallest) == 1) {
+            result[1] = String.valueOf(0);
+            smallest = numb.charAt(0);
+        } else {
+            result[1] = String.valueOf(numb.indexOf(smallest));
+        }
+        result[2] = String.valueOf(result[0].indexOf(smallest));
+        long[] res = new long[3];
+        for (int i = 0; i < res.length; i++) {
+            res[i] = Long.parseLong(result[i]);
+        }
+        return res;
     }
 }
