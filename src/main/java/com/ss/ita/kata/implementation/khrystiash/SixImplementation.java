@@ -97,7 +97,80 @@ public class SixImplementation implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        String[] arrayGames = resultSheet.split(",");
+        String result = "";
+        int win = 0;
+        int lose = 0;
+        int draw = 0;
+        int score = 0;
+        int conceded = 0;
+        int points = 0;
+        if (resultSheet.equals("")){
+            return result;
+        }
+        for (int i = 0; i < arrayGames.length;i++){
+            if (!(arrayGames[i].contains(toFind))){
+                continue;
+            }else if(arrayGames[i].contains(".")){
+                return result = "Error (float number):" + arrayGames[i];
+            }else {
+                String[] game = arrayGames[i].split(" ");
+                int[] gameRes = new int[2];
+                int a = 0;
+                for (int j = 0; j<game.length;j++){
+                    if (isInt(game[j])){
+                        gameRes[a] = Integer.parseInt(game[j]);
+                        a++;
+                    }
+                }
+                if (game[0].matches(toFind+"(.*)")){
+                    if (gameRes[0] > gameRes[1]) {
+                        score += gameRes[0];
+                        conceded += gameRes[1];
+                        win++;
+                    }else  if (gameRes[0] == gameRes[1]) {
+                        score += gameRes[0];
+                        conceded += gameRes[1];
+                        draw++;
+                    }else {
+                        score += gameRes[0];
+                        conceded += gameRes[1];
+                        lose++;
+                    }
+                }else {
+                    if (gameRes[0] > gameRes[1]) {
+                        score += gameRes[1];
+                        conceded += gameRes[0];
+                        lose++;
+                    }else  if (gameRes[0] == gameRes[1]) {
+                        score += gameRes[1];
+                        conceded += gameRes[0];
+                        draw++;
+                    }else {
+                        score += gameRes[1];
+                        conceded += gameRes[0];
+                        win++;
+                    }
+                }
+            }
+        }
+        if (win == 0 && lose == 0 && draw ==0 ){
+            result = toFind + ":This team didn't play!";
+        }else {
+            points = win * 3 + draw;
+            result = toFind + ":W=" + win + ";D=" + draw + ";L=" + lose +";Scored="
+                    + score + ";Conceded=" + conceded + ";Points=" + points;
+        }
+        return result;
+    }
+
+    public boolean isInt(String str){
+        try{
+            Integer.valueOf(str);
+            return  true;
+        }catch (NumberFormatException e){
+            return false;
+        }
     }
 
     @Override
