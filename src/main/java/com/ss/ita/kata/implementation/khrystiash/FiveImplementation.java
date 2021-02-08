@@ -53,17 +53,17 @@ public class FiveImplementation implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        long first =0L;
-        long second = 1L;
-        long sum = 0L;
-        long copy_second = second;
+        BigInteger first =BigInteger.valueOf(0);
+        BigInteger second = BigInteger.valueOf(1);
+        BigInteger sum = BigInteger.valueOf(0);
+        BigInteger copy_second = second;
         for (int i=0;i <= n.intValue();i++){
-            sum+=second;
-            second+=first;
+            sum=sum.add(second);
+            second=second.add(first);
             first = copy_second;
             copy_second = second;
         }
-        return BigInteger.valueOf(sum*NUMBER_OF_SQUARE_SIDES);
+        return sum.multiply(BigInteger.valueOf(NUMBER_OF_SQUARE_SIDES));
     }
 
     @Override
