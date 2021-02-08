@@ -42,7 +42,7 @@ public class SixImp implements Six {
         return x/(1+Math.sqrt(x+1));
     }
 
-    public static double[] getRainfallRecords(String town,String strng){
+    private static double[] getRainfallRecords(String town,String strng){
         String[] townsResult = strng.split("\n");
         double[] rainNumbers = new double[12];
         for(String townResult : townsResult){
@@ -91,7 +91,7 @@ public class SixImp implements Six {
             + "Detroit Pistons,Utah Jazz,Miami Heat,Charlotte Hornets,Toronto Raptors,Orlando Magic,Washington Wizards,"
             + "Golden State Warriors,Dallas Maver";
 
-    public static boolean isTeamAvailable(String[] teams,String toFind){
+    private static boolean isTeamAvailable(String[] teams,String toFind){
         for(String team : teams){
             if(team.equals(toFind)){
                 return true;
