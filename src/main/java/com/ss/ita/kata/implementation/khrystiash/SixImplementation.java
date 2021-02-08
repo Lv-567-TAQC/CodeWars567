@@ -48,6 +48,9 @@ public class SixImplementation implements Six {
         if (town == ""){
             return -1;
         }
+        if (!strng.contains(town+":")){
+            return -1;
+        }
         data = strng.split("\n");
         for (int i=0; i<data.length;i++){
             if(town.equals(data[i].substring(0,town.length()))){
@@ -74,6 +77,9 @@ public class SixImplementation implements Six {
         String[] data;
         Double sum = 0.0;
         if (town == ""){
+            return -1;
+        }
+        if (!strng.contains(town+":")){
             return -1;
         }
         data = strng.split("\n");
