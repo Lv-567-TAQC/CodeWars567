@@ -68,7 +68,7 @@ public class FiveImplementation implements Five {
 
     @Override
     public double solveSum(double m) {
-        return 0;
+        return ((2*m+1)-Math.sqrt(((2*m+1)*(2*m+1))-(4*m*m)))/(2*m);
     }
 
     @Override
