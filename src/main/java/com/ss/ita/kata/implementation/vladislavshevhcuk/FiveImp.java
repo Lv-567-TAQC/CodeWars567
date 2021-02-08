@@ -112,6 +112,27 @@ public class FiveImp implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        long minNumber=n;
+        int firstIndex=0;
+        int secondIndex=0;
+        String number = Long.toString(n);
+        for (int i = 0; i < number.length(); i++) {
+            for (int j = 0; j < number.length(); j++) {
+                if(i != j && (digitChanger(number,i,j)<minNumber)){
+                    minNumber = digitChanger(number,i,j);
+                    firstIndex =i;
+                    secondIndex =j;
+                }
+            }
+        }
+        return new long[]{minNumber,firstIndex,secondIndex};
+    }
+
+    private static long digitChanger(String number, int firstIndex,int secondIndex){
+        StringBuilder sb = new StringBuilder(number);
+        char digit = sb.charAt(firstIndex);
+        sb.deleteCharAt(firstIndex);
+        sb.insert(secondIndex,digit);
+        return Long.parseLong(sb.toString());
     }
 }
