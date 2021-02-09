@@ -33,11 +33,14 @@ public class EightImplementation implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
+        if(mpg<0){
+            return -1;
+        }
         float kilometersPerLiters;
         kilometersPerLiters = mpg * (ONE_MILE_IN_KILOMETERS / ONE_IMPERIAL_GALLON_IN_LITERS);
         kilometersPerLiters = (float) Math.round(kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA)
                 / TWO_NUMBERS_AFTER_COMMA;
-        if ((kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA) % 10 == 0) {
+        if ((kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA) % 10 == 0 ){
             kilometersPerLiters = (float) Math.round(kilometersPerLiters * ONE_NUMBER_AFTER_COMMA) /
                     ONE_NUMBER_AFTER_COMMA;
         }
