@@ -1,11 +1,13 @@
 package com.ss.ita.test;
 
-import static org.junit.Assert.*;
-
 import com.ss.ita.kata.Eight;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class EightImplTest {
     List <Eight> impl = Arrays.asList(
@@ -16,6 +18,33 @@ public class EightImplTest {
             new com.ss.ita.kata.implementation.nataliia0223.EightImpl(),
             new com.ss.ita.kata.implementation.romankhvalbota.EightImpl(),
             new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp() );
+
+    @Test
+    public void mpgToKPMPositive() {
+        for (Eight impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
+            float actual = impl.mpgToKPM(1);
+            float expected = 0.35f;
+            Assertions.assertEquals(expected , actual, String.format("Test %s failed!", impl));
+            float actual1 = impl.mpgToKPM(0);
+            float expected1 = 0.0f;
+            Assertions.assertEquals(expected1, actual1, String.format("Test %s failed!", impl));
+            float actual2 = impl.mpgToKPM(4);
+            float expected2 = 1.42f;
+            Assertions.assertEquals(expected2, actual2, String.format("Test %s failed!", impl));
+        }
+    }
+
+
+    @Test
+    public void mpgToKPMNegative() {
+        for (Eight impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
+            float actual = impl.mpgToKPM(-4);
+            float expected = -1;
+            Assertions.assertEquals(actual, expected, String.format("Test %s failed - negative value!", impl));
+        }
+    }
 
     @Test
     public void testWilsonPrime1() {
