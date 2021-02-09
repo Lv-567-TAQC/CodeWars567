@@ -37,6 +37,9 @@ public class SevenImpl implements Seven{
 
 	@Override
 	public String seriesSum(int n) {
+		if (n<0) {
+			return "";
+		}
       double result =0;
 			double test = 0;
 			String fresult;
