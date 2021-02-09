@@ -1,4 +1,4 @@
-package com.ss.test;
+package com.ss.ita.kata.eigth;
 
 import static org.junit.Assert.*;
 

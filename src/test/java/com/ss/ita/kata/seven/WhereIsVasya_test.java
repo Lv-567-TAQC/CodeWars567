@@ -1,6 +1,7 @@
-package com.ss.ita.andriikapustiak_tests;
+package com.ss.ita.kata.seven;
 
 import com.ss.ita.kata.Seven;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -24,10 +25,10 @@ class WhereIsVasya_Test {
         for(Seven implementation : implementations){
             System.out.println(String.format("Checking for implementation: %s", implementation));
 
-            assertEquals(2, implementation.whereIsHe(3, 1, 1));
+            Assertions.assertEquals(2, implementation.whereIsHe(3, 1, 1));
             String.format("Test %s failed!",implementation.getClass());
 
-            assertEquals(3, implementation.whereIsHe(5, 2, 3));
+            Assertions.assertEquals(3, implementation.whereIsHe(5, 2, 3));
             String.format("Test %s failed!",implementation.getClass());
         }
     }

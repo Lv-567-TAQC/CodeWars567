@@ -1,8 +1,9 @@
-package com.ss.ita.test;
+package com.ss.ita.kata.five;
 
 
 import com.ss.ita.kata.Five;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.*;
 
@@ -56,22 +57,22 @@ public class FiveImplTest {
             System.out.println("Checking for implementation: " + impl);
             long[] actual = impl.smallest(261235L);
             long[] expected = {126235, 2, 0};
-            assertArrayEquals(expected, actual, String.format("Test %s failed!", impl));
+            Assertions.assertArrayEquals(expected, actual, String.format("Test %s failed!", impl));
             long[] actual1 = impl.smallest(209917L);
             long[] expected1 = {29917, 0, 1};
-            assertArrayEquals(expected1, actual1, String.format("Test %s failed!", impl));
+            Assertions.assertArrayEquals(expected1, actual1, String.format("Test %s failed!", impl));
             long[] actual2 = impl.smallest(285365);
             long[] expected2 = {238565, 3, 1};
-            assertArrayEquals(expected2, actual2, String.format("Test %s failed!", impl));
+            Assertions.assertArrayEquals(expected2, actual2, String.format("Test %s failed!", impl));
             long[] actual3 = impl.smallest(296837L);
             long[] expected3 = {239687, 4, 1};
-            assertArrayEquals(expected3, actual3, String.format("Test %s failed!", impl));
+            Assertions.assertArrayEquals(expected3, actual3, String.format("Test %s failed!", impl));
             long[] actual4 = impl.smallest(0);
             long[] expected4 = {0, 0, 0};
-            assertArrayEquals(expected4, actual4, String.format("Test %s failed!", impl));
+            Assertions.assertArrayEquals(expected4, actual4, String.format("Test %s failed!", impl));
             long[] actual5 = impl.smallest(11111);
             long[] expected5 = {11111, 0, 0};
-            assertArrayEquals(actual5, expected5, String.format("Test %s failed!", impl));
+            Assertions.assertArrayEquals(actual5, expected5, String.format("Test %s failed!", impl));
         }
     }
 
@@ -82,7 +83,7 @@ public class FiveImplTest {
             System.out.println("Checking for implementation: " + impl);
             long[] actual = impl.smallest(-296837L);
             long[] expected = {-1, -1, -1};
-            assertArrayEquals(expected, actual, String.format("Test %s failed - negative value!", impl));
+            Assertions.assertArrayEquals(expected, actual, String.format("Test %s failed - negative value!", impl));
         }
     }
 }

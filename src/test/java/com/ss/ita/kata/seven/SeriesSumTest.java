@@ -1,7 +1,8 @@
-package com.ss.test;
+package com.ss.ita.kata.seven;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertArrayEquals;
@@ -40,7 +41,7 @@ class SeriesSumTest {
 			
 			
 			try {
-				assertTrue(waitedresult1.equals(output) || waitedresult2.equals(output));
+				Assertions.assertTrue(waitedresult1.equals(output) || waitedresult2.equals(output));
 			} catch(AssertionError e) {
 				System.out.println("Negative realization");
 			}
@@ -61,7 +62,7 @@ class SeriesSumTest {
 			String output = implementation.seriesSum(number);	
 			System.out.println(output);
 			try {
-				assertTrue(waitedresult1.equals(output));
+				Assertions.assertTrue(waitedresult1.equals(output));
 			} catch(AssertionError e) {
 				failedAssert.add(e);
 			}

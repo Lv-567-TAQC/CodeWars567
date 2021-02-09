@@ -1,6 +1,8 @@
-package com.ss.test;
+package com.ss.ita.kata.six;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertArrayEquals;
@@ -34,7 +36,7 @@ class HelpTheBooksellerTest {
 			String art[] = new String[]{"ABAR 200", "CDXE 500", "BKWR 250", "BTSQ 890", "DRTY 600"};
 			String cd[] = new String[] {"A", "B"};			
 			try {
-				assertTrue("(A : 200) - (B : 1140)".equals( implementation.stockSummary(art, cd)));
+				Assertions.assertTrue("(A : 200) - (B : 1140)".equals( implementation.stockSummary(art, cd)));
 			} catch(AssertionError e) {
 				System.out.println("Negative realization");
 			}				
@@ -49,7 +51,7 @@ class HelpTheBooksellerTest {
 			String art[] = new String[]{"200 ABAR", "500 CDXE", "250 BKWR", "890 BTSQ", "600 DRTY"};
 			String cd[] = new String[] {"A", "B"};			
 			try {
-				assertTrue("(A : 200) - (B : 1140)".equals( implementation.stockSummary(art, cd)));
+				Assertions.assertTrue("(A : 200) - (B : 1140)".equals( implementation.stockSummary(art, cd)));
 			} catch(AssertionError e) {
 				System.out.println("+");
 			}				

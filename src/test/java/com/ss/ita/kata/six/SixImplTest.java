@@ -1,4 +1,4 @@
-package com.ss.ita.test;
+package com.ss.ita.kata.six;
 
 
 import com.ss.ita.kata.Six;
