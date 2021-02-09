@@ -32,6 +32,9 @@ public class SevenImplementation implements Seven {
     @Override
     public String seriesSum(int n) {
         String result = "";
+        if(n<0){
+            return result;
+        }
         double seriesResult = 0;
         double numerator = 1;
         double denominator = 1;

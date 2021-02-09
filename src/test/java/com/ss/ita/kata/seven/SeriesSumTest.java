@@ -1,17 +1,12 @@
 package com.ss.ita.kata.seven;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import com.ss.ita.kata.Seven;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import static org.junit.Assert.*;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.ss.ita.kata.Seven;
 
 class SeriesSumTest {
 
@@ -19,7 +14,7 @@ class SeriesSumTest {
 	
 	List <Seven> implementations = Arrays.asList(
 			new com.ss.ita.kata.implementation.Nnn7.SevenImpl(),
-			new com.ss.ita.kata.implementation.andriikapustiak.SevenImpl(), 
+			new com.ss.ita.kata.implementation.andriikapustiak.SevenImpl(),
 			new com.ss.ita.kata.implementation.khrystiash.SevenImplementation(),
 			new com.ss.ita.kata.implementation.kuderiavetsnata.SevenImpl(),
 			new com.ss.ita.kata.implementation.nataliia0223.SevenImpl(),
