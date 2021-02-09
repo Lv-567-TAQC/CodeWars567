@@ -8,7 +8,21 @@ public class FiveImpl implements Five {
 
     @Override
     public int artificialRain(int[] v) {
-        return 0;
+        int height = 0;
+        int size = 1;
+        int low = 0;
+        for (int i = 1; i < v.length; i++) {
+            int k = v[i];
+            if (k > v[i-1]) {
+                height = Math.max(height, size);
+                size = i - low;
+            }
+            if (k < v[i-1]) {
+                low = i;
+            }
+            size++;
+        }
+        return Math.max(height, size);
     }
 
     @Override
@@ -38,7 +52,6 @@ public class FiveImpl implements Five {
 
     @Override
     public double solveSum(double m) {
-
         return 1 + (1 - Math.sqrt(1 + 4 * m)) / (2 * m);
     }
 
