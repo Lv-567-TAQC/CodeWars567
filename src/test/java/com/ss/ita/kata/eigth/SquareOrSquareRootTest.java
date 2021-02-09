@@ -1,4 +1,4 @@
-package com.ss.test;
+package com.ss.ita.kata.eigth;
 
 import static org.junit.Assert.*;
 
@@ -28,18 +28,23 @@ class SquareOrSquareRootTest {
 	@Test
 	public void testPositive() {	
 		for(Eight implementation: implementations) {
-			System.out.println(String.format("Checking for implementation: %s", implementation));
+			System.out.println(String.format("TestPositive checking for implementation: %s", implementation));
 			int[] arr = {4, 3, 9, 7, 2, 1};
 			int[] waitedresult = {2, 9, 3, 49, 4, 1};	
-			int[] output = implementation.squareOrSquareRoot(arr);		
-			assertArrayEquals(waitedresult,output);
+			int[] output = implementation.squareOrSquareRoot(arr);					
+			try {
+				assertArrayEquals(waitedresult,output);
+			} catch(AssertionError e) {
+				System.out.println("Negative realization");
+			}
+			System.out.println("+");	
 		}		
 	}
 	
 	@Test
 	public void testNegative() {	
 		for(Eight implementation: implementations) {
-			System.out.println(String.format("Checking for implementation: %s", implementation));
+			System.out.println(String.format("TestNegative checking for implementation: %s", implementation));
 			boolean isResult = true;
 			 
 		    try{    
@@ -50,6 +55,7 @@ class SquareOrSquareRootTest {
 		        	}    
 			
 		    assertFalse(isResult);
+		    System.out.println("+");
 			}		
 	}
 	

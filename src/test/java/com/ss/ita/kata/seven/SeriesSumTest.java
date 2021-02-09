@@ -1,22 +1,15 @@
-package com.ss.test;
+package com.ss.ita.kata.seven;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
-
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import com.ss.ita.kata.Eight;
-import com.ss.ita.kata.Seven;
-import com.ss.ita.kata.implementation.Nnn7.SevenImpl;
-
 
 import com.ss.ita.kata.Seven;
 
@@ -37,7 +30,7 @@ class SeriesSumTest {
 	@Test
 	public void testPositive() {	
 		for(Seven implementation: implementations) {
-			System.out.println(String.format("Checking for implementation: %s", implementation));
+			System.out.println(String.format("TestPositive checking for implementation: %s", implementation));
 			int number = 9;
 			
 			String waitedresult1 = "1,77";
@@ -45,7 +38,14 @@ class SeriesSumTest {
 			boolean result;
 						
 			String output = implementation.seriesSum(number);		
-			assertTrue(waitedresult1.equals(output) || waitedresult2.equals(output));
+			
+			
+			try {
+				Assertions.assertTrue(waitedresult1.equals(output) || waitedresult2.equals(output));
+			} catch(AssertionError e) {
+				System.out.println("Negative realization");
+			}
+			System.out.println("+");
 		}		
 	}
 	
@@ -54,7 +54,7 @@ class SeriesSumTest {
 	void testNegative() {
 		List <AssertionError> failedAssert = new ArrayList<>();
 		for(Seven implementation: implementations) {
-			System.out.println(String.format("Checking for implementation: %s", implementation));
+			System.out.println(String.format("TestNegative checking for implementation: %s", implementation));
 			int number = -1;
 			
 			String waitedresult1 = "";
@@ -62,7 +62,7 @@ class SeriesSumTest {
 			String output = implementation.seriesSum(number);	
 			System.out.println(output);
 			try {
-				assertTrue(waitedresult1.equals(output));
+				Assertions.assertTrue(waitedresult1.equals(output));
 			} catch(AssertionError e) {
 				failedAssert.add(e);
 			}

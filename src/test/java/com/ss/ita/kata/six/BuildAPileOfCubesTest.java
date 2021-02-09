@@ -1,4 +1,4 @@
-package test;
+package com.ss.ita.kata.six;
 
 import static org.junit.Assert.*;
 import com.ss.ita.kata.Six;

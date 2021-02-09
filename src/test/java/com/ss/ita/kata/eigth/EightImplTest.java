@@ -1,4 +1,4 @@
-package com.ss.ita.test;
+package com.ss.ita.kata.eigth;
 
 import com.ss.ita.kata.Eight;
 import org.junit.Test;
