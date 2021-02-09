@@ -1,11 +1,12 @@
 package com.ss.ita.test;
 
-import static org.junit.Assert.*;
-
 import com.ss.ita.kata.Eight;
 import org.junit.Test;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class EightImplTest {
     List <Eight> impl = Arrays.asList(
