@@ -76,14 +76,19 @@ public class FiveImplementation implements Five {
         String numb = "";
         String[] result = new String[3];
         numb += n;
-
+        int count = 0;
         char smallest = numb.charAt(0);
+        for (int a = 1; a < numb.length(); a++) {
+            if (numb.charAt(0) == numb.charAt(a)) {
+                count++;
+            }
+        }
         for (int i = 0; i < numb.length(); i++) {
             for (int j = 1; j < numb.length(); j++) {
-                if (smallest > numb.charAt(j)) {
+                if (smallest > numb.charAt(j) || count==numb.length()-1) {
                     smallest = numb.charAt(j);
                 }
-                if (smallest == numb.charAt(0) && j !=1) {
+                if (smallest == numb.charAt(0) && j != 1 && count!=numb.length()-1) {
                     result[0] = String.valueOf(smallest);
                     smallest = numb.charAt(i + 1);
                     break;
