@@ -115,13 +115,22 @@ public class Runner {
 
     public void runTask6() {
         System.out.println("Convert A String To A Number");
-        System.out.println("Enter a string:");
+        System.out.println("Enter a string which can parse to int:");
         String input = scanner.readString();
+        while (true) {
+            try {
+                Integer.valueOf(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Enter a string which can parse to int:");
+                input = scanner.readString();
+            }
+        }
         String res = String.valueOf(eight.stringToNumber(input));
         System.out.println(res);
     }
 
-    public void runTask7(){
+    public void runTask7() {
         System.out.println("Wilson Primes");
         System.out.println("Enter double number:");
         double input = scanner.readDouble();
@@ -129,7 +138,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask8(){
+    public void runTask8() {
         System.out.println("Formatting decimal places:");
         System.out.println("Enter double number:");
         double input = scanner.readDouble();
@@ -137,12 +146,12 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask9(){
+    public void runTask9() {
         System.out.println("Find numbers which are divisible by given number:");
         System.out.println("Enter int:");
         int inputInt = scanner.readInt();
         System.out.println("Enter array of integers:");
-        int [] inputArrInt = scanner.readIntArray();
+        int[] inputArrInt = scanner.readIntArray();
         String res = String.valueOf(eight.divisibleBy(inputArrInt, inputInt));
         System.out.println(res);
     }
@@ -153,7 +162,7 @@ public class Runner {
         double[] donations = scanner.readDoubleArray();
         System.out.println("Enter int desired average number:");
         int average = scanner.readInt();
-        String res = String.valueOf(seven.newAvg(donations,average));
+        String res = String.valueOf(seven.newAvg(donations, average));
         System.out.println(res);
     }
 
@@ -174,7 +183,7 @@ public class Runner {
         int bef = scanner.readInt();
         System.out.println("Enter int after number:");
         int aft = scanner.readInt();
-        String res = String.valueOf(seven.whereIsHe(p,bef,aft));
+        String res = String.valueOf(seven.whereIsHe(p, bef, aft));
         System.out.println(res);
     }
 
@@ -236,7 +245,7 @@ public class Runner {
     public void runTask19() {
         System.out.println("Running Artificial Rain:");
         System.out.println("Enter array of integers:");
-        int [] inputArrInt = scanner.readIntArray();
+        int[] inputArrInt = scanner.readIntArray();
         String res = String.valueOf(five.artificialRain(inputArrInt));
         System.out.println(res);
     }
@@ -261,7 +270,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask22(){
+    public void runTask22() {
         System.out.println("Perimeter of squares in a rectangle:");
         System.out.println("Enter (Biginteger >=0) which will be number of squares -1:");
         BigInteger number = scanner.readBigInt();
@@ -269,7 +278,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask23(){
+    public void runTask23() {
         System.out.println("Which x for that sum?:");
         System.out.println("Enter (double >=0) which will be sum of numerical series");
         double number = scanner.readDouble();
@@ -277,7 +286,7 @@ public class Runner {
         System.out.println(res);
     }
 
-    public void runTask24(){
+    public void runTask24() {
         System.out.println("Find the smallest:");
         System.out.println("Enter long number in which the digits will be rearranged to find the smallest number can get:");
         long number = scanner.readLong();
