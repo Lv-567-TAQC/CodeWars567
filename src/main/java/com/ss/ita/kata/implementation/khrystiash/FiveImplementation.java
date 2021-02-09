@@ -80,6 +80,12 @@ public class FiveImplementation implements Five {
         int count = 0;
         int count1 = 0;
         char smallest = numb.charAt(0);
+        if (n < 0) {
+            res[0] = -1;
+            res[1] = -1;
+            res[2] = -1;
+            return res;
+        }
         for (int a = 1, b = 2; a < numb.length() && b < numb.length(); a++, b++) {
             if (numb.charAt(0) == numb.charAt(a)) {
                 count++;
