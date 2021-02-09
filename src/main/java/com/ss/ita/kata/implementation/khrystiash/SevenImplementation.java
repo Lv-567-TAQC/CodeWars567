@@ -10,19 +10,20 @@ public class SevenImplementation implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
         double nextDonation = 0;
-        for (int i = 0; i < arr.length; i++){
+        for (int i = 0; i < arr.length; i++) {
             nextDonation += arr[i];
         }
         nextDonation = (navg * (arr.length + 1)) - nextDonation;
-        try{
-            if (nextDonation <= 0) {
-                throw new NegativeDonationException();
-            }
-        }catch(NegativeDonationException e){
-            System.out.print("Exception: "+e.toString());
+        if (nextDonation <= 0) {
+            throw new IllegalArgumentException();
         }
-        if ((nextDonation * ONE_NUMBER_AFTER_COMMA)/ONE_NUMBER_AFTER_COMMA
-                - ((int)((nextDonation * ONE_NUMBER_AFTER_COMMA)/ONE_NUMBER_AFTER_COMMA))
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                throw new IllegalArgumentException();
+            }
+        }
+        if ((nextDonation * ONE_NUMBER_AFTER_COMMA) / ONE_NUMBER_AFTER_COMMA
+                - ((int) ((nextDonation * ONE_NUMBER_AFTER_COMMA) / ONE_NUMBER_AFTER_COMMA))
                 >= CONDITION_ROUNDING_UP) {
             nextDonation++;
         }
@@ -55,11 +56,5 @@ public class SevenImplementation implements Seven {
             }
         }
         return positionsNumber;
-    }
-}
-
-class NegativeDonationException extends Exception{
-    public String toString(){
-        return "Next donation is 0 or negative value --> ";
     }
 }
