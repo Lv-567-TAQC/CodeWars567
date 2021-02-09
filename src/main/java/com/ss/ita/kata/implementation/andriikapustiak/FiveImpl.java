@@ -6,9 +6,39 @@ import java.math.BigInteger;
 
 public class FiveImpl implements Five {
     @Override
-    public int artificialRain(int[] v) {
-        return 0;
-    }
+
+        public int artificialRain(int[] v) {
+            int maxWateredSections = 0;
+
+            int numberOfSections = v.length;
+            int[] leftPartOfWateredSection = new int[numberOfSections];
+            int[] rightPartOfWateredSection = new int[numberOfSections];
+
+            //Left side
+            for (int i=1;i<numberOfSections;i++){
+                if(v[i]>=v[i-1]){
+                    leftPartOfWateredSection[i]=leftPartOfWateredSection[i-1]+1;
+                }
+                else {
+                    leftPartOfWateredSection[i]=0;
+                }
+            }
+
+            //right side
+            for (int i=v.length-2;i>=0;i--){
+                if(v[i]>=v[i+1]){
+                    rightPartOfWateredSection[i]=rightPartOfWateredSection[i+1]+1;
+                }
+                else {
+                    rightPartOfWateredSection[i]=0;
+                }
+            }
+            for(int i=0;i<v.length;i++){
+                maxWateredSections = Math.max(maxWateredSections,leftPartOfWateredSection[i]+rightPartOfWateredSection[i]);
+            }
+            return maxWateredSections+1;
+        }
+
 
     @Override
     public long[] gap(int g, long m, long n) {
