@@ -8,6 +8,7 @@ import java.util.*;
 
 
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class FiveImplTest {
     List<Five> impl = Arrays.asList(
@@ -46,6 +47,42 @@ public class FiveImplTest {
             int actual = impl.zeros(14);
             int expected = 2;
             assertEquals(actual, expected);
+        }
+    }
+
+    @org.junit.jupiter.api.Test
+    public void smallestPositive() {
+        for (Five impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
+            long[] actual = impl.smallest(261235L);
+            long[] expected = {126235, 2, 0};
+            assertArrayEquals(expected, actual, String.format("Test %s failed!", impl));
+            long[] actual1 = impl.smallest(209917L);
+            long[] expected1 = {29917, 0, 1};
+            assertArrayEquals(expected1, actual1, String.format("Test %s failed!", impl));
+            long[] actual2 = impl.smallest(285365);
+            long[] expected2 = {238565, 3, 1};
+            assertArrayEquals(expected2, actual2, String.format("Test %s failed!", impl));
+            long[] actual3 = impl.smallest(296837L);
+            long[] expected3 = {239687, 4, 1};
+            assertArrayEquals(expected3, actual3, String.format("Test %s failed!", impl));
+            long[] actual4 = impl.smallest(0);
+            long[] expected4 = {0, 0, 0};
+            assertArrayEquals(expected4, actual4, String.format("Test %s failed!", impl));
+            long[] actual5 = impl.smallest(11111);
+            long[] expected5 = {11111, 0, 0};
+            assertArrayEquals(actual5, expected5, String.format("Test %s failed!", impl));
+        }
+    }
+
+
+    @org.junit.jupiter.api.Test
+    public void smallestNegative() {
+        for (Five impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
+            long[] actual = impl.smallest(-296837L);
+            long[] expected = {-1, -1, -1};
+            assertArrayEquals(expected, actual, String.format("Test %s failed - negative value!", impl));
         }
     }
 }
