@@ -13,11 +13,11 @@ public class FiveImpl implements Five {
         int low = 0;
         for (int i = 1; i < v.length; i++) {
             int k = v[i];
-            if (k > v[i-1]) {
+            if (k > v[i - 1]) {
                 height = Math.max(height, size);
                 size = i - low;
             }
-            if (k < v[i-1]) {
+            if (k < v[i - 1]) {
                 low = i;
             }
             size++;
@@ -57,6 +57,25 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
-        return new long[0];
+        long[] arr = new long[3];
+        String str = n + "";
+
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = 0; j < str.length(); j++) {
+                StringBuffer sb = new StringBuffer(str);
+                char ch = sb.charAt(i);
+                sb.delete(i, i + 1);
+                sb.insert(j, ch);
+                long number = Long.valueOf(sb.toString());
+
+                if (number < n) {
+                    n = number;
+                    arr[0] = n;
+                    arr[1] = i;
+                    arr[2] = j;
+                }
+            }
+        }
+        return arr;
     }
 }
