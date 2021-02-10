@@ -1,4 +1,4 @@
-package java.com.ss.ita.kata.eigth;
+package com.ss.ita.kata.eigth;
 
 import com.ss.ita.kata.Eight;
 import org.junit.jupiter.api.Assertions;
