@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.khrystiash;
 import com.ss.ita.kata.Eight;
 
 public class EightImplementation implements Eight {
+
     public static final double LITERS_PER_HOUR = 0.5;
     public static final int ASCII_NUMBER_NULL = 48;
     public static final int NUMBER_POSITION_INCREASER = 10;
