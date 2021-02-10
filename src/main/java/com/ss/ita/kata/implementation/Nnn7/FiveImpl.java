@@ -98,7 +98,7 @@ public class FiveImpl implements Five{
 	@Override
 	public long[] smallest(long n) {
 	    if(n<0){
-	    	long[] r = {-1};
+	    	long[] r = {-1, -1, -1};
 	        return r;
 	    	}    
 		String[] symbols = String.valueOf(n).split("");
