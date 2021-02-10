@@ -20,11 +20,11 @@ import com.ss.ita.kata.implementation.Nnn7.SixImpl;
 class HelpTheBooksellerTest {	
 	List <Six> implementations = Arrays.asList(
 			new com.ss.ita.kata.implementation.Nnn7.SixImpl(), 
-			//new com.ss.ita.kata.implementation.andriikapustiak.SevenImpl(), 
+			new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
 			new com.ss.ita.kata.implementation.khrystiash.SixImplementation(),
-			//new com.ss.ita.kata.implementation.kuderiavetsnata.SevenImpl(),
-			//new com.ss.ita.kata.implementation.nataliia0223.SevenImpl(),
-			//new com.ss.ita.kata.implementation.romankhvalbota.SevenImpl(),
+			new com.ss.ita.kata.implementation.kuderiavetsnata.SixImpl(),
+			new com.ss.ita.kata.implementation.nataliia0223.SixImpl(),
+			new com.ss.ita.kata.implementation.romankhvalbota.SixImpl(),
 			new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp());
 	
 

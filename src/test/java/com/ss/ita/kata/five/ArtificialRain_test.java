@@ -14,12 +14,10 @@ class ArtificialRain_Test {
             new com.ss.ita.kata.implementation.Nnn7.FiveImpl(),
             new com.ss.ita.kata.implementation.andriikapustiak.FiveImpl(),
             new com.ss.ita.kata.implementation.khrystiash.FiveImplementation(),
-//            new com.ss.ita.kata.implementation.kuderiavetsnata.FiveImpl(),
+            new com.ss.ita.kata.implementation.kuderiavetsnata.FiveImpl(),
             new com.ss.ita.kata.implementation.nataliia0223.FiveImpl(),
-//            new com.ss.ita.kata.implementation.romankhvalbota.FiveImpl(),
+            new com.ss.ita.kata.implementation.romankhvalbota.FiveImpl(),
             new com.ss.ita.kata.implementation.vladislavshevhcuk.FiveImp() );
-
-
 
     @Test
     public void regularTest() {

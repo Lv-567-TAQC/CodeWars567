@@ -40,7 +40,7 @@ public class LookingForABenefactorTest {
             long expected3 = 628;
             assertEquals(expected3, actual3, String.format("Test %s failed!", impl));
             long actual6 = impl.newAvg(new double[]{21.4, 354.2, 23.5, 23.6}, 341);
-            long expected6 = 1282;
+            long expected6 = 1283;
             assertEquals(expected6, actual6, String.format("Test %s failed!", impl));
         }
     }

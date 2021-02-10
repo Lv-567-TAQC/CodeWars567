@@ -1,4 +1,4 @@
-package java.com.ss.ita.kata.eigth;
+package com.ss.ita.kata.eigth;
 
 
 import com.ss.ita.kata.Eight;
@@ -33,9 +33,9 @@ public class MilesPerGallonToKilometersPerLiter {
     public void mpgToKPMNull() {
         for (Eight impl : impl) {
             System.out.println("Checking for implementation: " + impl);
-            float actual1 = impl.mpgToKPM(0);
-            float expected1 = 0.0f;
-            assertEquals(actual1, expected1, String.format("Test %s failed!", impl));
+            float actual = impl.mpgToKPM(0);
+            float expected = 0.0f;
+            assertEquals(expected, actual, String.format("Test %s failed!", impl));
         }
     }
 
@@ -43,9 +43,9 @@ public class MilesPerGallonToKilometersPerLiter {
     public void mpgToKPMSimpleInt() {
         for (Eight impl : impl) {
             System.out.println("Checking for implementation: " + impl);
-            float actual2 = impl.mpgToKPM(4);
-            float expected2 = 1.42f;
-            assertEquals(actual2, expected2, String.format("Test %s failed!", impl));
+            float actual = impl.mpgToKPM(4);
+            float expected = 1.42f;
+            assertEquals(expected, actual, String.format("Test %s failed!", impl));
         }
     }
 
@@ -53,9 +53,9 @@ public class MilesPerGallonToKilometersPerLiter {
     public void mpgToKPMSimpleFloat() {
         for (Eight impl : impl) {
             System.out.println("Checking for implementation: " + impl);
-            float actual3 = impl.mpgToKPM(4.6f);
-            float expected3 = 1.63f;
-            assertEquals(actual3, expected3, String.format("Test %s failed!", impl));
+            float actual = impl.mpgToKPM(4.6f);
+            float expected = 1.63f;
+            assertEquals(expected, actual, String.format("Test %s failed!", impl));
         }
     }
 
@@ -66,7 +66,7 @@ public class MilesPerGallonToKilometersPerLiter {
             System.out.println("Checking for implementation: " + impl);
             float actual = impl.mpgToKPM(-4);
             float expected = -1;
-            assertEquals(actual, expected, String.format("Test %s failed - negative value!", impl));
+            assertEquals(expected, actual, String.format("Test %s failed - negative value!", impl));
         }
     }
 }
