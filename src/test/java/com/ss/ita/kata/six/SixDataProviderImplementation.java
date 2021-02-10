@@ -1,4 +1,5 @@
 package com.ss.ita.kata.six;
+
 import com.ss.ita.kata.Six;
 import org.junit.runners.Parameterized;
 
@@ -8,7 +9,9 @@ import java.util.List;
 
 public class SixDataProviderImplementation {
 
+
     @Parameterized.Parameters(name = "DataProvider {0}")
+
     public static Collection<Six> versionImplementation(){
         List<Six> sixImpl = Arrays.asList(
                 new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
@@ -20,6 +23,7 @@ public class SixDataProviderImplementation {
                 new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp());
         return sixImpl;
     }
+
 
 
 }
