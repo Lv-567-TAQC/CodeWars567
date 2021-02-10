@@ -1,82 +1,67 @@
 package com.ss.ita.kata.five;
 
-
 import com.ss.ita.kata.Five;
-
-import java.util.Arrays;
-import java.util.List;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+@RunWith(Parameterized.class)
+public class FindTheSmallestTest extends com.ss.ita.kata.five.FiveDataProviderImplementation {
+    private final Five implementation;
 
-public class FindTheSmallestTest {
-    List<Five> impl = Arrays.asList(
-            new com.ss.ita.kata.implementation.Nnn7.FiveImpl(),
-            new com.ss.ita.kata.implementation.andriikapustiak.FiveImpl(),
-            new com.ss.ita.kata.implementation.khrystiash.FiveImplementation(),
-            new com.ss.ita.kata.implementation.kuderiavetsnata.FiveImpl(),
-            new com.ss.ita.kata.implementation.nataliia0223.FiveImpl(),
-            new com.ss.ita.kata.implementation.romankhvalbota.FiveImpl(),
-            new com.ss.ita.kata.implementation.vladislavshevhcuk.FiveImp());
+    public FindTheSmallestTest(final Five implementation) {
+        this.implementation = implementation;
+    }
 
-
-    @org.junit.jupiter.api.Test
+    @Test
     public void smallestSimple() {
-        for (Five impl : impl) {
-            System.out.println("Checking for implementation: " + impl);
-            long[] actual = impl.smallest(261235L);
-            long[] expected = {126235, 2, 0};
-            assertArrayEquals(expected, actual, String.format("Test %s failed!", impl));
-            long[] actual1 = impl.smallest(209917L);
-            long[] expected1 = {29917, 0, 1};
-            assertArrayEquals(expected1, actual1, String.format("Test %s failed!", impl));
-            long[] actual2 = impl.smallest(285365);
-            long[] expected2 = {238565, 3, 1};
-            assertArrayEquals(expected2, actual2, String.format("Test %s failed!", impl));
-            long[] actual3 = impl.smallest(296837L);
-            long[] expected3 = {239687, 4, 1};
-            assertArrayEquals(expected3, actual3, String.format("Test %s failed!", impl));
-        }
+        System.out.println("Checking for implementation: " + implementation);
+        long[] actual = implementation.smallest(261235L);
+        long[] expected = {126235, 2, 0};
+        assertArrayEquals(expected, actual, String.format("Test %s failed!", implementation));
+        long[] actual1 = implementation.smallest(209917L);
+        long[] expected1 = {29917, 0, 1};
+        assertArrayEquals(expected1, actual1, String.format("Test %s failed!", implementation));
+        long[] actual2 = implementation.smallest(285365);
+        long[] expected2 = {238565, 3, 1};
+        assertArrayEquals(expected2, actual2, String.format("Test %s failed!", implementation));
+        long[] actual3 = implementation.smallest(296837L);
+        long[] expected3 = {239687, 4, 1};
+        assertArrayEquals(expected3, actual3, String.format("Test %s failed!", implementation));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void smallestNull() {
-        for (Five impl : impl) {
-            System.out.println("Checking for implementation: " + impl);
-            long[] actual4 = impl.smallest(0);
-            long[] expected4 = {0, 0, 0};
-            assertArrayEquals(expected4, actual4, String.format("Test %s failed!", impl));
-        }
+        System.out.println("Checking for implementation: " + implementation);
+        long[] actual4 = implementation.smallest(0);
+        long[] expected4 = {0, 0, 0};
+        assertArrayEquals(expected4, actual4, String.format("Test %s failed!", implementation));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void smallestAllEquals() {
-        for (Five impl : impl) {
-            System.out.println("Checking for implementation: " + impl);
-            long[] actual5 = impl.smallest(11111);
-            long[] expected5 = {11111, 0, 0};
-            assertArrayEquals(expected5, actual5, String.format("Test %s failed!", impl));
-        }
+        System.out.println("Checking for implementation: " + implementation);
+        long[] actual5 = implementation.smallest(11111);
+        long[] expected5 = {11111, 0, 0};
+        assertArrayEquals(expected5, actual5, String.format("Test %s failed!", implementation));
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void smallestFirstDifferent() {
-        for (Five impl : impl) {
-            System.out.println("Checking for implementation: " + impl);
-            long[] actual6 = impl.smallest(1000000);
-            long[] expected6 = {1, 0, 6};
-            assertArrayEquals(expected6, actual6, String.format("Test %s failed!", impl));
-        }
+        System.out.println("Checking for implementation: " + implementation);
+        long[] actual6 = implementation.smallest(1000000);
+        long[] expected6 = {1, 0, 6};
+        assertArrayEquals(expected6, actual6, String.format("Test %s failed!", implementation));
     }
 
 
-    @org.junit.jupiter.api.Test
+    @Test
     public void smallestNegative() {
-        for (Five impl : impl) {
-            System.out.println("Checking for implementation: " + impl);
-            long[] actual = impl.smallest(-296837L);
-            long[] expected = {-1, -1, -1};
-            assertArrayEquals(expected, actual, String.format("Test %s failed - negative value!", impl));
-        }
+        System.out.println("Checking for implementation: " + implementation);
+        long[] actual = implementation.smallest(-296837L);
+        long[] expected = {-1, -1, -1};
+        assertArrayEquals(expected, actual, String.format("Test %s failed - negative value!", implementation));
     }
 }
