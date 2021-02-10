@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(Parameterized.class)
-public class KeepHydratedTest extends EightDataProviderImplementation{
+public class KeepHydratedTest extends EightDataProviderImplementation {
 
     private final Eight implementation;
 
@@ -18,19 +18,21 @@ public class KeepHydratedTest extends EightDataProviderImplementation{
 
     @Test
     public void KeepHydratedTest1() {
-        assertEquals(2,implementation.liters(5));
+        assertEquals(2, implementation.liters(5));
 
     }
 
     @Test
-    public void KeepHydratedTest2() {
-        assertEquals(0,implementation.liters(0));
+    public void KeepHydratedTestZero() {
+        assertEquals(0, implementation.liters(0));
 
     }
 
     @Test
-    public void KeepHydratedTest3() {
-        assertEquals(0,implementation.liters(-1));
+    public void KeepHydratedTestNegativeNumb() {
+        assertEquals(0, implementation.liters(-1));
 
     }
+
+
 }
