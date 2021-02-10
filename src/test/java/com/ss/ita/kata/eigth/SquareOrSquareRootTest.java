@@ -1,34 +1,25 @@
 package com.ss.ita.kata.eigth;
 
+
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import org.junit.jupiter.api.Test;
 import com.ss.ita.kata.Eight;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.lang.NullPointerException;
+@RunWith(Parameterized.class)
+public class SquareOrSquareRootTest extends com.ss.ita.kata.eigth.EightDataProviderImplementation {
 
-class SquareOrSquareRootTest {
+    private final Eight implementation;
 
-	List <Eight> implementations = Arrays.asList(
-				new com.ss.ita.kata.implementation.Nnn7.EightImpl(),
-				new com.ss.ita.kata.implementation.andriikapustiak.EightImpl(), 
-				new com.ss.ita.kata.implementation.khrystiash.EightImplementation(),
-				new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl(),
-				new com.ss.ita.kata.implementation.nataliia0223.EightImpl(),
-				new com.ss.ita.kata.implementation.romankhvalbota.EightImpl(),
-				new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp() );
-		
-	
-	
-	
-	@Test
-	public void testPositive() {	
-		for(Eight implementation: implementations) {
-			System.out.println(String.format("TestPositive checking for implementation: %s", implementation));
+    public SquareOrSquareRootTest(final Eight implementation) {
+        this.implementation = implementation;
+    }
+
+    @Test
+    public void TestPositive() {
+       System.out.println(String.format("TestPositive checking for implementation: %s", implementation));
 			int[] arr = {4, 3, 9, 7, 2, 1};
 			int[] waitedresult = {2, 9, 3, 49, 4, 1};	
 			int[] output = implementation.squareOrSquareRoot(arr);					
@@ -38,13 +29,11 @@ class SquareOrSquareRootTest {
 				System.out.println("Negative realization");
 			}
 			System.out.println("+");	
-		}		
-	}
-	
-	@Test
-	public void testNegative() {	
-		for(Eight implementation: implementations) {
-			System.out.println(String.format("TestNegative checking for implementation: %s", implementation));
+    }
+
+    @Test
+    public void TestNegative() {
+        System.out.println(String.format("TestNegative checking for implementation: %s", implementation));
 			boolean isResult = true;
 			 
 		    try{    
@@ -56,11 +45,5 @@ class SquareOrSquareRootTest {
 			
 		    assertFalse(isResult);
 		    System.out.println("+");
-			}		
-	}
-	
-	
-	
-	
-	
+    }   
 }
