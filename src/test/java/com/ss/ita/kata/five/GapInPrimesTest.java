@@ -1,15 +1,16 @@
 package com.ss.ita.kata.five;
 
-import static org.junit.Assert.*;
 import com.ss.ita.kata.Five;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import java.util.*;
+import java.util.Arrays;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class GapInPrimesTest extends FiveDataProviderImplementation{
+public class GapInPrimesTest extends com.ss.ita.kata.five.FiveDataProviderImplementation {
     public final Five implementation;
 
     public GapInPrimesTest(final Five implementation){this.implementation = implementation;}

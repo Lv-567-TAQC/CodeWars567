@@ -14,11 +14,11 @@ public class FiveImplementation implements Five {
         int sections_value_new = 0;
         for (int i = 0, j = 0; i < v.length; i++) {
             j = i;
-            while (j < v.length-1) {
+            while (j < v.length - 1) {
                 if (v[j] >= v[j + 1]) {
                     sections_value_new++;
                     j++;
-                }else {
+                } else {
                     j++;
                     break;
                 }
@@ -28,7 +28,7 @@ public class FiveImplementation implements Five {
                 if (v[j] >= v[j - 1]) {
                     sections_value_new++;
                     j--;
-                }else {
+                } else {
                     j--;
                     break;
                 }
@@ -43,23 +43,67 @@ public class FiveImplementation implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long[] result = new long[2];
+        boolean isPrime = false;
+        long first = 0;
+        long second = 0;
+        if (n < m) {
+            return null;
+        }
+        if (n > 1100000) {
+            return null;
+        }
+        if (g < 2) {
+            return null;
+        }
+        if (m <= 2 || m == n) {
+            return null;
+        }
+
+        for (long i = m; i <= n; i = i + 1) {
+            for (int j = 2; j <= i / 2; j++) {
+                if (i % j == 0) {
+                    isPrime = true;
+                    break;
+                }
+            }
+            if (!isPrime) {
+                if (first == 0) {
+                    first = i;
+                } else {
+                    if (i - first == g) {
+                        second = i;
+                        break;
+                    } else {
+                        first = i;
+                    }
+                }
+            }
+            isPrime = false;
+        }
+        if (second - first == g) {
+            result[0] = first;
+            result[1] = second;
+            return result;
+        } else {
+            return null;
+        }
     }
 
     @Override
     public int zeros(int n) {
-        return n/COUNT_OF_NUMBERS_FOR_ONE_MORE_NULL;
+        return n / COUNT_OF_NUMBERS_FOR_ONE_MORE_NULL;
     }
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        BigInteger first =BigInteger.valueOf(0);
+        BigInteger first = BigInteger.valueOf(0);
         BigInteger second = BigInteger.valueOf(1);
         BigInteger sum = BigInteger.valueOf(0);
         BigInteger copy_second = second;
-        for (int i=0;i <= n.intValue();i++){
-            sum=sum.add(second);
-            second=second.add(first);
+        for (int i = 0; i <= n.intValue(); i++) {
+            sum = sum.add(second);
+            second = second.add(first);
             first = copy_second;
             copy_second = second;
         }
@@ -68,7 +112,7 @@ public class FiveImplementation implements Five {
 
     @Override
     public double solveSum(double m) {
-        return ((2*m+1)-Math.sqrt(((2*m+1)*(2*m+1))-(4*m*m)))/(2*m);
+        return ((2 * m + 1) - Math.sqrt(((2 * m + 1) * (2 * m + 1)) - (4 * m * m))) / (2 * m);
     }
 
     @Override
@@ -95,9 +139,9 @@ public class FiveImplementation implements Five {
             }
         }
         if (count1 == numb.length() - 2) {
-            res[0] = Long.parseLong(numb.substring(1)+numb.substring(0,1));
+            res[0] = Long.parseLong(numb.substring(1) + numb.substring(0, 1));
             res[1] = 0;
-            res[2] = numb.length()-1;
+            res[2] = numb.length() - 1;
             return res;
         }
         for (int i = 0; i < numb.length(); i++) {

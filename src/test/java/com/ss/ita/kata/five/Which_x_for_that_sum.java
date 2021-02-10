@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class Which_x_for_that_sum extends FiveDataProviderImplementation {
+public class Which_x_for_that_sum extends com.ss.ita.kata.five.FiveDataProviderImplementation {
 
     private final Five implementation;
 
