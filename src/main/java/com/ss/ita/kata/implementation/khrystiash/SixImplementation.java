@@ -115,7 +115,6 @@ public class SixImplementation implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        String[] arrayGames = resultSheet.split(",");
         String result = "";
         int win = 0;
         int lose = 0;
@@ -123,55 +122,87 @@ public class SixImplementation implements Six {
         int score = 0;
         int conceded = 0;
         int points = 0;
-        if (resultSheet.equals("")) {
+        int count1 = 0;
+        String[] arrayGames = resultSheet.split(",");
+        int count = 0;
+        int[] gameRes = new int[2];
+        String name = "";
+        String name1 = "";
+
+        if (resultSheet.equals("") || toFind.equals("")) {
             return result;
         }
+        if (!resultSheet.contains(toFind)) {
+            return result = toFind + ":This team didn't play!";
+        }
+
         for (int i = 0; i < arrayGames.length; i++) {
-            if (!(arrayGames[i].contains(toFind))) {
-                continue;
-            } else if (arrayGames[i].contains(".")) {
+            if (arrayGames[i].contains(toFind)) {
+                count++;
+            }
+            if (arrayGames[i].contains(".")) {
                 return result = "Error (float number):" + arrayGames[i];
-            } else {
-                String[] game = arrayGames[i].split(" ");
-                int[] gameRes = new int[2];
-                int a = 0;
-                for (int j = 0; j < game.length; j++) {
-                    if (isInt(game[j])) {
-                        gameRes[a] = Integer.parseInt(game[j]);
-                        a++;
-                    }
-                }
-                if (game[0].matches(toFind + "(.*)")) {
-                    if (gameRes[0] > gameRes[1]) {
-                        score += gameRes[0];
-                        conceded += gameRes[1];
-                        win++;
-                    } else if (gameRes[0] == gameRes[1]) {
-                        score += gameRes[0];
-                        conceded += gameRes[1];
-                        draw++;
-                    } else {
-                        score += gameRes[0];
-                        conceded += gameRes[1];
-                        lose++;
-                    }
-                } else {
-                    if (gameRes[0] > gameRes[1]) {
-                        score += gameRes[1];
-                        conceded += gameRes[0];
-                        lose++;
-                    } else if (gameRes[0] == gameRes[1]) {
-                        score += gameRes[1];
-                        conceded += gameRes[0];
-                        draw++;
-                    } else {
-                        score += gameRes[1];
-                        conceded += gameRes[0];
-                        win++;
-                    }
-                }
             }
         }
+        String[] arrayTrueGames = new String[count];
+        count = 0;
+        for (int i = 0, j = 0; i < arrayGames.length && j < arrayTrueGames.length; i++) {
+            if (arrayGames[i].contains(toFind)) {
+                arrayTrueGames[j] = arrayGames[i];
+                j++;
+            }
+        }
+        for (int i = 0; i < arrayTrueGames.length; i++) {
+            String[] game = arrayTrueGames[i].split(" ");
+            for (int j = 0, a = 0; j < game.length && a < 2; j++) {
+                if (isInt(game[j])) {
+                    gameRes[a] = Integer.parseInt(game[j]);
+                    a++;
+                }
+                if (a == 0) {
+                    name += game[j] + " ";
+                    count++;
+                }
+                if (a == 1 && (!(isInt(game[j])))) {
+                    name1 += game[j] + " ";
+                    count1++;
+                }
+            }
+            name = name.substring(0, name.length() - 1);
+            name1 = name1.substring(0, name1.length() - 1);
+            if (name.matches(toFind)) {
+                if (gameRes[0] > gameRes[1]) {
+                    score += gameRes[0];
+                    conceded += gameRes[1];
+                    win++;
+                } else if (gameRes[0] == gameRes[1]) {
+                    score += gameRes[0];
+                    conceded += gameRes[1];
+                    draw++;
+                } else {
+                    score += gameRes[0];
+                    conceded += gameRes[1];
+                    lose++;
+                }
+            } else if (name1.matches(toFind)) {
+                if (gameRes[0] > gameRes[1]) {
+                    score += gameRes[1];
+                    conceded += gameRes[0];
+                    lose++;
+                } else if (gameRes[0] == gameRes[1]) {
+                    score += gameRes[1];
+                    conceded += gameRes[0];
+                    draw++;
+                } else {
+                    score += gameRes[1];
+                    conceded += gameRes[0];
+                    win++;
+                }
+            }
+            name = "";
+            name1 = "";
+        }
+
         if (win == 0 && lose == 0 && draw == 0) {
             result = toFind + ":This team didn't play!";
         } else {
@@ -199,11 +230,14 @@ public class SixImplementation implements Six {
         for (int j = 0; j < lstOf1stLetter.length; j++) {
             for (int i = 0; i < lstOfArt.length; i++) {
                 if (lstOfArt[i].charAt(0) == lstOf1stLetter[j].charAt(0)) {
-                    sum += Integer.valueOf(lstOfArt[i].substring(6));
                     bukva = lstOf1stLetter[j];
+                    sum += Integer.valueOf(lstOfArt[i].substring(lstOfArt[i].indexOf(" ")+1));
                 }
             }
-            result += "(" + bukva + " : " + sum + ") ";
+            result += "(" + bukva + " : " + sum + ")";
+            if(j<lstOf1stLetter.length-1){
+                result += " - ";
+            }
             sum = 0;
         }
         return result;

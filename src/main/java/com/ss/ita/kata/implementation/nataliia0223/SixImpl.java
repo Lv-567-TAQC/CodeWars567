@@ -2,6 +2,9 @@ package com.ss.ita.kata.implementation.nataliia0223;
 
 import com.ss.ita.kata.Six;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SixImpl implements Six {
 
     @Override
@@ -14,14 +17,32 @@ public class SixImpl implements Six {
         }
         if (volume == m) {
             return n - 1;
-        }else{
+        } else {
             return -1;
         }
     }
 
     @Override
     public String balance(String book) {
-        return null;
+        String s = book.replaceAll("([^\\n. \\da-zA-Z])", "");
+        String[] arr = s.split("[\\n]+");
+        double current = Double.parseDouble(arr[0]);
+        double total = 0;
+        int count = 0;
+        StringBuilder result = new StringBuilder();
+        result.append("Original Balance: ").append(arr[0]);
+
+        for (int i = 1; i < arr.length; i++) {
+            count++;
+            String[] line = arr[i].split("[ ]+");
+            current -= Double.parseDouble(line[2]);
+            total += Double.parseDouble(line[2]);
+            String res = String.format("\\r\\n%s %s %s Balance %.2f", line[0], line[1], line[2], current);
+            result.append(res);
+        }
+
+        result.append(String.format("\\r\\nTotal expense  %.2f\\r\\nAverage expense  %.2f", total, total / count));
+        return result.toString();
     }
 
     @Override
@@ -92,24 +113,105 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
-        return null;
+        if(resultSheet == ""){
+            return "";
+        }
+        int won = 0;
+        int draw = 0;
+        int lose = 0;
+        int pt = 0;
+        int pl = 0;
+        int mk = 0;
+
+        if (toFind.equals("")) {
+            return "";
+        }
+        boolean found = false;
+        String s = resultSheet.replaceAll("([0-9.]) ", "$1-");
+        s = s.replaceAll(" ([0-9.]*)(-)", "_$1$2").replaceAll(" ([0-9.]*)(,)", "_$1$2").replaceAll(" ([0-9.]*)$", "_$1");
+        String[] p = s.split(",");
+
+        for (int i = 0; i < p.length; i++) {
+            String[] match = p[i].split("-");
+            String[] matchA = match[0].split("_");
+            String teamA = matchA[0];
+            int pointsA = -1;
+
+            try {
+                pointsA = Integer.parseInt(matchA[1]);
+            } catch (Exception e) {
+                return "Error (float number):" + p[i].replaceAll("-", " ").replaceAll("_", " ");
+            }
+
+            String[] matchB = match[1].split("_");
+            String teamB = matchB[0];
+            int pointsB = -1;
+
+            try {
+                pointsB = Integer.parseInt(matchB[1]);
+            } catch (Exception e) {
+                return "Error(float number):" + p[i].replaceAll("-", " ").replaceAll("_", " ");
+            }
+
+            if (teamA.equals(toFind)) {
+                found = true;
+                if (pointsA > pointsB) {
+                    won++;
+                    mk += 3;
+                } else if (pointsA == pointsB) {
+                    draw++;
+                    mk += 1;
+                } else {
+                    lose++;
+                }
+                pt += pointsA;
+                pl += pointsB;
+            }
+
+            if (teamB.equals(toFind)) {
+                found = true;
+                if (pointsB > pointsA) {
+                    won++;
+                    mk += 3;
+                } else if (pointsA == pointsB) {
+                    draw++;
+                    mk += 1;
+                } else {
+                    lose++;
+                }
+                pt += pointsB;
+                pl += pointsA;
+            }
+        }
+
+        if (!found) {
+            return toFind + ":This team didn't play!";
+        }
+        return toFind + ":W=" + won + ";D=" + draw + ";L=" + lose + ";Scored=" + pt + ";Conceded=" + pl + ";Points=" + mk;
     }
 
     @Override
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
-        String result = "";
-        String letter = "";
-        for (int i = 0; i < lstOf1stLetter.length; i++) {
-            int sum = 0;
-            for (int j = 0; j < lstOfArt.length; j++) {
-                if (lstOfArt[j].charAt(0) == lstOf1stLetter[i].charAt(0)) {
-                    sum += Integer.valueOf(lstOfArt[j].substring(5));
-                    letter = lstOf1stLetter[i];
-                }
-            }
-            result += "(" + letter + " : " + sum + ")";
+        if (lstOfArt.length == 0 || lstOf1stLetter.length == 0) {
+            return "";
         }
-        return result;
+        String result = "";
+        Map<String, Integer> dictionary = new HashMap<String, Integer>();
+        for (String category : lstOf1stLetter) {
+            dictionary.put(category, 0);
+        }
+        for (String art : lstOfArt) {
+            String key = Character.toString(art.charAt(0));
+            if (dictionary.containsKey(key)) {
+                int value = dictionary.get(key);
+                int smth = Integer.parseInt(art.substring(art.indexOf(" ") + 1));
+                dictionary.put(key, value + smth);
+            }
+        }
+        for (Map.Entry<String, Integer> item : dictionary.entrySet()) {
+            result += String.format("(%s : %d) - ", item.getKey(), item.getValue());
+        }
+        return result.substring(0, result.length() - 3);
     }
 
 }

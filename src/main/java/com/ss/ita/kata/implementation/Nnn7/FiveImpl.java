@@ -98,7 +98,7 @@ public class FiveImpl implements Five{
 	@Override
 	public long[] smallest(long n) {
 	    if(n<0){
-	    	long[] r = {-1};
+	    	long[] r = {-1, -1, -1};
 	        return r;
 	    	}    
 		String[] symbols = String.valueOf(n).split("");
@@ -109,7 +109,6 @@ public class FiveImpl implements Five{
 		for(int i=0; i<symbols.length; i++) { // from
 			for(int j=0; j<symbols.length; j++) { // to
 				if(j != i) {
-					System.out.println("=======from " + i + " to " + j);
 					StringBuilder currentDigits = new StringBuilder();
 					for(int k=0; k<symbols.length; k++) {
 						if (k != i) {

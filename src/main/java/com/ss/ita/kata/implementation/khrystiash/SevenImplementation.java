@@ -5,7 +5,7 @@ import com.ss.ita.kata.Seven;
 public class SevenImplementation implements Seven {
     public static final int TWO_NUMBERS_AFTER_COMMA = 100;
     public static final int ONE_NUMBER_AFTER_COMMA = 10;
-    public static final double CONDITION_ROUNDING_UP = 0.5;
+    public static final double CONDITION_ROUNDING_UP = 0.0;
 
     @Override
     public long newAvg(double[] arr, double navg) {
@@ -24,7 +24,7 @@ public class SevenImplementation implements Seven {
         }
         if ((nextDonation * ONE_NUMBER_AFTER_COMMA) / ONE_NUMBER_AFTER_COMMA
                 - ((int) ((nextDonation * ONE_NUMBER_AFTER_COMMA) / ONE_NUMBER_AFTER_COMMA))
-                >= CONDITION_ROUNDING_UP) {
+                > CONDITION_ROUNDING_UP) {
             nextDonation++;
         }
         return (long) nextDonation;

@@ -1,14 +1,11 @@
 package com.ss.ita.kata.six;
 
-import com.ss.ita.kata.Eight;
 import com.ss.ita.kata.Six;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class Rainfall {
 
@@ -35,10 +32,10 @@ class Rainfall {
 
     List<Six> implementations = Arrays.asList(
             new com.ss.ita.kata.implementation.Nnn7.SixImpl(),
-            //new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
+            new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
             new com.ss.ita.kata.implementation.khrystiash.SixImplementation(),
             new com.ss.ita.kata.implementation.kuderiavetsnata.SixImpl(),
-            //new com.ss.ita.kata.implementation.nataliia0223.SixImpl(),
+            new com.ss.ita.kata.implementation.nataliia0223.SixImpl(),
             new com.ss.ita.kata.implementation.romankhvalbota.SixImpl(),
             new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp()
     );

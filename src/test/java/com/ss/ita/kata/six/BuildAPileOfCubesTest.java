@@ -3,30 +3,24 @@ package com.ss.ita.kata.six;
 import static org.junit.Assert.*;
 import com.ss.ita.kata.Six;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
 import java.util.*;
 
-public class BuildAPileOfCubesTest {
-    List <Six> sixImpl = Arrays.asList(
-            new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
-            new com.ss.ita.kata.implementation.khrystiash.SixImplementation(),
-            new com.ss.ita.kata.implementation.kuderiavetsnata.SixImpl(),
-            new com.ss.ita.kata.implementation.nataliia0223.SixImpl(),
-            new com.ss.ita.kata.implementation.Nnn7.SixImpl(),
-            new com.ss.ita.kata.implementation.romankhvalbota.SixImpl(),
-            new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp());
+@RunWith(Parameterized.class)
+public class BuildAPileOfCubesTest extends SixDataProviderImplementation{
+    private final Six implementation;
+
+    public BuildAPileOfCubesTest(final Six implementation){this.implementation = implementation;}
 
     @Test
     public void buildAPileOfCubesTest1() {
-        for(Six impl: sixImpl) {
-            assertEquals(2022, impl.findNb(4183059834009L));
-            assertEquals(4824, impl.findNb(135440716410000L));
+        assertEquals(4824, implementation.findNb(135440716410000L));
         }
-    }
 
     @Test
     public void buildAPileOfCubesTest2() {
-        for(Six impl: sixImpl) {
-            assertEquals(-1, impl.findNb(24723578342962L));
+        assertEquals(-1, implementation.findNb(24723578342962L));
         }
-    }
 }
