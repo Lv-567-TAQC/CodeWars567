@@ -23,6 +23,9 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
+        if (n<0) {
+            return "";
+        }
         double sum = 0;
         double k = 1.0;
         for(int i = 1; i <= n; i++){
