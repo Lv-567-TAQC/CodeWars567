@@ -21,9 +21,12 @@ public class EightImpl implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        float kpl = (float) (mpg* (1.609344 / 4.54609188));
-        kpl = (float) (Math.round(kpl * 100.0) / 100.0);
-        return kpl;
+        if(mpg >= 0){
+            float kpl = (float) (mpg* (1.609344 / 4.54609188));
+            kpl = (float) (Math.round(kpl * 100.0) / 100.0);
+            return kpl;
+        }
+        return -1;
     }
 
     @Override
