@@ -199,11 +199,14 @@ public class SixImplementation implements Six {
         for (int j = 0; j < lstOf1stLetter.length; j++) {
             for (int i = 0; i < lstOfArt.length; i++) {
                 if (lstOfArt[i].charAt(0) == lstOf1stLetter[j].charAt(0)) {
-                    sum += Integer.valueOf(lstOfArt[i].substring(6));
                     bukva = lstOf1stLetter[j];
+                    sum += Integer.valueOf(lstOfArt[i].substring(lstOfArt[i].indexOf(" ")+1));
                 }
             }
-            result += "(" + bukva + " : " + sum + ") ";
+            result += "(" + bukva + " : " + sum + ")";
+            if(j<lstOf1stLetter.length-1){
+                result += " - ";
+            }
             sum = 0;
         }
         return result;
