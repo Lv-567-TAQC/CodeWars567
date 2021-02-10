@@ -10,7 +10,7 @@ public class SevenImpl implements Seven {
 
         for(int i = 0; i <= arr.length - 1; i++){
             sum+=arr[i];
-            if(arr[i] <= 0){
+            if(arr[i] < 0){
                 throw new IllegalArgumentException("Non positive");
             }
         }
@@ -23,6 +23,9 @@ public class SevenImpl implements Seven {
 
     @Override
     public String seriesSum(int n) {
+        if (n<0) {
+            return "";
+        }
         double sum = 0;
         double k = 1.0;
         for(int i = 1; i <= n; i++){

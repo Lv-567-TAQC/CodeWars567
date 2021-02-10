@@ -27,7 +27,43 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        if (n > 1100000) {
+            return null;
+        }
+        long num1 = 0;
+        long num2 = 0;
+        boolean found = false;
+        boolean check;
+        for (long i = m; i < n; i++) {
+            check = false;
+            for (long j = 2; j <= i / 2; j++) {
+                if (i % j == 0) {
+                    check = true;
+                    break;
+                }
+            }
+
+            if (check == false) {
+                if (num1 == 0) {
+                    num1 = i;
+                } else {
+                    if (i - num1 == g) {
+                        num2 = i;
+                        found = true;
+                        break;
+                    } else {
+                        num1 = i;
+                    }
+                }
+
+            }
+        }
+
+        if (found == true) {
+            long[] result = {num1, num2};
+            return result;
+        }
+        return null;
     }
 
     @Override
@@ -59,19 +95,19 @@ public class FiveImpl implements Five {
     public long[] smallest(long n) {
         long[] arr = new long[3];
         boolean check = false;
-        if(n < 0){
+        if (n < 0) {
             long[] arr1 = {-1, -1, -1};
             return arr1;
         }
         String str = n + "";
-        for(int i = 0; i < str.length(); i++){
-            if(str.charAt(0) == str.charAt(i)){
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(0) == str.charAt(i)) {
                 check = true;
-            }else{
+            } else {
                 check = false;
             }
         }
-        if(check == true){
+        if (check == true) {
             long[] arr1 = {n, 0, 0};
             return arr1;
         }
