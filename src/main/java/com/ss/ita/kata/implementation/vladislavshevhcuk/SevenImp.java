@@ -5,6 +5,7 @@ import com.ss.ita.kata.Seven;
 public class SevenImp implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
+        if(navg <0) {throw new IllegalArgumentException("Non positive donation");}
         double sum =0;
         for(double element : arr){
             sum+=element;
