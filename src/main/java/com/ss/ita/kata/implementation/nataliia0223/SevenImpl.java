@@ -10,7 +10,7 @@ public class SevenImpl implements Seven {
 
         for(int i = 0; i <= arr.length - 1; i++){
             sum+=arr[i];
-            if(arr[i] <= 0){
+            if(arr[i] < 0){
                 throw new IllegalArgumentException("Non positive");
             }
         }
