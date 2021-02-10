@@ -18,7 +18,6 @@ public class WilsonPrimeTest {
             new com.ss.ita.kata.implementation.romankhvalbota.EightImpl(),
             new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp() );
 
-
     @Test
     public void testWilsonPrime1() {
         for (Eight impl : impl) {
