@@ -9,7 +9,9 @@ import java.util.List;
 
 public class SixDataProviderImplementation {
 
-    @Parameterized.Parameters(name = "DataProviderSix {0}")
+
+    @Parameterized.Parameters(name = "DataProvider {0}")
+
     public static Collection<Six> versionImplementation(){
         List<Six> sixImpl = Arrays.asList(
                 new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
@@ -21,4 +23,9 @@ public class SixDataProviderImplementation {
                 new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp());
         return sixImpl;
     }
+
+
+
 }
+
+
