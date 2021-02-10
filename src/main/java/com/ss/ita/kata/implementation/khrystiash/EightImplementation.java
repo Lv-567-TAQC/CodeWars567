@@ -3,6 +3,7 @@ package com.ss.ita.kata.implementation.khrystiash;
 import com.ss.ita.kata.Eight;
 
 public class EightImplementation implements Eight {
+
     public static final double LITERS_PER_HOUR = 0.5;
     public static final int ASCII_NUMBER_NULL = 48;
     public static final int NUMBER_POSITION_INCREASER = 10;
@@ -16,7 +17,6 @@ public class EightImplementation implements Eight {
     public static final double CONDITION_ROUNDING_UP = 0.5;
     public static final float ONE_IMPERIAL_GALLON_IN_LITERS = 4.54609188F;
     public static final float ONE_MILE_IN_KILOMETERS = 1.609344F;
-
 
     @Override
     public int liters(double time) {
@@ -34,11 +34,14 @@ public class EightImplementation implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
+        if(mpg<0){
+            return -1;
+        }
         float kilometersPerLiters;
         kilometersPerLiters = mpg * (ONE_MILE_IN_KILOMETERS / ONE_IMPERIAL_GALLON_IN_LITERS);
         kilometersPerLiters = (float) Math.round(kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA)
                 / TWO_NUMBERS_AFTER_COMMA;
-        if ((kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA) % 10 == 0) {
+        if ((kilometersPerLiters * TWO_NUMBERS_AFTER_COMMA) % 10 == 0 ){
             kilometersPerLiters = (float) Math.round(kilometersPerLiters * ONE_NUMBER_AFTER_COMMA) /
                     ONE_NUMBER_AFTER_COMMA;
         }

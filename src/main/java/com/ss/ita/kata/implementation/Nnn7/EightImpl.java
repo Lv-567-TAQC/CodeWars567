@@ -20,10 +20,14 @@ public class EightImpl implements Eight{
 
 	@Override
 	public float mpgToKPM(float mpg) {
-		double kmperlitres;
+		double result = -1;
+	    if(mpg<0){
+	      return (float)result;
+	    }      
+	    double kmperlitres;
 	    double changer = 1.609344d/ 4.54609188;
 	    kmperlitres= mpg*changer;	      
-	    double result = Math.round(kmperlitres*100)/100.00;	    
+	    result = Math.round(kmperlitres*100)/100.00;	    
 	    return  (float)result;
 	}
 
