@@ -72,6 +72,7 @@ public class FiveImplTest {
     @org.junit.jupiter.api.Test
     public void smallestNull() {
         for (Five impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
             long[] actual4 = impl.smallest(0);
             long[] expected4 = {0, 0, 0};
             assertArrayEquals(expected4, actual4, String.format("Test %s failed!", impl));
@@ -81,6 +82,7 @@ public class FiveImplTest {
     @org.junit.jupiter.api.Test
     public void smallestAllEquals() {
         for (Five impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
             long[] actual5 = impl.smallest(11111);
             long[] expected5 = {11111, 0, 0};
             assertArrayEquals(expected5, actual5, String.format("Test %s failed!", impl));
@@ -90,6 +92,7 @@ public class FiveImplTest {
     @org.junit.jupiter.api.Test
     public void smallestFirstDifferent() {
         for (Five impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
             long[] actual6 = impl.smallest(1000000);
             long[] expected6 = {1, 0, 6};
             assertArrayEquals(expected6, actual6, String.format("Test %s failed!", impl));
