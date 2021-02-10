@@ -16,11 +16,11 @@ public class BuildAPileOfCubesTest extends SixDataProviderImplementation{
 
     @Test
     public void buildAPileOfCubesTest1() {
-            assertEquals(4824, implementation.findNb(135440716410000L));
+        assertEquals(4824, implementation.findNb(135440716410000L));
         }
 
     @Test
     public void buildAPileOfCubesTest2() {
-            assertEquals(-1, implementation.findNb(24723578342962L));
+        assertEquals(-1, implementation.findNb(24723578342962L));
         }
 }
