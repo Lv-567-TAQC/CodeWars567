@@ -10,7 +10,6 @@ import java.util.List;
 
 class SeriesSumTest {
 
-
     List<Seven> implementations = Arrays.asList(
             new com.ss.ita.kata.implementation.Nnn7.SevenImpl(),
             new com.ss.ita.kata.implementation.andriikapustiak.SevenImpl(),
