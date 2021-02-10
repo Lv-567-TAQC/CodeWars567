@@ -8,6 +8,7 @@ public class SevenImp implements Seven {
         if(navg <0) {throw new IllegalArgumentException("Non positive donation");}
         double sum =0;
         for(double element : arr){
+            if(element<0){throw new IllegalArgumentException("Non positive donation");}
             sum+=element;
         }
         long answer = (long)Math.ceil(navg*(arr.length+1)-sum);
@@ -17,6 +18,9 @@ public class SevenImp implements Seven {
 
     @Override
     public String seriesSum(int n) {
+        if (n<0) {
+            return "";
+        }
         if (n==0) return "0.00";
         double answer = 1;
         for(int i=1;i<n;i++){
