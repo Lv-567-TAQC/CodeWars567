@@ -4,45 +4,81 @@ import com.ss.ita.kata.Five;
 
 import java.math.BigInteger;
 
+import static com.ss.ita.kata.implementation.khrystiash.FiveImplementation.NUMBER_OF_SQUARE_SIDES;
+
 public class FiveImpl implements Five {
     @Override
 
         public int artificialRain(int[] v) {
-            int maxWateredSections = 0;
+            int sections = 0;
 
             int numberOfSections = v.length;
-            int[] leftPartOfWateredSection = new int[numberOfSections];
-            int[] rightPartOfWateredSection = new int[numberOfSections];
+            int[] leftSide = new int[numberOfSections];
+            int[] rightSide = new int[numberOfSections];
 
-            //Left side
-            for (int i=1;i<numberOfSections;i++){
-                if(v[i]>=v[i-1]){
-                    leftPartOfWateredSection[i]=leftPartOfWateredSection[i-1]+1;
+            //left side
+            for (int i = 1;i < numberOfSections; i++){
+                if(v[i] >= v[i-1]){
+                    leftSide[i]=leftSide[i-1]+1;
                 }
                 else {
-                    leftPartOfWateredSection[i]=0;
+                    leftSide[i]=0;
                 }
             }
 
             //right side
-            for (int i=v.length-2;i>=0;i--){
-                if(v[i]>=v[i+1]){
-                    rightPartOfWateredSection[i]=rightPartOfWateredSection[i+1]+1;
+            for (int i = v.length-2; i >= 0; i-- ){
+                if(v[i] >= v[i+1]){
+                    rightSide[i] = rightSide[i+1]+1;
                 }
                 else {
-                    rightPartOfWateredSection[i]=0;
+                    rightSide[i]=0;
                 }
             }
             for(int i=0;i<v.length;i++){
-                maxWateredSections = Math.max(maxWateredSections,leftPartOfWateredSection[i]+rightPartOfWateredSection[i]);
+                sections = Math.max(sections,leftSide[i]+rightSide[i]);
             }
-            return maxWateredSections+1;
+            return sections+1;
         }
 
 
     @Override
     public long[] gap(int g, long m, long n) {
-        return new long[0];
+        long[] result = new long[2];
+        for(long i = m;i<=n-g;i++){
+            boolean flag = true;
+            if(isPrime(i)){
+                if(isPrime(i+g)){
+                    for(long j=i+1;j<i+g;j++){
+                        if(isPrime(j)) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if(flag){
+                        result[0]=i;
+                        result[1]=i+g;
+                        return result;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private static boolean isPrime(long number){
+        if(number == 2 || number ==3){
+            return true;
+        }
+        if(number == 4){
+            return false;
+        }
+        for(long i=2;i<number/2;i++){
+            if(number%i == 0){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -52,27 +88,23 @@ public class FiveImpl implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
-        return null;
+        BigInteger f =BigInteger.valueOf(0);
+        BigInteger s = BigInteger.valueOf(1);
+        BigInteger sum = BigInteger.valueOf(0);
+        BigInteger copy_s = s;
+        for (int i=0;i <= n.intValue();i++){
+            sum=sum.add(s);
+            s=s.add(f);
+            f = copy_s;
+            copy_s = s;
+        }
+        return sum.multiply(BigInteger.valueOf(NUMBER_OF_SQUARE_SIDES));
     }
 
     @Override
-    public double solveSum(double num) {
-        int zeros=0;
-        for(int i=2; i<=num; i++) {
-            zeros += countFactorsOf5(i);
-        }
-        return zeros;
-    }
+    public double solveSum(double n) {
 
-    public static int countFactorsOf5(int i)
-    {
-        int count=0;
-        while(i % 5 == 0)
-        {
-            count++;
-            i /= 5;
-        }
-        return count;
+        return ((2*n+1)-Math.sqrt(((2*n+1)*(2*n+1))-(4*n*n)))/(2*n);
     }
 
 
