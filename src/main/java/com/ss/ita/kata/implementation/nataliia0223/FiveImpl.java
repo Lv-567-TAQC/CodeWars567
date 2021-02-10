@@ -58,8 +58,23 @@ public class FiveImpl implements Five {
     @Override
     public long[] smallest(long n) {
         long[] arr = new long[3];
+        boolean check = false;
+        if(n < 0){
+            long[] arr1 = {-1, -1, -1};
+            return arr1;
+        }
         String str = n + "";
-
+        for(int i = 0; i < str.length(); i++){
+            if(str.charAt(0) == str.charAt(i)){
+                check = true;
+            }else{
+                check = false;
+            }
+        }
+        if(check == true){
+            long[] arr1 = {n, 0, 0};
+            return arr1;
+        }
         for (int i = 0; i < str.length(); i++) {
             for (int j = 0; j < str.length(); j++) {
                 StringBuffer sb = new StringBuffer(str);

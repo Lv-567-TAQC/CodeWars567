@@ -19,7 +19,7 @@ public class EightImp implements Eight {
 
     @Override
     public float mpgToKPM(float mpg) {
-        if (mpg > 0) {
+        if (mpg >= 0) {
             final double IMPERIAL_GALLON = 4.54609188;
             final double MILE = 1.609344;
             return (float) (Math.round(mpg * MILE / IMPERIAL_GALLON * 100) / 100.00);
