@@ -109,7 +109,6 @@ public class FiveImpl implements Five{
 		for(int i=0; i<symbols.length; i++) { // from
 			for(int j=0; j<symbols.length; j++) { // to
 				if(j != i) {
-					System.out.println("=======from " + i + " to " + j);
 					StringBuilder currentDigits = new StringBuilder();
 					for(int k=0; k<symbols.length; k++) {
 						if (k != i) {
