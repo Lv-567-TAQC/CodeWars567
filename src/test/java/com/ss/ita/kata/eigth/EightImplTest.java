@@ -20,18 +20,42 @@ public class EightImplTest {
             new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp() );
 
     @Test
-    public void mpgToKPMPositive() {
+    public void mpgToKPMOne() {
         for (Eight impl : impl) {
             System.out.println("Checking for implementation: " + impl);
             float actual = impl.mpgToKPM(1);
             float expected = 0.35f;
-            Assertions.assertEquals(expected , actual, String.format("Test %s failed!", impl));
+            Assertions.assertEquals(expected, actual, String.format("Test %s failed!", impl));
+        }
+    }
+
+    @Test
+    public void mpgToKPMNull() {
+        for (Eight impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
             float actual1 = impl.mpgToKPM(0);
             float expected1 = 0.0f;
-            Assertions.assertEquals(expected1, actual1, String.format("Test %s failed!", impl));
+            Assertions.assertEquals( expected1, actual1, String.format("Test %s failed!", impl));
+        }
+    }
+
+    @Test
+    public void mpgToKPMSimpleInt() {
+        for (Eight impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
             float actual2 = impl.mpgToKPM(4);
             float expected2 = 1.42f;
-            Assertions.assertEquals(expected2, actual2, String.format("Test %s failed!", impl));
+            Assertions.assertEquals( expected2,actual2, String.format("Test %s failed!", impl));
+        }
+    }
+
+    @Test
+    public void mpgToKPMSimpleFloat() {
+        for (Eight impl : impl) {
+            System.out.println("Checking for implementation: " + impl);
+            float actual3 = impl.mpgToKPM(4.6f);
+            float expected3 = 1.63f;
+            Assertions.assertEquals( expected3, actual3,String.format("Test %s failed!", impl));
         }
     }
 
@@ -42,7 +66,7 @@ public class EightImplTest {
             System.out.println("Checking for implementation: " + impl);
             float actual = impl.mpgToKPM(-4);
             float expected = -1;
-            Assertions.assertEquals(actual, expected, String.format("Test %s failed - negative value!", impl));
+            Assertions.assertEquals(expected, actual, String.format("Test %s failed - negative value!", impl));
         }
     }
 
