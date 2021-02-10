@@ -11,6 +11,10 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
+        if (length <= 0 || width <= 0 || height <= 0) {
+            return -1;
+        }
+
         double volume = length * width * height;
         return volume;
     }
