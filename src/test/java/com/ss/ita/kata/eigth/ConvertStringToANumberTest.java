@@ -15,24 +15,11 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(Parameterized.class)
-public class ConvertStringToANumberTest {
+public class ConvertStringToANumberTest extends EightDataProviderImplementation{
 
-    private  final Eight implementation;
+    private final Eight implementation;
 
-    @Parameterized.Parameters(name = "DataProvider {0}")
-    public static Collection<Eight> versionImplementation(){
-        List <Eight> eightImpl = Arrays.asList(
-                new com.ss.ita.kata.implementation.andriikapustiak.EightImpl(),
-                new com.ss.ita.kata.implementation.khrystiash.EightImplementation(),
-                new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl(),
-                new com.ss.ita.kata.implementation.nataliia0223.EightImpl(),
-                new com.ss.ita.kata.implementation.Nnn7.EightImpl(),
-                new com.ss.ita.kata.implementation.romankhvalbota.EightImpl(),
-                new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp());
-        return eightImpl;
-    }
-
-    public ConvertStringToANumberTest(Eight implementation){
+    public ConvertStringToANumberTest(final Eight implementation){
         this.implementation = implementation;
     }
 
