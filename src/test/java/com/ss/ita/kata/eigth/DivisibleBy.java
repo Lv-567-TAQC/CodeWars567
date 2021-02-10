@@ -1,4 +1,4 @@
-package com.ss.ita.kata.eigth;
+package java.com.ss.ita.kata.eigth;
 
 import com.ss.ita.kata.Eight;
 import org.junit.jupiter.api.Assertions;
@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DivisibleBy {
 

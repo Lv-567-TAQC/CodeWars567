@@ -112,6 +112,7 @@ public class FiveImp implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if(n <0) return new long[] {-1,-1,-1};
         long minNumber=n;
         int firstIndex=0;
         int secondIndex=0;

@@ -8,7 +8,7 @@ import java.util.*;
 
 import static org.junit.Assert.*;
 
-public class SixImplTest {
+public class BalanceTest {
     List <Six> impl = Arrays.asList(
             new com.ss.ita.kata.implementation.Nnn7.SixImpl(),
            // new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
