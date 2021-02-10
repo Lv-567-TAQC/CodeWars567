@@ -1,13 +1,15 @@
 package com.ss.ita.kata.six;
 
+
 import com.ss.ita.kata.Six;
+import com.ss.ita.kata.eigth.EightDataProviderImplementation;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
-import java.util.Arrays;
-import java.util.List;
-
-class Rainfall {
+@RunWith(Parameterized.class)
+public class Rainfall extends SixDataProviderImplementation {
 
     private static String data =
             "Rome:Jan 81.2,Feb 63.2,Mar 70.3,Apr 55.7,May 53.0,Jun 36.4,Jul 17.5,Aug 27.5,Sep 60.9,Oct 117.7,Nov 111.0,Dec 97.9" +
@@ -30,15 +32,11 @@ class Rainfall {
                     "\n" +
                     "Lima:Jan 1.2,Feb 0.9,Mar 0.7,Apr 0.4,May 0.6,Jun 1.8,Jul 4.4,Aug 3.1,Sep 3.3,Oct 1.7,Nov 0.5,Dec 0.7";
 
-    List<Six> implementations = Arrays.asList(
-            new com.ss.ita.kata.implementation.Nnn7.SixImpl(),
-            new com.ss.ita.kata.implementation.andriikapustiak.SixImpl(),
-            new com.ss.ita.kata.implementation.khrystiash.SixImplementation(),
-            new com.ss.ita.kata.implementation.kuderiavetsnata.SixImpl(),
-            new com.ss.ita.kata.implementation.nataliia0223.SixImpl(),
-            new com.ss.ita.kata.implementation.romankhvalbota.SixImpl(),
-            new com.ss.ita.kata.implementation.vladislavshevhcuk.SixImp()
-    );
+    private final Six implementation;
+
+    public Rainfall(final Six implementation) {
+        this.implementation = implementation;
+    }
 
     private static void assertFuzzyEquals(double act, double exp) {
         boolean inrange = Math.abs(act - exp) <= 1e-2;
@@ -49,41 +47,35 @@ class Rainfall {
     }
 
     @Test
-    void meanDefaultTest() {
-        for(Six implementation: implementations){
-            System.out.println(String.format("Checking for implementation: %s", implementation));
+    public void meanDefaultTest() {
+        System.out.println(String.format("Checking for implementation: %s", implementation));
 
-            assertFuzzyEquals(implementation.mean("London", data), 51.199999999999996);
-            assertFuzzyEquals(implementation.mean("Beijing", data), 52.416666666666664);
-        }
+        assertFuzzyEquals(implementation.mean("London", data), 51.199999999999996);
+        assertFuzzyEquals(implementation.mean("Beijing", data), 52.416666666666664);
     }
 
 
     @Test
-    void meanUnavailableDataTest(){
-        for(Six implementation: implementations){
-            System.out.println(String.format("Checking for implementation: %s", implementation));
+    public void meanUnavailableDataTest(){
+        System.out.println(String.format("Checking for implementation: %s", implementation));
 
-            assertFuzzyEquals(implementation.mean("Moskow", data), -1.0);
-        }
+        assertFuzzyEquals(implementation.mean("Moskow", data), -1.0);
+        assertFuzzyEquals(implementation.variance("Lon", data), -1.0);
     }
 
     @Test
-    void varianceDefaultTest() {
-        for(Six implementation: implementations){
-            System.out.println(String.format("Checking for implementation: %s", implementation));
+    public void varianceDefaultTest() {
+        System.out.println(String.format("Checking for implementation: %s", implementation));
 
-            assertFuzzyEquals(implementation.variance("London", data), 57.42833333333374);
-            assertFuzzyEquals(implementation.variance("Beijing", data), 4808.37138888889);
-        }
+        assertFuzzyEquals(implementation.variance("London", data), 57.42833333333374);
+        assertFuzzyEquals(implementation.variance("Beijing", data), 4808.37138888889);
     }
 
     @Test
-    void varianceUnavailableDataTest(){
-        for(Six implementation: implementations){
-            System.out.println(String.format("Checking for implementation: %s", implementation));
+    public void varianceUnavailableDataTest(){
+        System.out.println(String.format("Checking for implementation: %s", implementation));
 
-            assertFuzzyEquals(implementation.variance("Moskow", data), -1.0);
-        }
+        assertFuzzyEquals(implementation.variance("Moskow", data), -1.0);
+        assertFuzzyEquals(implementation.variance("Lon", data), -1.0);
     }
 }
