@@ -113,6 +113,9 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
+        if(resultSheet == ""){
+            return "";
+        }
         int won = 0;
         int draw = 0;
         int lose = 0;
@@ -137,7 +140,7 @@ public class SixImpl implements Six {
             try {
                 pointsA = Integer.parseInt(matchA[1]);
             } catch (Exception e) {
-                return "Error(float number):" + p[i].replaceAll("-", " ").replaceAll("_", " ");
+                return "Error (float number):" + p[i].replaceAll("-", " ").replaceAll("_", " ");
             }
 
             String[] matchB = match[1].split("_");
