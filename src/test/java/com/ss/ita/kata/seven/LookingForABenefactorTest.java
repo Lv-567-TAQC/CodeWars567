@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class SevenTest {
+public class LookingForABenefactorTest {
 
     List<Seven> impl = Arrays.asList(
             new com.ss.ita.kata.implementation.Nnn7.SevenImpl(),
