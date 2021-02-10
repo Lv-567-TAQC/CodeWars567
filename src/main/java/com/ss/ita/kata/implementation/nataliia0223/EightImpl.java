@@ -12,13 +12,19 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        if(length >= 0 && width >= 0 && height >= 0) {
+            return length * width * height;
+        }
+        return -1;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
-        float kpl = (float)Math.round(100 * 1.609344 / (float)4.54609188 * mpg) / 100;
-        return kpl;
+        if(mpg >= 0) {
+            float kpl = (float) Math.round(100 * 1.609344 / (float) 4.54609188 * mpg) / 100;
+            return kpl;
+        }
+        return -1;
     }
 
     @Override

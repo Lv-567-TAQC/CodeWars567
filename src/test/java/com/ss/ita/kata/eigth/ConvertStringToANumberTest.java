@@ -1,13 +1,13 @@
-package com.ss.ita.kata.eigth;
+package java.com.ss.ita.kata.eigth;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.ss.ita.kata.Eight;
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
 
-import java.util.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ConvertStringToANumberTest {
     List <Eight> eightImpl = Arrays.asList(
