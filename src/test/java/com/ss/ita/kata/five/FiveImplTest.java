@@ -10,6 +10,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
+
 public class FiveImplTest {
     List<Five> impl = Arrays.asList(
             new com.ss.ita.kata.implementation.Nnn7.FiveImpl(),
