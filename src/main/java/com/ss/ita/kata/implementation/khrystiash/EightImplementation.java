@@ -136,11 +136,13 @@ public class EightImplementation implements Eight {
     @Override
     public double twoDecimalPlaces(double number) {
         double result;
-        result = (double) Math.round(number * THREE_NUMBERS_AFTER_COMMA) / THREE_NUMBERS_AFTER_COMMA;
-        if (!(((result * TWO_NUMBERS_AFTER_COMMA) - ((int) result * TWO_NUMBERS_AFTER_COMMA))
-                >= CONDITION_ROUNDING_UP)) {
-            result = ((double) Math.round(number * TWO_NUMBERS_AFTER_COMMA) / TWO_NUMBERS_AFTER_COMMA)
-                    + ROUNDING_UP;
+        result = ((number * THREE_NUMBERS_AFTER_COMMA)- (int) (number * THREE_NUMBERS_AFTER_COMMA))/ THREE_NUMBERS_AFTER_COMMA;
+        if (number < 0 && ((result * TWO_NUMBERS_AFTER_COMMA) - ((int) result * TWO_NUMBERS_AFTER_COMMA))
+                >= CONDITION_ROUNDING_UP) {
+            return result = ((double) Math.round(number * TWO_NUMBERS_AFTER_COMMA) / TWO_NUMBERS_AFTER_COMMA) - ROUNDING_UP;
+        } else if (((result * TWO_NUMBERS_AFTER_COMMA) - ((int) result * TWO_NUMBERS_AFTER_COMMA))
+                >= CONDITION_ROUNDING_UP) {
+            return result = ((double) Math.round(number * TWO_NUMBERS_AFTER_COMMA) / TWO_NUMBERS_AFTER_COMMA) + ROUNDING_UP;
         } else {
             result = ((double) Math.round(number * TWO_NUMBERS_AFTER_COMMA) / TWO_NUMBERS_AFTER_COMMA);
         }
