@@ -117,55 +117,55 @@ public class FiveImplementation implements Five {
 
     @Override
     public long[] smallest(long n) {
-        String numb = "";
+        String number = "";
         String[] result = new String[3];
         long[] res = new long[3];
-        numb += n;
+        number += n;
         int count = 0;
         int count1 = 0;
-        char smallest = numb.charAt(0);
+        char smallest = number.charAt(0);
         if (n < 0) {
             res[0] = -1;
             res[1] = -1;
             res[2] = -1;
             return res;
         }
-        for (int a = 1, b = 2; a < numb.length() && b < numb.length(); a++, b++) {
-            if (numb.charAt(0) == numb.charAt(a)) {
+        for (int a = 1, b = 2; a < number.length() && b < number.length(); a++, b++) {
+            if (number.charAt(0) == number.charAt(a)) {
                 count++;
             }
-            if (numb.charAt(1) == numb.charAt(b) && numb.charAt(0) > numb.charAt(1)) {
+            if (number.charAt(1) == number.charAt(b) && number.charAt(0) > number.charAt(1)) {
                 count1++;
             }
         }
-        if (count1 == numb.length() - 2) {
-            res[0] = Long.parseLong(numb.substring(1) + numb.substring(0, 1));
+        if (count1 == number.length() - 2) {
+            res[0] = Long.parseLong(number.substring(1) + number.substring(0, 1));
             res[1] = 0;
-            res[2] = numb.length() - 1;
+            res[2] = number.length() - 1;
             return res;
         }
-        for (int i = 0; i < numb.length(); i++) {
-            for (int j = 1; j < numb.length(); j++) {
-                if (smallest > numb.charAt(j) || count == numb.length() - 1) {
-                    smallest = numb.charAt(j);
+        for (int i = 0; i < number.length(); i++) {
+            for (int j = 1; j < number.length(); j++) {
+                if (smallest > number.charAt(j) || count == number.length() - 1) {
+                    smallest = number.charAt(j);
                 }
-                if (smallest == numb.charAt(0) && j != 1 && count != numb.length() - 1) {
+                if (smallest == number.charAt(0) && j != 1 && count != number.length() - 1) {
                     result[0] = String.valueOf(smallest);
-                    smallest = numb.charAt(j);
+                    smallest = number.charAt(j);
                     break;
                 }
             }
         }
-        if (smallest > numb.charAt(0)) {
-            result[0] += smallest + numb.substring(1, numb.indexOf(smallest)) + numb.substring(numb.indexOf(smallest) + 1);
+        if (smallest > number.charAt(0)) {
+            result[0] += smallest + number.substring(1, number.indexOf(smallest)) + number.substring(number.indexOf(smallest) + 1);
         } else {
-            result[0] = smallest + numb.substring(0, numb.indexOf(smallest)) + numb.substring(numb.indexOf(smallest) + 1);
+            result[0] = smallest + number.substring(0, number.indexOf(smallest)) + number.substring(number.indexOf(smallest) + 1);
         }
-        if (numb.indexOf(smallest) == 1) {
+        if (number.indexOf(smallest) == 1) {
             result[1] = String.valueOf(0);
-            smallest = numb.charAt(0);
+            smallest = number.charAt(0);
         } else {
-            result[1] = String.valueOf(numb.indexOf(smallest));
+            result[1] = String.valueOf(number.indexOf(smallest));
         }
         result[2] = String.valueOf(result[0].indexOf(smallest));
         for (int i = 0; i < res.length; i++) {

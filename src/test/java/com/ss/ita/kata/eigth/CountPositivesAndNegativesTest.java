@@ -1,26 +1,25 @@
 package com.ss.ita.kata.eigth;
 
 import com.ss.ita.kata.Eight;
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.List;
 
-class CountPositivesAndNegativesTest {
-    List<Eight> implementations = Arrays.asList(
-            new com.ss.ita.kata.implementation.Nnn7.EightImpl(),
-            new com.ss.ita.kata.implementation.andriikapustiak.EightImpl(),
-            new com.ss.ita.kata.implementation.khrystiash.EightImplementation(),
-            new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl(),
-            new com.ss.ita.kata.implementation.nataliia0223.EightImpl(),
-            new com.ss.ita.kata.implementation.romankhvalbota.EightImpl(),
-            new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp()
-    );
+@RunWith(Parameterized.class)
+public  class CountPositivesAndNegativesTest  extends EightDataProviderImplementation{
+    private final Eight implementation;
+
+    public CountPositivesAndNegativesTest(final Eight implementation) {
+        this.implementation = implementation;
+    }
 
     @Test
-    void countPositivesSumNegatives_SimpleTest() {
-        for (Eight implementation : implementations) {
+    public void countPositivesSumNegatives_SimpleTest() {
+
             System.out.println(String.format("Checking for implementation: %s", implementation));
 
 
@@ -31,4 +30,5 @@ class CountPositivesAndNegativesTest {
             String.format("Test %s failed!", implementation.getClass());
         }
     }
-}
+
+

@@ -7,11 +7,24 @@ import java.util.Arrays;
 public class SevenImpl implements Seven {
     @Override
     public long newAvg(double[] arr, double navg) {
-        double sum = Arrays.stream(arr).sum();
-        int result = (int) Math.ceil(navg * (arr.length + 1) - sum);
-        if (result <= 0)
-            throw new IllegalArgumentException();
-        return result;
+
+            if(navg < 0) {
+                throw new IllegalArgumentException("Must be a positive number");
+            }
+            double count = 0;
+
+            for(double el : arr){
+                if(el < 0){
+                    throw new IllegalArgumentException("Must be a positive number");
+                }
+                count += el;
+            }
+
+            long answer = (long)Math.ceil(navg * (arr.length + 1) - count);
+            if(answer <= 0) {
+                throw new IllegalArgumentException("Must be a positive number");
+            }
+            return answer;
     }
 
     @Override
