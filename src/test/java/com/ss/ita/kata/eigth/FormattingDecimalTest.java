@@ -8,7 +8,7 @@ import org.junit.runners.Parameterized;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(Parameterized.class)
-public class FormattingDecimalTest extends EightDataProviderImplementation{
+public class FormattingDecimalTest extends com.ss.ita.kata.eigth.EightDataProviderImplementation {
 
     private final Eight implementation;
 
