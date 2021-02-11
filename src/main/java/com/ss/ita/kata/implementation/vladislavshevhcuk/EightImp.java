@@ -73,8 +73,8 @@ public class EightImp implements Eight {
 
     @Override
     public double twoDecimalPlaces(double number) {
-        //number = Math.round(number*100)/100.00;
-        number = Double.parseDouble(String.format("%.2f", number));
+        number = Math.round(number*100)/100.00;
+        //number = Double.parseDouble(String.format("%.2f", number));
         return number;
     }
 
