@@ -45,7 +45,7 @@ public class SixImpl implements Six {
 
     @Override
     public double f(double x) {
-        return x/(1+Math.sqrt(x+1));
+        return x / (1 + Math.sqrt(x + 1));
     }
 
     @Override
@@ -112,75 +112,77 @@ public class SixImpl implements Six {
     @Override
 
     public String nbaCup(String resultSheet, String toFind) {
-            if (toFind.equals(""))
-                return "";
-            int countTeamname = toFind.split(" ").length;
-            String[] split = resultSheet.split(",");
-            int points = 0;
-            int won = 0;
-            int draw = 0;
-            int lost = 0;
-            int scored = 0;
-            int conceded = 0;
-            for (String temp : split) {
-                int ownPoints = 0;
-                int oppPoints = 0;
-                boolean teamFound = false;
-                String[] parts = temp.split(" ");
-                if (countTeamname == 2) {
-                    teamFound = (parts[0].equals(toFind.split(" ")[0]) && parts[1].equals(toFind.split(" ")[1]))
-                            || (parts[parts.length - 3].equals(toFind.split(" ")[0])
-                            && parts[parts.length - 2].equals(toFind.split(" ")[1]));
-                } else {
-                    teamFound = (parts[0].equals(toFind.split(" ")[0]) && parts[1].equals(toFind.split(" ")[1])
-                            && parts[2].equals(toFind.split(" ")[2]))
-                            || (parts[parts.length - 4].equals(toFind.split(" ")[0])
-                            && parts[parts.length - 3].equals(toFind.split(" ")[1])
-                            && parts[parts.length - 2].equals(toFind.split(" ")[2]));
-                }
+        int wins = 0;
+        int draws = 0;
+        int loses = 0;
+        int pt = 0;
+        int pl = 0;
+        int mk = 0;
 
-                if (teamFound) {
-                    try {
-                        if (toFind.split(" ")[0].equals(parts[0])) {
-                            if (toFind.split(" ").length == 2) {
-                                ownPoints = Integer.parseInt(parts[2]);
-                            } else {
-                                ownPoints = Integer.parseInt(parts[3]);
-                            }
-                            oppPoints = Integer.parseInt(parts[parts.length - 1]);
-                        } else {
-                            if (toFind.split(" ").length == 2) {
-                                oppPoints = Integer.parseInt(parts[parts.length - 4]);
-                            } else {
-                                oppPoints = Integer.parseInt(parts[parts.length - 5]);
-                            }
-                            ownPoints = Integer.parseInt(parts[parts.length - 1]);
-                        }
-                    } catch (NumberFormatException e) {
-                        return "Error(float number):" + temp;
-                    }
-                    scored += ownPoints;
-                    conceded += oppPoints;
-                    if (ownPoints > oppPoints) {
-                        points += 3;
-                        won++;
-                    } else if (ownPoints == oppPoints) {
-                        points += 1;
-                        draw++;
-                    } else {
-                        lost++;
-                    }
-                }
+        if (toFind.equals("")) {return "";}
+        boolean found = false;
+        String s = resultSheet.replaceAll("([0-9.]) ","$1-");
+        s = s.replaceAll(" ([0-9.]*)(-)","_$1$2").replaceAll(" ([0-9.]*)(,)","_$1$2").replaceAll(" ([0-9.]*)$","_$1");
+        String[] p = s.split(",");
 
+        for (int i=0; i < p.length; i++){
+            String[] match = p[i].split("-");
+            String[] matchA = match[0].split("_");
+            String teamA = matchA[0];
+            int pointsA = -1;
+
+            try{
+                pointsA = Integer.parseInt(matchA[1]);
+            }catch(Exception e){return "Error(float number):" + p[i].replaceAll("-"," ").replaceAll("_"," ");}
+
+            String[] matchB = match[1].split("_");
+            String teamB = matchB[0];
+            int pointsB = -1;
+
+            try{
+                pointsB = Integer.parseInt(matchB[1]);
+            }catch(Exception e){return "Error(float number):" + p[i].replaceAll("-"," ").replaceAll("_"," ");}
+
+            if(teamA.equals(toFind)){
+                found = true;
+                if(pointsA > pointsB){
+                    wins++;
+                    mk += 3;
+                }
+                else if(pointsA == pointsB){
+                    draws++;
+                    mk += 1;
+                }
+                else{
+                    loses++;
+                }
+                pt += pointsA;
+                pl += pointsB;
             }
 
-            if (won == 0 && draw == 0 && lost == 0) {
-                return toFind + ":This team didn't play!";
-            } else {
-                return toFind + ":W=" + won + ";D=" + draw + ";L=" + lost + ";Scored=" + scored + ";Conceded=" + conceded
-                        + ";Points=" + points;
+            if (teamB.equals(toFind)){
+                found = true;
+                if (pointsB > pointsA){
+                    wins++;
+                    mk += 3;
+                }
+                else if (pointsA == pointsB){
+                    draws++;
+                    mk += 1;
+                }
+                else{
+                    loses++;
+                }
+                pt += pointsB;
+                pl += pointsA;
             }
         }
+
+        if (!found){
+            return toFind +":This team didn't play!";
+        }
+        return toFind + ":W=" + wins +";D="+draws+";L="+loses+";Scored="+pt+";Conceded="+pl+";Points="+mk;
+    }
 
 
     @Override
