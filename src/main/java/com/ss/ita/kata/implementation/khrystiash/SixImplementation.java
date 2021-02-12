@@ -19,25 +19,68 @@ public class SixImplementation implements Six {
 
     @Override
     public String balance(String book) {
-        String s = book.replaceAll("([^\\n. \\da-zA-Z])", "");
-        String[] arr = s.split("[\\n]+");
-        double current = Double.parseDouble(arr[0]);
-        double total = 0;
-        int count = 0;
-        StringBuilder result = new StringBuilder();
-        result.append("Original Balance: ").append(arr[0]);
-
-        for (int i = 1; i < arr.length; i++) {
-            count++;
-            String[] line = arr[i].split("[ ]+");
-            current -= Double.parseDouble(line[2]);
-            total += Double.parseDouble(line[2]);
-            String res = String.format("\\r\\n%s %s %s Balance %.2f", line[0], line[1], line[2], current);
-            result.append(res);
+        book = book.replaceAll("([^\\n. \\da-zA-Z])", "");
+        String[] arr = book.split("\n");
+        String[] result = new String[arr.length + 2];
+        double count = 0;
+        double total = Double.parseDouble(arr[0]);
+        String[] line = new String[arr[1].length() + 2];
+        result[0] = "Original Balance: " + arr[0] + "\r\n";
+        for (int i = 1; i < result.length - 2; i++) {
+            line = arr[i].split(" ");
+            result[i] = "";
+            for (int j = 0; j < 3; j++) {
+                result[i] += line[j] + " ";
+                if (j == 2) {
+                    count = total - Double.parseDouble(line[2]);
+                    if (count * 100 - (int) count * 100 > 0.8) {
+                        count = (double) Math.round(count * 100) / 100;
+                    } else if (count * 100 - (int) count * 100 >= 0.5) {
+                        count += 0.1;
+                        count = (double) Math.round(count * 100) / 100;
+                    }
+                    total -= Double.parseDouble(line[2]);
+                    if ((count * 10) - (int) (count * 10) != 0) {
+                        result[i] += "Balance " + count + "\r\n";
+                        break;
+                    } else {
+                        result[i] += "Balance " + count + "0\r\n";
+                        break;
+                    }
+                }
+            }
+        }
+        total = Double.parseDouble(arr[0]) - total;
+        if (total * 100 - (int) total * 100 > 0.8) {
+            total = (double) Math.round(total * 100) / 100;
+        } else if (total * 100 - (int) total * 100 >= 0.5) {
+            total += 0.1;
+            total = (double) Math.round(total * 100) / 100;
         }
 
-        result.append(String.format("\\r\\nTotal expense  %.2f\\r\\nAverage expense  %.2f", total, total / count));
-        return result.toString();
+        if ((total * 10) - (int) (total * 10) != 0) {
+            result[result.length - 2] = "Total expense  " + total + "\n";
+        } else {
+            result[result.length - 2] = "Total expense  " + total + "0\n";
+        }
+        count = total / (result.length - 3);
+        if (count * 100 - (int) count * 100 > 0.8) {
+            count = (double) Math.round(count * 100) / 100;
+        } else if (count * 100 - (int) count * 100 >= 0.5) {
+            count += 0.1;
+            count = (double) Math.round(count * 100) / 100;
+        }
+        if ((count * 10) - (int) (count * 10) != 0) {
+            result[result.length - 1] = "Average expense  " + count;
+        } else {
+            result[result.length - 1] = "Average expense  " + count + "0";
+        }
+
+        String res = "";
+        for (int i = 0; i < result.length; i++) {
+            res += result[i];
+        }
+        return res;
     }
 
     @Override
@@ -231,11 +274,11 @@ public class SixImplementation implements Six {
             for (int i = 0; i < lstOfArt.length; i++) {
                 if (lstOfArt[i].charAt(0) == lstOf1stLetter[j].charAt(0)) {
                     bukva = lstOf1stLetter[j];
-                    sum += Integer.valueOf(lstOfArt[i].substring(lstOfArt[i].indexOf(" ")+1));
+                    sum += Integer.valueOf(lstOfArt[i].substring(lstOfArt[i].indexOf(" ") + 1));
                 }
             }
             result += "(" + bukva + " : " + sum + ")";
-            if(j<lstOf1stLetter.length-1){
+            if (j < lstOf1stLetter.length - 1) {
                 result += " - ";
             }
             sum = 0;
