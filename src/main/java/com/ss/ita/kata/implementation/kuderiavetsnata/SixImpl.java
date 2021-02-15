@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static java.util.stream.Collectors.averagingDouble;
-import static java.util.stream.Stream.of;
+
 
 public class SixImpl implements Six {
     @Override
@@ -23,7 +23,23 @@ public class SixImpl implements Six {
 
     @Override
     public String balance(String book) {
-        return null;
+        String t = book.replaceAll("([^\\n. \\da-zA-Z])", "");
+        String[] arr = t.split("[\\n]+");
+        double current = Double.parseDouble(arr[0]);
+        double total = 0;
+        int count = 0;
+        StringBuilder result = new StringBuilder();
+        result.append("Original Balance: " + arr[0]);
+        for (int i = 1; i < arr.length; i++) {
+            count++;
+            String[] line = arr[i].split("[ ]+");
+            current -= Double.parseDouble(line[2]);
+            total += Double.parseDouble(line[2]);
+            String u = String.format("\\r\\n%s %s %s Balance %.2f", line[0], line[1], line[2], current);
+            result.append(u);
+        }
+        result.append(String.format("\\r\\nTotal expense  %.2f\\r\\nAverage expense  %.2f", total, total / count));
+        return result.toString();
     }
 
     @Override
@@ -66,47 +82,77 @@ public class SixImpl implements Six {
 
     @Override
     public String nbaCup(String resultSheet, String toFind) {
+        if (resultSheet.equals("") || toFind.equals("")) {
+            return "";
+        }
+            int countTeamName = toFind.split(" ").length;
+            String[] split = resultSheet.split(",");
+            int points = 0;
+            int won = 0;
+            int draw = 0;
+            int lost = 0;
+            int scored = 0;
+            int conceded = 0;
+            for (String temp : split) {
+                int ownPoints = 0;
+                int oppPoints = 0;
+                boolean teamFound = false;
+                String[] parts = temp.split(" ");
+                if (countTeamName == 2) {
+                    teamFound = (parts[0].equals(toFind.split(" ")[0]) && parts[1].equals(toFind.split(" ")[1]))
+                            || (parts[parts.length - 3].equals(toFind.split(" ")[0])
+                            && parts[parts.length - 2].equals(toFind.split(" ")[1]));
+                } else {
+                    teamFound = (parts[0].equals(toFind.split(" ")[0]) && parts[1].equals(toFind.split(" ")[1])
+                            && parts[2].equals(toFind.split(" ")[2]))
+                            || (parts[parts.length - 4].equals(toFind.split(" ")[0])
+                            && parts[parts.length - 3].equals(toFind.split(" ")[1])
+                            && parts[parts.length - 2].equals(toFind.split(" ")[2]));
+                }
 
+                if (teamFound) {
+                    try {
+                        if (toFind.split(" ")[0].equals(parts[0])) {
+                            if (toFind.split(" ").length == 2) {
+                                ownPoints = Integer.parseInt(parts[2]);
+                            } else {
+                                ownPoints = Integer.parseInt(parts[3]);
+                            }
+                            oppPoints = Integer.parseInt(parts[parts.length - 1]);
+                        } else {
+                            if (toFind.split(" ").length == 2) {
+                                oppPoints = Integer.parseInt(parts[parts.length - 4]);
+                            } else {
+                                oppPoints = Integer.parseInt(parts[parts.length - 5]);
+                            }
+                            ownPoints = Integer.parseInt(parts[parts.length - 1]);
+                        }
+                    } catch (NumberFormatException e) {
+                        return "Error(float number):" + temp;
+                    }
+                    scored += ownPoints;
+                    conceded += oppPoints;
+                    if (ownPoints > oppPoints) {
+                        points += 3;
+                        won++;
+                    } else if (ownPoints == oppPoints) {
+                        points += 1;
+                        draw++;
+                    } else {
+                        lost++;
+                    }
+                }
 
-//        ToDo rafactor to 8 java
-        return "";
-//        if (toFind.isEmpty()) {
-//            return "";
-//        }
-//
-//        int[] stats = new int[5];
-//        for (var match : of(resultSheet.split(",")).filter(s -> s.contains(toFind)).toArray(String[]::new)) {
-//            if (match.contains(".")) {
-//                return "Error(float number):" + match;
-//            }
-//            var teams = match.substring(0, match.lastIndexOf(' ')).replaceAll(" \\d+ ", "@").split("@");
-//            if (teams[0].equals(toFind) || teams[1].equals(toFind)) {
-//                int pointsA = Integer.parseInt(match.substring(match.lastIndexOf(' ') + 1));
-//                int pointsB = Integer.parseInt(match.substring(teams[0].length() + 1, match.indexOf(teams[1]) - 1));
-//                updateMatchStatistics(pointsA, pointsB, match.startsWith(toFind), stats);
-//            }
-//        }
-//        return toFind + (stats[3] + stats[4] > 0 ? ":W=" + stats[0] + ";D=" + stats[2] + ";L=" + stats[1] + ";Scored=" + stats[3] + ";Conceded=" + stats[4] + ";Points=" + (3 * stats[0] + stats[2]) : ":This team didn't play!");
-    }
+            }
 
-    private static void updateMatchStatistics(int pointsA, int pointsB, boolean home, int[] stats) {
-        if (home) {
-            int temp = pointsA;
-            pointsA = pointsB;
-            pointsB = temp;
+            if (won == 0 && draw == 0 && lost == 0) {
+                return toFind + ":This team didn't play!";
+            } else {
+                return toFind + ":W=" + won + ";D=" + draw + ";L=" + lost + ";Scored=" + scored + ";Conceded=" + conceded
+                        + ";Points=" + points;
+            }
         }
 
-        stats[3] += pointsA;
-        stats[4] += pointsB;
-
-        if (pointsA > pointsB) {
-            stats[0]++;
-        } else if (pointsA < pointsB) {
-            stats[1]++;
-        } else {
-            stats[2]++;
-        }
-    }
 
 
     @Override
