@@ -71,11 +71,20 @@ public class FiveImpl implements Five {
 
     @Override
     public long[] smallest(long n) {
+        if(n < 0) return new long[] {-1,-1,-1};
+
         long[] arr = new long[3];
         long min = n;
         String str = n + "";
+        boolean check = false;
 
         for(int i = 0; i < str.length(); i++){
+            if (str.charAt(0) == str.charAt(i)) {
+                check = true;
+            } else {
+                check = false;
+            }
+
             for(int j = 0; j < str.length(); j++){
                 StringBuffer s = new StringBuffer(str);
                 char ch = s.charAt(i);
@@ -90,6 +99,10 @@ public class FiveImpl implements Five {
                     arr[2] = j;
                 }
             }
+        }
+        if (check == true) {
+            long[] arr1 = {n, 0, 0};
+            return arr1;
         }
         return arr;
     }
