@@ -12,14 +12,13 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
 @RunWith(Parameterized.class)
-public class ArtificialRain_Test extends FiveDataProviderImplementation{
+public class ArtificialRain_Test extends FiveDataProviderImplementation {
 
-    private  final Five implementation;
+    private final Five implementation;
 
     public ArtificialRain_Test(final Five implementation) {
-        this.implementation =  implementation;
+        this.implementation = implementation;
     }
 
     @Test
@@ -27,14 +26,18 @@ public class ArtificialRain_Test extends FiveDataProviderImplementation{
 
         System.out.println(String.format("Checking for implementation: %s", implementation));
         Assertions.assertEquals(1, implementation.artificialRain(new int[]{2}));
-        String.format("Test %s failed!",implementation.getClass());
+    }
 
-        Assertions.assertEquals(3, implementation.artificialRain(new int[]{1,2,1,2,1}));
-        String.format("Test %s failed!",implementation.getClass());
+    @Test
+    public void regularTest_2() {
+        System.out.println(String.format("Checking for implementation: %s", implementation));
 
-        Assertions.assertEquals(4, implementation.artificialRain(new int[]{4,2,3,3,2}));
-        String.format("Test %s failed!",implementation.getClass());
-    }}
+        Assertions.assertEquals(3, implementation.artificialRain(new int[]{1, 0, 1, 0, 1, 0}));
+
+        System.out.println(String.format("Checking for implementation: %s", implementation));
+        Assertions.assertEquals(4, implementation.artificialRain(new int[]{4, 2, 3, 3, 2}));
+    }
+}
 
 
 
