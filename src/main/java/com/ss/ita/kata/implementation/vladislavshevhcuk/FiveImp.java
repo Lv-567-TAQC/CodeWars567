@@ -91,6 +91,9 @@ public class FiveImp implements Five {
 
     @Override
     public BigInteger perimeter(BigInteger n) {
+        if(BigInteger.valueOf(-1).compareTo(n) == 0) {
+            return BigInteger.valueOf(0);
+        }
         BigInteger prefSquare = BigInteger.valueOf(0), currentSquare = BigInteger.valueOf(1);
         BigInteger nextSquare = BigInteger.valueOf(1), sumOfSides = BigInteger.valueOf(1);
 
