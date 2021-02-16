@@ -189,15 +189,20 @@ public class SixImpl implements Six {
     public String stockSummary(String[] lstOfArt, String[] lstOf1stLetter) {
         String result = "";
         String letter = "";
-        for (int i = 0; i < lstOf1stLetter.length; i++) {
-            int sum = 0;
-            for (int j = 0; j < lstOfArt.length; j++) {
-                if (lstOfArt[j].charAt(0) == lstOf1stLetter[i].charAt(0)) {
-                    sum += Integer.valueOf(lstOfArt[j].substring(5));
-                    letter = lstOf1stLetter[i];
+        int sum = 0;
+        for (int j = 0; j < lstOf1stLetter.length; j++) {
+
+            for (int i = 0; i < lstOfArt.length; i++) {
+                if (lstOfArt[i].charAt(0) == lstOf1stLetter[j].charAt(0)) {
+                    sum += Integer.valueOf(lstOfArt[i].substring(lstOfArt[i].indexOf(" ") + 1));
+                    letter = lstOf1stLetter[j];
                 }
             }
             result += "(" + letter + " : " + sum + ")";
+            if (j < lstOf1stLetter.length - 1) {
+                result += " - ";
+            }
+            sum = 0;
         }
         return result;
     }

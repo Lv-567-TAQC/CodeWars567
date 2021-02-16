@@ -17,12 +17,12 @@ public class FiveImpl implements Five {
             int[] rightSide = new int[numberOfSections];
 
             //left side
-            for (int i = 1;i < numberOfSections; i++){
+            for (int i = 1; i < numberOfSections; i++){
                 if(v[i] >= v[i-1]){
-                    leftSide[i]=leftSide[i-1]+1;
+                    leftSide[i] = leftSide[i-1] + 1;
                 }
                 else {
-                    leftSide[i]=0;
+                    leftSide[i] = 0;
                 }
             }
 
