@@ -9,10 +9,10 @@ import org.junit.runners.Parameterized;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(Parameterized.class)
-public class MilesPerGallonToKilometersPerLiter extends com.ss.ita.kata.eigth.EightDataProviderImplementation {
+public class MilesPerGallonToKilometersPerLiterTest extends com.ss.ita.kata.eigth.EightDataProviderImplementation {
     private final Eight implementation;
 
-    public MilesPerGallonToKilometersPerLiter(final Eight implementation) {
+    public MilesPerGallonToKilometersPerLiterTest(final Eight implementation) {
         this.implementation = implementation;
     }
 

@@ -7,11 +7,11 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 @RunWith(Parameterized.class)
-public class Which_x_for_that_sum extends com.ss.ita.kata.five.FiveDataProviderImplementation {
+public class Which_x_for_that_sumTest extends com.ss.ita.kata.five.FiveDataProviderImplementation {
 
     private final Five implementation;
 
-    public Which_x_for_that_sum(final Five implementation) {
+    public Which_x_for_that_sumTest(final Five implementation) {
         this.implementation = implementation;
     }
 

@@ -8,11 +8,11 @@ import org.junit.runners.Parameterized;
 
 
 @RunWith(Parameterized.class)
-public class DivisibleBy extends EightDataProviderImplementation {
+public class DivisibleByTest extends EightDataProviderImplementation {
 
     private final Eight implementation;
 
-    public DivisibleBy(final Eight implementation) {
+    public DivisibleByTest(final Eight implementation) {
         this.implementation = implementation;
     }
 
