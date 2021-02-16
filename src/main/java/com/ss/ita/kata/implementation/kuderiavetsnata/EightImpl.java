@@ -11,13 +11,16 @@ public class EightImpl implements Eight {
 
     @Override
     public double getVolumeOfCuboid(double length, double width, double height) {
-        return length * width * height;
+        if (length > 0 && width > 0 && height > 0) {
+            return length * width * height;
+        }
+        return -1;
     }
 
     @Override
     public float mpgToKPM(float mpg) {
         if (mpg < 0) {
-            return (int)-1;
+            return (int) -1;
         } else {
             return (float) Math.round(100 * mpg * 1.609344 / 4.54609188) / 100;
         }
@@ -56,8 +59,6 @@ public class EightImpl implements Eight {
     public int stringToNumber(String str) {
         return Integer.valueOf(str);
     }
-
-
 
 
     @Override

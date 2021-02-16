@@ -21,14 +21,16 @@ public  class CountPositivesAndNegativesTest  extends EightDataProviderImplement
     public void countPositivesSumNegatives_SimpleTest() {
 
             System.out.println(String.format("Checking for implementation: %s", implementation));
-
-
             Assertions.assertArrayEquals(new int[]{10, -65}, implementation.countPositivesSumNegatives(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15}));
-            String.format("Test %s failed!", implementation.getClass());
 
-            Assertions.assertArrayEquals(new int[]{8, -50}, implementation.countPositivesSumNegatives(new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}));
-            String.format("Test %s failed!", implementation.getClass());
         }
-    }
+
+    @Test
+    public void countPositivesSumNegatives_zeroTest() {
+
+        System.out.println(String.format("Checking for implementation: %s", implementation));
+           Assertions.assertArrayEquals(new int[]{8, -50}, implementation.countPositivesSumNegatives(new int[]{0, 2, 3, 0, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14}));
+
+       }}
 
 

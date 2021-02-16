@@ -59,6 +59,7 @@ public class SevenImpl implements Seven{
 	@Override
 	public int whereIsHe(int p, int bef, int aft) {
       int result=0;
+		if(p > 0 && bef > 0 && aft > 0){
 			for (int i=1; i<=p; i++){
 					if((bef<i)&&((p-aft)<=i)){  
 						result++;
@@ -66,5 +67,5 @@ public class SevenImpl implements Seven{
 			}
 			return result;
 	}
-
+            return -1;}
 }

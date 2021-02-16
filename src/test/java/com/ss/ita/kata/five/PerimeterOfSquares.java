@@ -10,7 +10,9 @@ import java.math.BigInteger;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @RunWith(Parameterized.class)
+
 public class PerimeterOfSquares extends com.ss.ita.kata.five.FiveDataProviderImplementation{
+
 
     public final Five implementation;
 

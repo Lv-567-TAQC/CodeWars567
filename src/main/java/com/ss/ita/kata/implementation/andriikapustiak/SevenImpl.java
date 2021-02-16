@@ -39,6 +39,8 @@ public class SevenImpl implements Seven {
 
     @Override
     public int whereIsHe(int p, int bef, int aft) {
-        return Math.min(p - bef, aft + 1);
+        if(p > 0 && bef > 0 && aft > 0){
+            return Math.min(p - bef, aft + 1); }
+        return -1;
     }
 }

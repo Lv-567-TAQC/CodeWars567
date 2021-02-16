@@ -43,7 +43,7 @@ public class Runner {
                 eight = new com.ss.ita.kata.implementation.kuderiavetsnata.EightImpl();
                 seven = new com.ss.ita.kata.implementation.kuderiavetsnata.SevenImpl();
                 six = new com.ss.ita.kata.implementation.kuderiavetsnata.SixImpl();
-                // five = new com.ss.ita.kata.implementation.kuderiavetsnata.FiveImpl();
+                five = new com.ss.ita.kata.implementation.kuderiavetsnata.FiveImpl();
                 break;
             case NATALIAA0223:
                 eight = new com.ss.ita.kata.implementation.nataliia0223.EightImpl();
@@ -55,7 +55,7 @@ public class Runner {
                 eight = new com.ss.ita.kata.implementation.romankhvalbota.EightImpl();
                 seven = new com.ss.ita.kata.implementation.romankhvalbota.SevenImpl();
                 six = new com.ss.ita.kata.implementation.romankhvalbota.SixImpl();
-                //      five = new com.ss.ita.kata.implementation.romankhvalbota.FiveImpl();
+                five = new com.ss.ita.kata.implementation.romankhvalbota.FiveImpl();
                 break;
             case VLADISLAVSHEVCHUK:
                 eight = new com.ss.ita.kata.implementation.vladislavshevhcuk.EightImp();
